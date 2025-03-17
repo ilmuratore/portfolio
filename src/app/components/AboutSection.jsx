@@ -8,7 +8,7 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc ">
         <li>HTML</li>
         <li>CSS</li>
         <li>JavaScript</li>
@@ -22,6 +22,14 @@ const TAB_DATA = [
         <li>Java</li>
         <li>C#</li>
         <li>SpringBoot</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Linux</li>
+        <li>Windows</li>
+        <li>Visual Studio Code</li>
+        <li>Intellij</li>
+        <li>Docker</li>
+        <li>Cloudflare</li>
       </ul>
     ),
   },
@@ -60,15 +68,17 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="items-center gap-8 px-4 py-8 md:grid md:grid-cols-2 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/image1.png" width={500} height={500} />
+        <Image src="/images/image1.png" width={500} height={500} alt="immagine1"/>
         <div className="flex flex-col h-full mt-4 text-left md:mt-0">
           <h2 className="mb-4 text-4xl font-bold text-white">About Me</h2>
           <p className="text-base lg:text-lg">
             Sono un full stack web developer con la passione per la creazione di 
             web app interattive e responsive. Ho esperienza in progetti che utilizzano 
             JavaScript/TypeScript, Anuglar, Node.js, Express.js, PostgreSQL, Java, SpringBoot, MongoDB, Git e HTML/CSS.
+            Posseggo discrete competenze anche nell&apos;utilizzo di Docker e Cloudflare per la gestione di servizi web.
+            Nel tempo ho esplorato anche l'uso di Linux e Windows per l'ambiente di sviluppo.
             Sono sempre alla ricerca di nuove conoscenze e skill set. Posseggo ottime Soft-Skill in merito al lavoro in team.
-            Sono molto motivato e un amante della tecnologia.
+            Sono molto motivato e un amante della tecnologia. 
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton

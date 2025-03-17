@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
-    id: 1,
+    id: 4,
     title: "Next.js Portfolio Website",
     description: "Questo é il mio sito web creato con Next.js e TaiwindCSS. É il mio primo approccio alla creazione di siti utilizzando React e Next.js. In questo sito raccoglieró nel tempo tutti i progetti alla quale ho lavorato e la mia esperienza professionale. ",
     image: "/images/projects/project1.png",
@@ -15,7 +15,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 2,
+    id: 5,
     title: "Personal CRM",
     description: "Personal CRM é un CRM/Gestionale Leads creato per un mio cliente. Il gestionale é completamente personalizzabile nei suoi componenti.É composto da un sito web Front-end Angular con TailwindCSS e un back-end fatto con Express.js e Node.js. Il database utilizzato é MongoDB. Questo progetto rispetta lo stack MEAN ed é stato il mio primo approccio alla creazione di siti utilizzando Angular e Node.js.",
     image: "/images/projects/project2.jpg",
@@ -33,22 +33,22 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 4,
-    title: "Coming Soon",
-    description: "Next project to be released soon",
-    image: "/images/projects/coming.jpg.jpg",
+    id: 2,
+    title: "SpankEdicola.com",
+    description: "SpankEdicola é uno dei miei primissimi lavori commerciali. E' un ecommerce completo di CMS sviluppato su una versione modificata e personalizzata di Wordpress. La sfida é stato dover far girare tutto lo stack sia backend che frontend sul mio personale server aziendale privato. Ho integrato nel progetto tecniche di virtualizzazione e un tunnel sicuro per renderlo online.",
+    image: "/images/projects/project5.png",
     tag: ["All", "Mobile", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://spankedicola.com",
+    previewUrl: "https://spankedicola.com",
   },
   {
-    id: 5,
-    title: "Coming soon",
-    description: "Next project to be released soon",
-    image: "/images/projects/coming.jpg.jpg",
+    id: 1,
+    title: "Pagina Github",
+    description: "Qui raccolgo tutti i miei progetti pubblici e non solo.",
+    image: "/images/projects/project4.png",
     tag: ["All","Mobile", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/ilmuratore",
+    previewUrl: "https://github.com/ilmuratore",
   },
   {
     id: 6,
