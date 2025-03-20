@@ -98,7 +98,7 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc"> Click to download certificates
         <li>
           <a href="https://drive.google.com/file/d/1r_ZO2SS0FFPZNFBVbgGoo82YNiWKRlO3/view?usp=sharing">Epicode Full Stack Web Developer 6 month course</a>
         </li>
