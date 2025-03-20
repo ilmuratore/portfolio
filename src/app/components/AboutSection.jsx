@@ -5,33 +5,84 @@ import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Skills",
-    id: "skills",
+    title: "Framework and Libraries",	
+    id: "framework_libraries",
     content: (
       <ul className="pl-2 list-disc ">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Typescript</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
         <li>Angular</li>
+        <li>React</li>
         <li>Next.js</li>
         <li>Node.js</li>
-        <li>Express</li>
+        <li>Express.js</li>
+        <li>SpringBoot</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Databases",
+    id: "databases",
+    content: (
+      <ul className="pl-2 list-disc">
         <li>PostgreSQL</li>
         <li>MongoDB</li>
+        <li>MariaDB</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Graphical Tools",
+    id: "graphical_tools",
+    content: (
+      <ul className="pl-2 list-disc">
+        <li>TailwindCSS</li>
+        <li>Bootstrap</li>
+      </ul>
+    )
+  },
+  {
+    title: "Programming Languages",
+    id: "languages",
+    content: (
+      <ul className="pl-2 list-disc">
+        <li>JavaScript</li>
+        <li>Typescript</li>
         <li>Java</li>
         <li>C#</li>
-        <li>SpringBoot</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Programming Tools",  // Fixed typo here
+    id: "programming_tools",
+    content: (
+      <ul className="pl-2 list-disc"> 
         <li>Git</li>
         <li>GitHub</li>
         <li>Linux</li>
         <li>Windows</li>
         <li>Visual Studio Code</li>
-        <li>Intellij</li>
+        <li>Visual Studio</li>  {/* Fixed typo here */}
+        <li>IntelliJ</li> {/* Fixed typo here */}
         <li>Docker</li>
         <li>Cloudflare</li>
       </ul>
-    ),
+    )
+  },
+  {
+    title: "Personal Skills",
+    id: "personal_skills",
+    content: (
+      <ul className="pl-2 list-disc">
+        <li>Problem Solving</li>
+        <li>Teamwork</li>
+        <li>Time Management</li>
+        <li>Leadership</li>
+        <li>Communication</li>
+        <li>Attention to Detail</li>
+      </ul>
+  )
   },
   {
     title: "Education",
@@ -48,15 +99,28 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="pl-2 list-disc">
-        <li>Epicode Full Stack Web Developer</li>
-        <li>IA Prompt</li>
+        <li>
+          <a href="https://drive.google.com/file/d/1r_ZO2SS0FFPZNFBVbgGoo82YNiWKRlO3/view?usp=sharing">Epicode Full Stack Web Developer 6 month course</a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1oEYZ2L9popJOR5v6BBROV4Rr9HXq-JdV/view?usp=sharing">IA Prompt</a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1x7WTPmJhGDilkHguyeRX-6J9iXP07uaL/view?usp=sharing">IA Prompt Advanced</a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1QCdsjdDiwHv4n7N5W0yHTC8hpDhTliYm/view?usp=sharing">Game Development with Unity</a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/10qhGnmXZ6XHyfpyPCLD1Hcus-mCUEO3H/view?usp=sharing">Python Intermediate</a>
+        </li>
       </ul>
     ),
   },
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("framework_libraries"); // Changed default to a valid tab ID
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -81,27 +145,15 @@ const AboutSection = () => {
             Sono molto motivato e un amante della tecnologia. 
           </p>
           <div className="flex flex-row justify-start mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              {" "}
-              Hard Skills{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              {" "}
-              Education{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
-            >
-              {" "}
-              Certifications{" "}
-            </TabButton>
+            {TAB_DATA.map((tabData) => (
+              <TabButton
+              key={tabData.id}
+              selectTab={() => handleTabChange(tabData.id)}
+              active={tab === tabData.id}
+              >
+              {tabData.title}
+              </TabButton>
+              ))}
           </div>
           <div className="mt-8">
             {TAB_DATA.find((t) => t.id === tab).content}
