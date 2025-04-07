@@ -28,7 +28,7 @@ const HeroSection = () => {
                 1000,
                 "Javascript Dev.",
                 1000,
-                "ReactDev.",
+                "React Dev.",
                 1000,
                 "Angular Dev",
                 1000,
