@@ -13,8 +13,6 @@ const TAB_DATA = [
         <li>CSS3</li>
         <li>Angular</li>
         <li>React</li>
-        <li>Next.js</li>
-        <li>Node.js</li>
         <li>Express.js</li>
         <li>SpringBoot</li>
       </ul>
@@ -49,7 +47,6 @@ const TAB_DATA = [
         <li>JavaScript</li>
         <li>Typescript</li>
         <li>Java</li>
-        <li>C#</li>
       </ul>
     ),
   },
