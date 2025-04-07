@@ -7,15 +7,15 @@ import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
   {
-    title: "Info",
+    title: "About me",
     path: "#about",
   },
   {
-    title: "Progetti",
+    title: "My Project",
     path: "#projects",
   },
   {
-    title: "Contatti",
+    title: "My Contacts",
     path: "#contact",
   },
 ];
@@ -30,7 +30,7 @@ const Navbar = () => {
           href={"/"}
           className="text-2xl font-semibold text-white md:text-5xl"
         >
-          Portfolio.
+          Personal Portfolio.
         </Link>
         <div className="block mobile-menu md:hidden">
           {!navbarOpen ? (
