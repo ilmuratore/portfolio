@@ -72,11 +72,13 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden">
             <Image
-              src="/images/image2.jpg"
+              src="/images/image2.webp"
               alt="hero image"
               className="absolute object-cover w-full h-full "
+              priority={true}
               width={300}
               height={300}
+              quality={85}
             />
           </div>
         </motion.div>

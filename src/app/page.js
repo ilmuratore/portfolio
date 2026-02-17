@@ -1,11 +1,12 @@
+import dynamic from "next/dynamic";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-import AboutSection from "./components/AboutSection";
-import ProjectsSection from "./components/ProjectsSection";
-import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
-import AchievementsSection from "./components/AchievementsSection";
 
+const AchievementsSection = dynamic(() => import("./components/AchievementsSection"));
+const AboutSection = dynamic(() => import("./components/AboutSection"));
+const ProjectsSection = dynamic(() => import("./components/ProjectsSection"));
+const EmailSection = dynamic(() => import("./components/EmailSection"));
 
 export default function Home() {
   return (

@@ -30,7 +30,7 @@ const Navbar = () => {
           href={"/"}
           className="text-2xl font-semibold text-white md:text-5xl"
         >
-          Personal Portfolio.
+          Portfolio.
         </Link>
         <div className="block mobile-menu md:hidden">
           {!navbarOpen ? (
