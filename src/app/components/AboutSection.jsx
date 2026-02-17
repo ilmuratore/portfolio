@@ -5,7 +5,7 @@ import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Framework and Libraries",	
+    title: "Framework and Libraries",
     id: "framework_libraries",
     content: (
       <ul className="pl-2 list-disc ">
@@ -37,7 +37,7 @@ const TAB_DATA = [
         <li>TailwindCSS</li>
         <li>Bootstrap</li>
       </ul>
-    )
+    ),
   },
   {
     title: "Programming Languages",
@@ -47,25 +47,25 @@ const TAB_DATA = [
         <li>JavaScript</li>
         <li>Typescript</li>
         <li>Java</li>
+        <li>Python</li>
       </ul>
     ),
   },
   {
-    title: "Programming Tools",  // Fixed typo here
+    title: "Programming Tools", // Fixed typo here
     id: "programming_tools",
     content: (
-      <ul className="pl-2 list-disc"> 
+      <ul className="pl-2 list-disc">
         <li>Git</li>
         <li>GitHub</li>
         <li>Linux</li>
         <li>Windows</li>
         <li>Visual Studio Code</li>
-        <li>Visual Studio</li>  {/* Fixed typo here */}
-        <li>IntelliJ</li> {/* Fixed typo here */}
+        <li>IntelliJ</li>
         <li>Docker</li>
         <li>Cloudflare</li>
       </ul>
-    )
+    ),
   },
   {
     title: "Personal Skills",
@@ -75,19 +75,19 @@ const TAB_DATA = [
         <li>Problem Solving</li>
         <li>Teamwork</li>
         <li>Time Management</li>
-        <li>Leadership</li>
         <li>Communication</li>
         <li>Attention to Detail</li>
       </ul>
-  )
+    ),
   },
   {
     title: "Education",
     id: "education",
     content: (
       <ul className="pl-2 list-disc">
-        <li>Epicode Full Stack Web Development Bootcamp</li>
-        <li>ISS Giancarlo Siani, Scientific Science and Technology</li>
+        <li>Laureando L31, Scienze e Tecnologie Informatiche, AI </li>
+        <li>Epicode Full Stack Web Development Stage/Bootcamp</li>
+        <li>Stage ITconsulting SRL</li>
       </ul>
     ),
   },
@@ -95,21 +95,33 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul className="pl-2 list-disc"> Click to download certificates
+      <ul className="pl-2 list-disc">
+        {" "}
+        Click to download certificates
         <li>
-          <a href="https://drive.google.com/file/d/1r_ZO2SS0FFPZNFBVbgGoo82YNiWKRlO3/view?usp=sharing">Epicode Full Stack Web Developer 6 month course</a>
+          <a href="https://drive.google.com/file/d/1r_ZO2SS0FFPZNFBVbgGoo82YNiWKRlO3/view?usp=sharing">
+            Epicode Full Stack Web Developer 6 month Stage/Bootcamp
+          </a>
         </li>
         <li>
-          <a href="https://drive.google.com/file/d/1oEYZ2L9popJOR5v6BBROV4Rr9HXq-JdV/view?usp=sharing">IA Prompt</a>
+          <a href="https://drive.google.com/file/d/1oEYZ2L9popJOR5v6BBROV4Rr9HXq-JdV/view?usp=sharing">
+            IA Prompt
+          </a>
         </li>
         <li>
-          <a href="https://drive.google.com/file/d/1x7WTPmJhGDilkHguyeRX-6J9iXP07uaL/view?usp=sharing">IA Prompt Advanced</a>
+          <a href="https://drive.google.com/file/d/1x7WTPmJhGDilkHguyeRX-6J9iXP07uaL/view?usp=sharing">
+            IA Prompt Advanced
+          </a>
         </li>
         <li>
-          <a href="https://drive.google.com/file/d/1QCdsjdDiwHv4n7N5W0yHTC8hpDhTliYm/view?usp=sharing">Game Development with Unity</a>
+          <a href="https://drive.google.com/file/d/1QCdsjdDiwHv4n7N5W0yHTC8hpDhTliYm/view?usp=sharing">
+            Game Development with Unity
+          </a>
         </li>
         <li>
-          <a href="https://drive.google.com/file/d/10qhGnmXZ6XHyfpyPCLD1Hcus-mCUEO3H/view?usp=sharing">Python Intermediate</a>
+          <a href="https://drive.google.com/file/d/10qhGnmXZ6XHyfpyPCLD1Hcus-mCUEO3H/view?usp=sharing">
+            Python Intermediate
+          </a>
         </li>
       </ul>
     ),
@@ -129,28 +141,34 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="items-center gap-8 px-4 py-8 md:grid md:grid-cols-2 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/image1.png" width={500} height={500} alt="immagine1"/>
+        <Image
+          src="/images/image1.png"
+          width={500}
+          height={500}
+          alt="immagine1"
+        />
         <div className="flex flex-col h-full mt-4 text-left md:mt-0">
           <h2 className="mb-4 text-4xl font-bold text-white">About Me</h2>
           <p className="text-base lg:text-lg">
-            Sono un full stack web developer con la passione per la creazione di 
-            web app interattive e responsive. Ho esperienza in progetti che utilizzano 
-            JavaScript/TypeScript, Anuglar, Node.js, Express.js, PostgreSQL, Java, SpringBoot, MongoDB, Git e HTML/CSS.
-            Posseggo discrete competenze anche nell&apos;utilizzo di Docker e Cloudflare per la gestione di servizi web.
-            Nel tempo ho esplorato anche l'uso di Linux e Windows per l'ambiente di sviluppo.
-            Sono sempre alla ricerca di nuove conoscenze e skill set. Posseggo ottime Soft-Skill in merito al lavoro in team.
-            Sono molto motivato e un amante della tecnologia. 
+            Sono un Full Stack Developer con esperienza nello sviluppo di web
+            application interattive e responsive. Ho lavorato su progetti che
+            utilizzano JavaScript/TypeScript, Angular, React, Node.js,
+            Express.js, PostgreSQL, Java, Spring Boot, MongoDB e HTML/CSS. Ho
+            esperienza con Docker e Cloudflare per la gestione di servizi web, e
+            dimestichezza con ambienti Linux e Windows. Certificato in IA Prompt
+            Engineering e Game Development con Unity. Sempre alla ricerca di
+            nuove conoscenze, con ottime soft skill nel lavoro in team.
           </p>
           <div className="flex flex-row justify-start mt-8">
             {TAB_DATA.map((tabData) => (
               <TabButton
-              key={tabData.id}
-              selectTab={() => handleTabChange(tabData.id)}
-              active={tab === tabData.id}
+                key={tabData.id}
+                selectTab={() => handleTabChange(tabData.id)}
+                active={tab === tabData.id}
               >
-              {tabData.title}
+                {tabData.title}
               </TabButton>
-              ))}
+            ))}
           </div>
           <div className="mt-8">
             {TAB_DATA.find((t) => t.id === tab).content}

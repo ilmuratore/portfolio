@@ -26,9 +26,7 @@ const HeroSection = () => {
                 1000,
                 "Java Dev.",
                 1000,
-                "Javascript Dev.",
-                1000,
-                "React Dev.",
+                "AI Dev.",
                 1000,
                 "Angular Dev",
                 1000,
@@ -46,7 +44,8 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            
+            Full Stack Developer con esperienza in Java, JavaScript/TypeScript, Angular.
+            Appassionato di tecnologia e sempre alla ricerca di nuove sfide.
           </p>
           <div>
             <Link
