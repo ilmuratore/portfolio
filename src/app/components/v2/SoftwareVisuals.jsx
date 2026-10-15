@@ -1,3 +1,4 @@
+import TechIcon from "./TechIcon";
 export function HeroSoftwareVisual() {
   return (
     <div className="hero-art" role="img" aria-label="Composizione dimostrativa di un editor di codice e una dashboard software">
@@ -48,13 +49,14 @@ function TerminalPreview() {
   );
 }
 
-export function ProjectSoftwareVisual({ variant }) {
+export function ProjectSoftwareVisual({ variant, primaryTech }) {
   return (
     <div className={"project-visual project-visual-" + variant} role="img" aria-label="Anteprima illustrativa segnaposto di un progetto software">
       {variant === "dashboard" && <DashboardPreview />}
       {variant === "board" && <BoardPreview />}
       {variant === "terminal" && <TerminalPreview />}
-      <span className="project-visual-label" aria-hidden="true">DEMO / PLACEHOLDER</span>
+      <span className="project-visual-label" aria-hidden="true">ANTEPRIMA ILLUSTRATIVA</span>
+      {primaryTech && <span className="project-preview-tech" aria-hidden="true"><TechIcon label={primaryTech} size={24}/></span>}
     </div>
   );
 }

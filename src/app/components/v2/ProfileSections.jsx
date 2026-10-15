@@ -1,4 +1,7 @@
 import Link from "next/link";
+import TechBadge from "./TechBadge";
+import TechIcon from "./TechIcon";
+import UiIcon from "./UiIcon";
 import {
   profile, skillAreas, profileChapters, contactChannels,
   experience, education, certificates, certificationProviders, futureProjects
@@ -16,11 +19,14 @@ export function SkillsSection() {
           {skillAreas.map((area) => (
             <article className="skill-tile" key={area.number}>
               <span className="skill-number">{area.number} / AMBITO</span>
-              <span className="skill-glyph" aria-hidden="true">{area.number === "01" ? "⌘" : area.number === "02" ? "{ }" : area.number === "03" ? "▤" : "↗"}</span>
+              <div className="skill-glyph-group" aria-hidden="true">
+                <span className="skill-glyph"><TechIcon label={area.technologies[0]} size={27} /></span>
+                <span className="skill-glyph-secondary"><TechIcon label={area.technologies[1]} size={20} /></span>
+              </div>
               <h3>{area.name}</h3>
               <p>{area.description}</p>
               <div className="skill-technologies" aria-label={"Strumenti per " + area.name}>
-                {area.technologies.map((tech) => <span key={tech}>{tech}</span>)}
+                {area.technologies.map((tech) => <TechBadge label={tech} key={tech} />)}
               </div>
             </article>
           ))}
@@ -172,7 +178,7 @@ export function ContactChannels({ variant = "default" }) {
     <div className={"contact-channels " + (variant === "wide" ? "contact-channels-wide" : "")}>
       {contactChannels.map((channel, i) => (
         <a className="contact-channel" href={channel.href} key={channel.id} target="_blank" rel="noopener noreferrer">
-          <span className="contact-channel-number">0{i + 1}</span>
+          <span className="contact-channel-symbol">{channel.id === "github" ? <TechIcon label="GitHub" size={25} /> : <UiIcon name="linkedin" size={25} />}</span>
           <span className="contact-channel-body"><strong>{channel.label}</strong><small>{channel.type}</small><span>{channel.short}</span></span>
           <span className="contact-channel-arrow" aria-hidden="true">↗</span>
         </a>

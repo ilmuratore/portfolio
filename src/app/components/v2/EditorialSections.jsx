@@ -2,6 +2,7 @@ import { featuredProjects, processSteps } from "@/content/placeholder.mjs";
 import { HeroSoftwareVisual } from "./SoftwareVisuals";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
+import UiIcon from "./UiIcon";
 
 export function HeroSection() {
   return (
@@ -50,7 +51,7 @@ export function ProcessSection() {
           <div className="section-aside"><p>Un approccio orientato ai requisiti, all&apos;architettura e alla verifica, maturato attraverso sviluppo e analisi funzionale.</p></div>
         </div>
         <ol className="process-grid">
-          {processSteps.map((step) => <li className="process-step" key={step.number}><span className="step-number">{step.number} <span aria-hidden="true">↗</span></span><h3>{step.title}</h3><p>{step.description}</p></li>)}
+          {processSteps.map((step) => <li className="process-step" key={step.number}><span className="step-number">{step.number} <UiIcon name={step.number === "01" ? "search" : step.number === "02" ? "layers" : step.number === "03" ? "code" : "check"} size={23} /></span><h3>{step.title}</h3><p>{step.description}</p></li>)}
         </ol>
       </div>
     </section>
