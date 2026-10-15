@@ -612,7 +612,7 @@ main:focus { outline:none; }
   .career-previous-item { padding-block:14px; }
   .profile-chapter h3 { font-size:26px; }
   .profile-skill-tags span { font-size:9px; }
-  .future-project-grid, .certification-grid { grid-template-columns:1fr; }
+  .future-project-grid { grid-template-columns:1fr; }
   .future-project { min-height:225px; }
   .certification-empty { padding:25px 22px; }
   .education-entry { padding:23px 21px; }
