@@ -3,25 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  color-scheme: dark;
+  --color-canvas: #0b1017;
+  --color-surface: #151d28;
+  --color-surface-raised: #1b283a;
+  --color-border: #2c3a4e;
+  --color-text: #f1f5f9;
+  --color-text-muted: #a6b4c7;
+  --color-accent: #4f8bff;
+  --color-accent-alt: #8b6dff;
+  --color-glow: #48d7f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html { scroll-behavior: smooth; }
+body { background: var(--color-canvas); color: var(--color-text); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }

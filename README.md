@@ -1,30 +1,50 @@
-# Portfolio Website
+# Simone Iengo — Portfolio
 
-This is a portfolio website built with Next.js and Tailwind CSS. It showcases your skills, projects, and achievements in an elegant and responsive design.
+Portfolio personale dedicato a sviluppo software full stack, architettura applicativa e progetti reali.
 
-## Installation
+> **Stato:** portfolio esistente attivo; refactor v2.0 incrementale in corso. Le specifiche del nuovo design non sono ancora tutte implementate.
 
-1. Clone the repository: `git clone &{repository-url}`
-2. Navigate to the project directory: `cd portfolio`
-3. Install the dependencies: `npm install`
+## Stack attuale
 
-## Usage
+- Next.js 15 (App Router), React 19
+- Tailwind CSS 3, Framer Motion
+- Vercel Analytics e Speed Insights
+- Node.js 22 per build e CI
 
-1. Start the development server: `npm run dev`
-2. Open your browser and visit `http://localhost:3000` to view the website.
+## Avvio locale
 
-## Dependencies
+```bash
+npm ci
+npm run dev
+```
 
-The following dependencies are required for this project:
+Aprire `http://localhost:3000`.
 
-- Next.js: A React framework for server-side rendering and static site generation.
-- Tailwind CSS: A highly customizable CSS framework.
-- React: A JavaScript library for building user interfaces.
-- React Icons: A collection of popular icons for React projects.
-- TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
-- Resend: Resend is the email API for developers.
+## Verifica
 
-## License
+```bash
+npm run build
+```
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
+La verifica del build avviene anche nella CI delle pull request. L'adozione di test automatici e la revisione della configurazione lint sono previste nelle PR successive.
 
+## Configurazione
+
+Copiare `.env.example` in `.env.local` e impostare le variabili necessarie. Non inserire mai segreti nel repository.
+
+- `NEXT_PUBLIC_SITE_URL`: URL canonico del sito, senza slash finale; in assenza della variabile si utilizza l'URL Vercel corrente.
+- `GMAIL_USER`, `GMAIL_PASSWORD`: credenziali usate dal form di contatto esistente. La sicurezza e l'implementazione del form saranno riviste durante il refactor.
+
+## Documentazione
+
+- [Visione e motion design](docs/DESIGN_SYSTEM.md)
+- [Architettura e confini](docs/ARCHITECTURE.md)
+- [Roadmap v2.0](docs/ROADMAP.md)
+
+## Workflow
+
+Lavorare su branch dedicati, aprire pull request verso `main`, verificare la CI e richiedere revisione prima del merge. `main` resta il ramo di pubblicazione stabile.
+
+## Licenza
+
+Consultare [LICENSE](LICENSE).
