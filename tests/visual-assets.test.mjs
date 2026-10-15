@@ -54,6 +54,9 @@ test("componenti condivisi mostrano loghi con etichette testuali", () => {
   }
   const badge = read("../src/app/components/v2/TechBadge.jsx");
   assert.match(badge, /<span>{label}<\/span>/);
+  const profile = read("../src/app/components/v2/ProfileSections.jsx");
+  assert.match(profile, /TechIcon label=\{name\}/);
+  assert.match(profile, /future-project-heading/);
   const icon = read("../src/app/components/v2/TechIcon.jsx");
   assert.match(icon, /alt=""/);
 });
