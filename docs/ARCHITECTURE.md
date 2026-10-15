@@ -1,41 +1,64 @@
-# Architettura — Portfolio v2
+# Architettura attuale — Portfolio statico
 
-## Struttura implementata nella PR02
+## Obiettivo
 
-Il progetto rimane in Next.js App Router e React. La homepage è un Server Component con sezioni e anteprime modulari. Solo il menu mobile richiede `use client`.
+Portfolio di Simone Iengo con Next.js 16 App Router, React 19 e Tailwind CSS 4. Il sito è servito come **HTML/CSS/JS statici** da GitHub Pages. Non richiede Docker, un server Node, API REST proprie, database o servizi di invio email.
+
+## Componenti
 
 ```text
-src/
-  app/
-    page.js                    homepage v2
-    layout.js                  metadati, font, analytics
-    globals.css                token e responsive
-    icon.svg                   favicon editoriale
-    components/v2/
-      SiteHeader.jsx           menu accessibile (client)
-      SiteFooter.jsx           link esterni verificati
-      EditorialSections.jsx    sezioni homepage (server)
-      SoftwareVisuals.jsx      visual segnaposto (server)
-  content/placeholder.mjs      dati dimostrativi
-  config/site.js               identità, URL e SEO
-tests/placeholder-content.test.mjs
+src/app/
+  layout.js                       Metadata generali e font Geist locale
+  page.js                         Homepage
+  about/page.js                   Profilo e percorso
+  contact/page.js                 Contatti pubblici
+  projects/page.js                Catalogo filtrabile
+  projects/[slug]/page.js         Case study prerenderizzati
+  robots.js, sitemap.js           SEO condizionale
+  opengraph-image.jsx             Immagine OG prerenderizzata
+  twitter-image.jsx               Immagine Twitter prerenderizzata
+  icon.svg                        Favicon
+  components/v2/                 UI editoriale condivisa
+src/content/
+  projects.mjs                    Catalogo, filtri e schede
+  profile.mjs                     Testi e competenze
+  process.mjs                     Le quattro fasi del processo
+  icon-map.mjs                    Marchi tecnologici in SVG
+src/config/site.js                URL e stato di pubblicazione
+public/icons/tech/                SVG locali
+scripts/                          Test, export, preparazione social e deploy
+tests/                            Test Node e regressioni
 ```
 
-## Decisioni
+## Scelte architetturali
 
-1. Layout mobile-first; le griglie sono progressive, non un desktop rimpicciolito.
-2. CSS semantico e Tailwind con token coordinati, senza dipendenze aggiuntive.
-3. Server Components predefiniti, client isolato per navigazione mobile.
-4. Oggetti placeholder centralizzati; nessun nome, numero o URL di progetto inventato.
-5. Asset legacy eliminati; anteprime di editor/dashboard create con HTML/CSS.
-6. Le card dimostrative non hanno link: le CTA funzionanti puntano a sezioni o profili verificati.
-7. Accessibilità: skip link, focus visibile, Escape per chiudere il menu, reduced motion.
-8. L'API email preesistente è stata rimossa. I contatti puntano a profili verificati, senza endpoint server.
+- Le pagine e la maggior parte delle sezioni sono Server Components; menu e filtri usano componenti client.
+- I dati sono locali e versionati: nessuna richiesta a un CMS o database in fase di visita.
+- `generateStaticParams()` fornisce gli slug noti dei case study.
+- `next/font/local` include solo il font Geist effettivamente utilizzato.
+- Le icone SVG sono file locali; per le tecnologie senza logo c'è un fallback grafico generico.
+- Le immagini social vengono generate durante la build, verificate come PNG e distribuite con estensione `.png`.
+- Il design rimane CSS responsive con palette coordinata; le anteprime dei progetti sono dichiaratamente illustrative.
 
-## Evoluzione
+## SEO: due modalità distinte
 
-Le pagine progetto con slug e contenuti verificati saranno realizzate successivamente. Nessuna dipendenza da database, CMS o WebGL necessaria per la v2.
+`NEXT_PUBLIC_PORTFOLIO_PUBLISHED=false` (predefinito) produce un'anteprima non indicizzabile. La build per Pages imposta esplicitamente `true`, quindi homepage, About, contatti, catalogo e **ogni case study pubblicato** possono essere indicizzati e compaiono nella sitemap.
+
+La funzione `generateMetadata()` delle pagine progetto deve rispettare la stessa condizione; il controllo `scripts/check-pages.mjs` verifica che i file HTML pubblicati non contengano `noindex`. Le pagine inesistenti mantengono `noindex`.
+
+## Deploy
+
+`npm run deploy:pages` viene lanciato localmente solo su `main` pulito. Verifica l'export e pubblica gli artefatti statici su `gh-pages` tramite un repository Git temporaneo, senza toccare il sorgente e senza workflow personalizzati.
+
+Docker non è previsto: sono stati eliminati il vecchio `Dockerfile` e `.dockerignore`, che avviavano un server `next start` superfluo per Pages.
 
 ## Verifica
 
-Dopo la PR05 non sono configurati workflow GitHub Actions. Eseguire localmente `npm test`, `npm run build` e una revisione visiva su smartphone e desktop; i test statici non sostituiscono i controlli su browser.
+```bash
+npm ci
+npm run verify
+npm run verify:static
+npm run verify:pages
+```
+
+Il controllo visivo in browser e l'audit di sicurezza restano necessari prima della pubblicazione.

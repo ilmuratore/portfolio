@@ -1,6 +1,6 @@
 # Portfolio v2 — Design system editoriale
 
-> Stato: direzione grafica approvata; specifica per PR02. L'implementazione è in corso.
+> Specifica storica di progettazione della PR02. L'interfaccia è stata implementata ed evoluta nelle PR successive: per l'architettura e lo stato dei contenuti attuali consultare [ARCHITECTURE.md](ARCHITECTURE.md) e [README.md](../README.md).
 
 ## Identità
 

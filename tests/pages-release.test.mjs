@@ -37,6 +37,20 @@ test("metadata indicizzabili solo nella modalità pubblicata", () => {
   }
 });
 
+test("i case study usano SEO condizionale anche dentro generateMetadata", () => {
+  const detail = source("../src/app/projects/[slug]/page.js");
+  const begin = detail.indexOf("    description: project.description,");
+  assert.ok(begin !== -1, "Metadata dinamici progetto mancanti");
+  const end = detail.indexOf("\n  };", begin);
+  assert.ok(end > begin, "Blocco metadata progetto mancante");
+  const metadata = detail.slice(begin, end);
+  assert.match(metadata, /robots:\s*siteConfig\.published\s*\?/);
+  assert.match(metadata, /index: true, follow: true/);
+  assert.match(metadata, /index: false, follow: false/);
+  assert.doesNotMatch(metadata, /robots:\s*\{\s*index:\s*false/);
+  assert.match(detail, /Progetto non trovato.*robots:\s*\{\s*index:\s*false/);
+});
+
 test("sitemap completa e coerente con il catalogo pubblico", () => {
   const contents = source("../src/app/sitemap.js");
   assert.match(contents, /if \(!siteConfig\.published\) return \[\]/);

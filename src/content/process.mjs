@@ -1,7 +1,4 @@
-// Esperienza professionale descritta dal proprietario; approccio sintetizzato, non un processo formalmente certificato.
-export { featuredProjects } from "./projects.mjs";
-export { skillAreas } from "./profile.mjs";
-
+// Quattro fasi descritte come approccio pratico, non come metodologia certificata.
 export const processSteps = [
   { number: "01", title: "Analisi", description: "Comprendere requisiti, vincoli, problemi e obiettivi." },
   { number: "02", title: "Progettazione", description: "Definire componenti, responsabilità, dati e integrazioni." },

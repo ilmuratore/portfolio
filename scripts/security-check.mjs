@@ -28,7 +28,7 @@ for (const [name, minimum] of checks) {
   if (!okay) errors++;
 }
 if (errors) {
-  console.error("\nRigenerare il lockfile con: npm run upgrade:security");
+  console.error("\nVerificare gli aggiornamenti con npm e rigenerare package-lock.json tramite npm install, poi rieseguire i controlli.");
   process.exit(1);
 }
 console.log("\nVersioni minime verificate. Eseguire anche npm audit.");

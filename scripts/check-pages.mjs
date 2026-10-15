@@ -28,9 +28,10 @@ for (const image of ["opengraph-image.png", "twitter-image.png"]) {
 const pages = files.filter((file) => file.endsWith(".html") && file !== "404.html");
 for (const path of pages) {
   const html = readFileSync(join(out, path), "utf8");
-  assert.doesNotMatch(html, /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i, `Pagina ancora noindex: ${path}`);
-  assert.match(html, /og:image/i, `Open Graph mancante: ${path}`);
-  assert.match(html, /twitter:image/i, `Twitter image mancante: ${path}`);
+  const robotsTag = html.match(/<meta\b[^>]*name=["']robots["'][^>]*>/i)?.[0] ?? "";
+  assert.ok(!/noindex/i.test(robotsTag), "Pagina ancora noindex: " + path + " (" + robotsTag + ")");
+  assert.ok(/og:image/i.test(html), "Open Graph mancante: " + path);
+  assert.ok(/twitter:image/i.test(html), "Twitter image mancante: " + path);
   assert.ok(html.includes(base + "/opengraph-image.png"), "URL Open Graph non valido: " + path);
   assert.ok(html.includes(base + "/twitter-image.png"), "URL Twitter non valido: " + path);
   assert.ok(html.includes("/portfolio/_next/"), `Asset con basePath errato: ${path}`);

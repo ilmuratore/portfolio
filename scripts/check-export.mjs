@@ -13,7 +13,10 @@ for (const path of required) {
 const pages = required.filter((path) => path.endsWith(".html"));
 for (const path of pages) {
   const html = readFileSync(join(root, path), "utf8");
-  if (path !== "404.html") assert.match(html, /noindex/i, `Pagina provvisoria indicizzabile: ${path}`);
+  if (path !== "404.html") {
+    const robotsTag = html.match(/<meta\b[^>]*name=["']robots["'][^>]*>/i)?.[0] ?? "";
+    assert.ok(/noindex/i.test(robotsTag), "Pagina provvisoria indicizzabile: " + path);
+  }
 }
 
 const robots = readFileSync(join(root, "robots.txt"), "utf8");
@@ -25,8 +28,8 @@ for (const project of projects) {
 }
 
 const home = readFileSync(join(root, "index.html"), "utf8");
-assert.match(home, /og:image/i, "Metadata Open Graph mancanti");
-assert.match(home, /twitter:image/i, "Metadata Twitter mancanti");
+assert.ok(/og:image/i.test(home), "Metadata Open Graph mancanti");
+assert.ok(/twitter:image/i.test(home), "Metadata Twitter mancanti");
 for (const logo of ["python", "openjdk", "fastapi", "postgresql", "react", "github", "sqlite"]) {
   assert.ok(existsSync(join(root, "icons", "tech", logo + ".svg")), "Logo statico mancante: " + logo);
 }

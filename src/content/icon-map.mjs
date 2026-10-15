@@ -23,7 +23,6 @@ export const techIconMap = {
   "JPA": "hibernate",
   "JPA / Hibernate": "hibernate",
   "Hibernate": "hibernate",
-  "Docker": "docker",
   "HTML / CSS": "html5",
   "HTML5": "html5",
   "SQLAlchemy": "sqlalchemy",

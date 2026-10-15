@@ -1,6 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { featuredProjects, processSteps, skillAreas } from "../src/content/placeholder.mjs";
+import { featuredProjects } from "../src/content/projects.mjs";
+import { processSteps } from "../src/content/process.mjs";
+import { skillAreas } from "../src/content/profile.mjs";
 
 test("homepage: tre repository reali e anteprime illustrative", () => {
   assert.equal(featuredProjects.length, 3);
@@ -14,7 +16,7 @@ test("homepage: tre repository reali e anteprime illustrative", () => {
   }
 });
 
-test("processo e competenze restano placeholder con identificatori univoci", () => {
+test("processo e competenze hanno identificatori univoci", () => {
   assert.equal(processSteps.length, 4);
   assert.equal(skillAreas.length, 4);
   assert.equal(new Set(processSteps.map((step) => step.number)).size, processSteps.length);

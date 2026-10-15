@@ -8,7 +8,7 @@ I file vettoriali sono in `public/icons/tech/*.svg`. Sono stati recuperati dal r
 
 Le icone fornite rappresentano marchi di terzi **solo per identificare correttamente tecnologie e piattaforme**. Simple Icons adotta CC0 per il progetto, ma singole icone possono avere licenze o linee guida di marchio specifiche: leggere il [disclaimer ufficiale](https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md). Non rivendichiamo alcuna affiliazione, patrocinio o proprietà dei marchi. Se emergono restrizioni specifiche su un logo, sostituirlo con un'icona generica.
 
-Sono presenti loghi per Python, OpenJDK, JavaScript, TypeScript, React, Angular, Spring Boot, FastAPI, PostgreSQL, Pandas, Git, GitHub, Node.js, Unity, Linux, Hibernate, Docker, HTML5, SQLAlchemy, Pydantic, Next.js, Google, Coursera, .NET e Rust.
+Sono presenti loghi per Python, OpenJDK, JavaScript, TypeScript, React, Angular, Spring Boot, FastAPI, PostgreSQL, Pandas, Git, GitHub, Node.js, Unity, Linux, Hibernate, HTML5, SQLAlchemy, Pydantic, Next.js, Google, Coursera, .NET e Rust.
 
 Il mapping leggibile è in `src/content/icon-map.mjs`, chiave = nome visualizzato e valore = basename SVG. Se una tecnologia non ha un marchio locale, `TechIcon` usa un'icona UI generica: **mai un'immagine rotta o scaricata da siti esterni**.
 
