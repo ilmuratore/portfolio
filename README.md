@@ -48,6 +48,7 @@ Copiare `.env.example` in `.env.local` per impostare le variabili necessarie. No
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Architettura](docs/ARCHITECTURE.md)
 - [Roadmap](docs/ROADMAP.md)
+- [Hosting senza lock-in e build statica](docs/HOSTING.md)
 
 ## Workflow
 

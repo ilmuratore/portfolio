@@ -6,7 +6,7 @@ Una PR per ambito. Nessun merge automatico su `main`; CI e preview prima dell'ap
 | --- | --- | --- |
 | 01 — Foundation | Configurazioni, SEO, CI e documentazione | Mergiata |
 | 02 — Editorial UI | Palette calda, componenti, homepage placeholder, responsive, rimozione legacy | Test + build + approvazione visiva |
-| 03 — UX refinement | Migliorie dopo test, accessibilità e prestazioni | Controllo mobile e desktop |
+| 03 — UX refinement | Menu mobile, affordance e verifica export statico opzionale | Test standard e build statica GitHub Pages in CI |
 | 04 — Projects | Catalogo progetti verificati e pagine case study | Link veri, screenshot autentici |
 | 05 — About & Contact | Bio, esperienza, CV e form sicuro | Dati aggiornati e antiabuso |
 | 06 — Quality & Release | SEO, test di regressione, audit web vitals, documentazione | Rilascio v2.0.0 |

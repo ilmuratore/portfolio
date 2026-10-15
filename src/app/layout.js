@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { siteConfig } from '@/config/site';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const useVercelInsights = process.env.PORTFOLIO_STATIC_EXPORT !== '1';
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -12,7 +13,7 @@ export const metadata = {
   description: siteConfig.description,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
-  alternates: { canonical: '/' },
+  alternates: { canonical: siteConfig.url },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale,
@@ -33,8 +34,8 @@ export default function RootLayout({ children }) {
     <html lang="it">
       <body className={inter.className}>
         {children}
-        <SpeedInsights />
-        <Analytics />
+        {useVercelInsights && <SpeedInsights />}
+        {useVercelInsights && <Analytics />}
       </body>
     </html>
   );
