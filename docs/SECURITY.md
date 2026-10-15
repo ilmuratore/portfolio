@@ -1,67 +1,42 @@
-# Sicurezza e dipendenze — PR06 / upgrade Next.js 16
+# Sicurezza e dipendenze — stato verificato al 15 ottobre 2026
 
-## Stato: migrazione in corso
+## Situazione attuale
 
-I test forniti dal proprietario sul ramo Next 15.5.28 hanno avuto esito positivo: **17 test, build Next.js e build statica superati**. L'ultimo `npm audit` dopo `npm audit fix` ha però riportato ancora **14 vulnerabilità** (2 low, 3 moderate, 9 high).
+Il sito utilizza Next.js 16.4.1, React 19.3.1, Tailwind CSS 4.3.3 ed ESLint 9.39.5. Il lockfile è già stato rigenerato per lo stack Next 16 e la PR11 di GitHub Pages è stata integrata in `main`.
 
-Per risolvere la parte legata a Next.js, Tailwind, PostCSS ed ESLint, la PR06 migra allo stack moderno:
+Dall'ultimo report locale del proprietario:
 
-| Pacchetto | Versione |
-| --- | --- |
-| next | 16.4.1 |
-| react, react-dom | 19.3.1 |
-| tailwindcss, @tailwindcss/postcss | 4.3.3 |
-| eslint-config-next | 16.4.1 |
-| eslint | 9.39.5 |
-| postcss | 8.5.29 |
+- `npm run security:check`: versioni minime superate.
+- `npm audit` e `npm audit:prod`: **5 avvisi high** che discendono dallo stesso advisory su `braces`.
+- La catena è `eslint-config-next → @next/eslint-plugin-next → fast-glob → micromatch → braces@3.0.3`.
+- `npm audit fix --force` propone di installare `eslint-config-next@14.2.35`: è un downgrade major incompatibile con Next 16. **Non eseguirlo.**
 
-Vengono rimossi `autoprefixer`, la configurazione legacy `tailwind.config.js` e `.eslintrc.json`.
+## Advisory e valutazione del rischio
 
-## Migrazione in locale
+[GHSA-vfj7-8cjw-p6xm / CVE-2026-93687](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) riguarda un possibile esaurimento dello stack quando `braces` elabora pattern profondamente annidati. Alla data del controllo, l'advisory dichiara **nessuna versione patchata**.
 
-**Il commit GitHub include codice e configurazioni target ma NON un lockfile rigenerato da npm.** Non è possibile eseguire `npm ci` finché il lockfile non viene rigenerato e inserito nella stessa PR.
+Nel portfolio la dipendenza è introdotta attraverso il sistema di linting e i glob di build. Il sito GitHub Pages distribuisce **file statici** HTML/CSS/JavaScript/immagini: la toolchain Node/ESLint non viene eseguita dai visitatori. L'esposizione del sito pubblicato a questo specifico percorso è dunque differente da quella di un servizio Node che elabora pattern esterni.
 
-Dalla branch `refactor/06-quality-security-hardening`:
+Questo non annulla l'advisory e non autorizza a dichiarare l'audit pulito. Occorre continuare a verificare gli aggiornamenti e mantenere il linting su pattern controllati. In una PR successiva si possono separare in `devDependencies` gli strumenti di build/lint e rigenerare il lockfile mediante npm, per rendere anche `npm audit:prod` semanticamente corretto.
+
+## Build statica e deploy
+
+Il log del 15 ottobre 2026 riportava **due blocchi distinti**:
+- Un test `tests/static-export.test.mjs` presumeva il vecchio canonical senza slash finale; con PR12 ora verifica la forma coerente con `trailingSlash: true`.
+- Next.js 16 rifiutava la riesportazione di `dynamic` da `twitter-image.jsx`. Con PR12 la configurazione statica viene dichiarata direttamente nel file della route Twitter.
+
+La build Next e il deploy non sono ancora stati rieseguiti dopo le correzioni: `npm run verify`, `npm run verify:static` e `npm run verify:pages` devono superare i test locali prima del merge.
+
+## Controlli consigliati
 
 ```bash
-git pull
-npm run upgrade:security
 npm ci
-npm test
-npm run lint
-npm run build
+npm run verify
 npm run verify:static
+npm run verify:pages
 npm run security:check
 npm run audit
 npm run audit:prod
 ```
 
-Se i controlli passano e non emergono problemi visivi:
-
-```bash
-git add package.json package-lock.json
-git commit -m "chore: finalize Next 16 and Tailwind 4 dependency migration"
-git push
-```
-
-Per il `package-lock.json`, non sostituire a mano le versioni o copiare solo singole sezioni: fare generare tutte le transitive a npm. `npm run upgrade:security` richiede Internet e npm; **non utilizzare `npm audit fix --force`** indiscriminatamente.
-
-## Cosa verificare
-
-1. Il sito funziona a `/`, `/projects`, `/projects/progetto-01`, `/about`, `/contact`.
-2. L'export statico genera la cartella `out/` correttamente con `NEXT_PUBLIC_BASE_PATH=/portfolio`.
-3. Non si introducono differenze di layout dal CSS reset di Tailwind 4; verificare 360, 390, 768, 1024 e 1440 px.
-4. ESLint Flat Config non produce errori.
-5. `npm audit` e `npm audit:prod` vengono rieseguiti sul nuovo lockfile. Non considerare la migrazione una garanzia di zero vulnerabilità.
-6. Contenuti dimostrativi ancora non indicizzabili. Nessun deploy, Vercel o GitHub Actions.
-
-## Riferimenti
-
-- [Next.js 16, guida ufficiale](https://nextjs.org/docs/app/guides/upgrading/version-16)
-- [Next.js 16.4, novità](https://nextjs.org/blog/next-16-4)
-- [Tailwind CSS 4 e Next.js](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
-- [ESLint Flat Config in Next.js](https://nextjs.org/docs/app/api-reference/config/eslint)
-
-## Condizione per la release
-
-Il sito potrà essere considerato pronto **solo dopo la rigenerazione del lockfile, i test, l'audit, la verifica dei contenuti e la review visiva**. Questa PR non abilita la pubblicazione.
+Non disabilitare `npm audit` per nascondere le segnalazioni. Non introdurre dipendenze o override di versioni inesistenti. Aggiornare questo documento quando l'advisory o la catena ESLint cambieranno.

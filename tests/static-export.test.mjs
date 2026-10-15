@@ -16,6 +16,6 @@ test("il vecchio endpoint POST non blocca l'export statico", () => {
 });
 
 test("SEO indipendente dal provider e integrazioni analytics esterne rimosse", () => {
-  assert.match(layout, /canonical: siteConfig.url/);
+  assert.match(layout, /canonical:\s*`\$\{siteConfig\.url\}\/`/);
   assert.doesNotMatch(layout, /@vercel\/|SpeedInsights|Analytics/);
 });

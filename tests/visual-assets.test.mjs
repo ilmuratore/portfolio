@@ -70,5 +70,7 @@ test("favicon e immagini social non necessitano di CDN o deployment", () => {
   assert.match(og, /width: 1200, height: 630/);
   assert.match(og, /force-static/);
   assert.match(twitter, /opengraph-image/);
+  assert.match(twitter, /export const dynamic = "force-static"/);
+  assert.doesNotMatch(twitter, /export\s*\{[^}]*\bdynamic\b/);
   assert.doesNotMatch(og, /fetch\(|https:\/\//);
 });
