@@ -43,6 +43,9 @@ Il comando compila con:
 
 Produce `out/`, genera `.nojekyll` (per i file in `_next/`) e verifica: homepage, About, contatti, catalogo, case study, asset, `robots.txt`, sitemap, metadata social e assenza di `noindex` nelle pagine approvate.
 
+**Immagini social in Next.js 16:** la build genera le route `/opengraph-image` e `/twitter-image`, che nell'export statico possono essere file senza estensione. Lo script `scripts/prepare-social-assets.mjs` verifica che i loro contenuti siano PNG 1200×630, ne crea copie `out/opengraph-image.png` e `out/twitter-image.png` e modifica i metadata HTML per puntare ai PNG con estensione. Questo assicura URL con MIME prevedibile su GitHub Pages. Il controllo `check-pages.mjs` verifica anche queste immagini e i relativi collegamenti.
+
+
 Le certificazioni prive di titolo verificato rimangono esplicitamente contrassegnate come "in aggiornamento"; gli screenshot non ancora disponibili restano dichiarati come anteprime illustrative.
 
 ## Come pubblicare senza workflow nel repository
