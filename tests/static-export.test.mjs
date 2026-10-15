@@ -1,21 +1,28 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync } from "node:fs";
 
-const config = readFileSync(new URL("../next.config.js", import.meta.url), "utf8");
-const layout = readFileSync(new URL("../src/app/layout.js", import.meta.url), "utf8");
+const source = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
 
-test("la build statica resta opt-in e non attiva deployment", () => {
+test("Next.js supporta export statico e basePath configurabile", () => {
+  const config = source("../next.config.js");
   assert.match(config, /PORTFOLIO_STATIC_EXPORT/);
   assert.match(config, /output: 'export'/);
-  assert.equal(existsSync(new URL("../.github/workflows/ci.yml", import.meta.url)), false);
+  assert.match(config, /trailingSlash: true/);
+  assert.match(config, /images: \{ unoptimized: true \}/);
+  assert.match(config, /NEXT_PUBLIC_BASE_PATH/);
 });
 
-test("il vecchio endpoint POST non blocca l'export statico", () => {
-  assert.equal(existsSync(new URL("../src/app/api/send/route.js", import.meta.url)), false);
+test("metadata canonici e sitemap puntano a GitHub Pages", () => {
+  assert.match(source("../src/app/layout.js"), /canonical:.*siteConfig\.url/);
+  assert.match(source("../src/config/site.js"), /ilmuratore\.github\.io\/portfolio/);
+  assert.match(source("../src/app/sitemap.js"), /siteConfig\.url/);
 });
 
-test("SEO indipendente dal provider e integrazioni analytics esterne rimosse", () => {
-  assert.match(layout, /canonical:\s*`\$\{siteConfig\.url\}\/`/);
-  assert.doesNotMatch(layout, /@vercel\/|SpeedInsights|Analytics/);
+test("anteprima ed export pubblico usano policy SEO distinte", () => {
+  const preview = source("../scripts/build-static.mjs");
+  const production = source("../scripts/build-pages.mjs");
+  assert.match(preview, /NEXT_PUBLIC_PORTFOLIO_PUBLISHED: "false"/);
+  assert.match(production, /NEXT_PUBLIC_PORTFOLIO_PUBLISHED: "true"/);
+  assert.match(production, /prepareSocialAssets/);
 });

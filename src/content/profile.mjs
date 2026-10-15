@@ -146,7 +146,6 @@ export const academicGoal = {
 };
 
 export const certificationProviders = ["Google", "Coursera"];
-export const certificates = [];
 
 export const futureProjects = [
   {

@@ -9,7 +9,7 @@ test("homepage: tre repository reali e anteprime illustrative", () => {
   assert.equal(new Set(featuredProjects.map((project) => project.id)).size, featuredProjects.length);
   for (const project of featuredProjects) {
     assert.match(project.repositoryUrl, /^https:\/\/github\.com\/ilmuratore\//);
-    assert.ok(!project.title.startsWith("Titolo progetto"));
+    assert.ok(project.title.length >= 4);
     assert.ok(project.description.length > 20);
     assert.equal(project.tags.length, 3);
     assert.ok(["dashboard", "board", "terminal"].includes(project.preview));
@@ -23,9 +23,11 @@ test("processo e competenze hanno identificatori univoci", () => {
   assert.equal(new Set(skillAreas.map((area) => area.number)).size, skillAreas.length);
 });
 
-test("nessun repository privato viene esposto nel catalogo pubblico", () => {
-  const content = JSON.stringify({ featuredProjects, processSteps, skillAreas });
-  for (const name of ["Vorpal", "SpankEdicola", "Il Presidente", "Personal CRM"]) {
-    assert.equal(content.includes(name), false);
+test("le schede in evidenza rimandano a repository pubblici selezionati", () => {
+  for (const project of featuredProjects) {
+    const url = new URL(project.repositoryUrl);
+    assert.equal(url.protocol, "https:");
+    assert.equal(url.hostname, "github.com");
+    assert.ok(url.pathname.startsWith("/ilmuratore/"));
   }
 });

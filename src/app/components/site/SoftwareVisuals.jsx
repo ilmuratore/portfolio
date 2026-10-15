@@ -51,7 +51,7 @@ function TerminalPreview() {
 
 export function ProjectSoftwareVisual({ variant, primaryTech }) {
   return (
-    <div className={"project-visual project-visual-" + variant} role="img" aria-label="Anteprima illustrativa segnaposto di un progetto software">
+    <div className={"project-visual project-visual-" + variant} role="img" aria-label="Rappresentazione grafica illustrativa di un progetto software">
       {variant === "dashboard" && <DashboardPreview />}
       {variant === "board" && <BoardPreview />}
       {variant === "terminal" && <TerminalPreview />}

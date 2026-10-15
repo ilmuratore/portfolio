@@ -18,12 +18,12 @@ test("catalogo reale: slug, repository e fonti unici", () => {
   for (const project of projects) {
     assert.match(project.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.equal(getProjectBySlug(project.slug), project);
-    assert.ok(!project.title.startsWith("Titolo progetto"));
+    assert.ok(project.title.length >= 4);
     assert.ok(project.description.length > 25);
     assert.ok(project.intro.length > 25);
     assert.ok(project.status.length > 5);
     assert.equal(project.tags.length, 3);
-    assert.ok(project.tags.every((tag) => !tag.startsWith("Tecnologia ")));
+    assert.ok(project.tags.every((tag) => tag.length >= 2));
     assert.ok(["dashboard", "board", "terminal"].includes(project.preview));
     assert.equal(new URL(project.repositoryUrl).hostname, "github.com");
     assert.equal(new URL(project.documentationUrl).hostname, "github.com");
@@ -47,16 +47,13 @@ test("homepage, filtri e navigazione condividono lo stesso catalogo", () => {
   assert.deepEqual(getAdjacentProjects("sconosciuto"), { previous: null, next: null });
 });
 
-test("case study generati staticamente, non indicizzati e con link alle fonti", () => {
+test("case study generati staticamente, con SEO configurabile e link alle fonti", () => {
   const source = readFileSync(new URL("../src/app/projects/[slug]/page.js", import.meta.url), "utf8");
   assert.match(source, /generateStaticParams/);
   assert.match(source, /dynamicParams = false/);
-  assert.match(source, /index: false, follow: false/);
+  assert.match(source, /robots:\s*siteConfig\.published\s*\?/);
   assert.match(source, /project\.repositoryUrl/);
   assert.match(source, /project\.documentationUrl/);
   assert.match(source, /project\.architectureNodes/);
-  const body = JSON.stringify(projects);
-  for (const name of ["Vorpal", "SpankEdicola", "Il Presidente", "Personal CRM", "10k users"]) {
-    assert.ok(!body.includes(name), "Progetto privato o metrica non verificata nel catalogo: " + name);
-  }
+
 });

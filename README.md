@@ -35,7 +35,7 @@ Il sito presenta una selezione di repository pubblici, competenze tecniche e per
     <tr>
       <td align="center" width="150"><img src="./public/icons/tech/nextdotjs.svg" alt="" width="30"/><br/><b>Next.js</b><br/><sub>App Router 16</sub></td>
       <td align="center" width="150"><img src="./public/icons/tech/react.svg" alt="" width="30"/><br/><b>React</b><br/><sub>Componenti 19</sub></td>
-      <td align="center" width="150"><img src="./public/icons/tech/typescript.svg" alt="" width="30"/><br/><b>JavaScript</b><br/><sub>ES modules / JSX</sub></td>
+      <td align="center" width="150"><img src="./public/icons/tech/javascript.svg" alt="" width="30"/><br/><b>JavaScript</b><br/><sub>ES modules / JSX</sub></td>
       <td align="center" width="150"><img src="./public/icons/tech/github.svg" alt="" width="30"/><br/><b>GitHub Pages</b><br/><sub>Hosting statico</sub></td>
     </tr>
   </table>
