@@ -1,4 +1,6 @@
 import Link from "next/link";
+import TechBadge from "@/app/components/v2/TechBadge";
+import UiIcon from "@/app/components/v2/UiIcon";
 import { notFound } from "next/navigation";
 import SitePageFrame from "@/app/components/v2/SitePageFrame";
 import { ProjectSoftwareVisual } from "@/app/components/v2/SoftwareVisuals";
@@ -47,9 +49,9 @@ export default async function ProjectDetailPage({ params }) {
             <p className="eyebrow">{project.index} / {project.category.toUpperCase()} / CASE STUDY</p>
             <h1>{project.title}<span className="case-title-accent">.</span></h1>
             <p>{project.intro}</p>
-            <div className="case-tags"><span className="case-status">{project.status}</span>{project.tags.map((tag, i) => <span key={i}>{tag}</span>)}</div>
+            <div className="case-tags"><span className="case-status">{project.status}</span>{project.tags.map((tag, i) => <TechBadge key={i} label={tag} />)}</div>
           </header>
-          <div className="case-hero-visual"><ProjectSoftwareVisual variant={project.preview} /><div className="case-visual-note"><span>ANTEPRIMA ILLUSTRATIVA</span><span>NESSUNA IMMAGINE REALE DISPONIBILE</span></div></div>
+          <div className="case-hero-visual"><ProjectSoftwareVisual variant={project.preview} primaryTech={project.tags[0]} /><div className="case-visual-note"><span>ANTEPRIMA ILLUSTRATIVA</span><span>NESSUNA IMMAGINE REALE DISPONIBILE</span></div></div>
           <div className="case-body">
             <aside className="case-aside">
               <p className="eyebrow">INDICE / 05 SEZIONI</p>
@@ -75,8 +77,8 @@ export default async function ProjectDetailPage({ params }) {
                 <strong>Fonti e limiti</strong>
                 <p>La scheda riassume documenti pubblici del repository. I riquadri software sono illustrazioni e non screenshot; non vengono dichiarate metriche di produzione.</p>
                 <div className="case-source-links">
-                  <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">Esamina il codice su GitHub ↗</a>
-                  <a href={project.documentationUrl} target="_blank" rel="noopener noreferrer">Leggi la documentazione ↗</a>
+                  <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer"><UiIcon name="github" size={17} /> Esamina il codice su GitHub <UiIcon name="external" size={14} /></a>
+                  <a href={project.documentationUrl} target="_blank" rel="noopener noreferrer"><UiIcon name="file" size={17} /> Leggi la documentazione <UiIcon name="external" size={14} /></a>
                 </div>
               </div>
             </div>

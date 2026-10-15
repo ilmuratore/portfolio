@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TechBadge from "@/app/components/v2/TechBadge";
 import SitePageFrame from "@/app/components/v2/SitePageFrame";
 import {
   ProfileChapters, ExperienceTimeline, EducationSection,
@@ -67,7 +68,7 @@ export default function AboutPage() {
               <div key={area.number}>
                 <span>{area.number}</span><strong>{area.name}</strong>
                 <small>{area.description}</small>
-                <div className="profile-skill-tags">{area.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                <div className="profile-skill-tags">{area.technologies.map((tech) => <TechBadge label={tech} key={tech} />)}</div>
               </div>
             ))}
           </div>

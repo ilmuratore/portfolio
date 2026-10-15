@@ -23,4 +23,11 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/portfolio";
 for (const project of projects) {
   assert.ok(catalog.includes(`${basePath}/projects/${project.slug}/`), `Link basePath errato: ${project.slug}`);
 }
+
+const home = readFileSync(join(root, "index.html"), "utf8");
+assert.match(home, /og:image/i, "Metadata Open Graph mancanti");
+assert.match(home, /twitter:image/i, "Metadata Twitter mancanti");
+for (const logo of ["python", "openjdk", "fastapi", "postgresql", "react", "github", "sqlite"]) {
+  assert.ok(existsSync(join(root, "icons", "tech", logo + ".svg")), "Logo statico mancante: " + logo);
+}
 console.log(`Export statico verificato: ${required.length} file e ${projects.length} case study.`);

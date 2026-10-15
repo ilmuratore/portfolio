@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ProjectSoftwareVisual } from "./SoftwareVisuals";
+import TechBadge from "./TechBadge";
 
 export default function ProjectCard({ project, compact = false }) {
   return (
     <article className={"project-card" + (compact ? " project-card-compact" : "")} aria-labelledby={project.id + "-title"}>
       <Link href={`/projects/${project.slug}`} className="project-card-link" aria-label={`Leggi la scheda di ${project.title}`}>
-        <ProjectSoftwareVisual variant={project.preview} />
+        <ProjectSoftwareVisual variant={project.preview} primaryTech={project.tags[0]} />
         <div className="project-card-body">
           <div className="project-kicker">
             <span>{project.index} / {project.category.toUpperCase()}</span>
@@ -13,7 +14,7 @@ export default function ProjectCard({ project, compact = false }) {
           </div>
           <h3 id={project.id + "-title"}>{project.title}</h3>
           <p>{project.description}</p>
-          <div className="project-tags" aria-label="Tecnologie del progetto">{project.tags.map((tag, index) => <span key={index}>{tag}</span>)}</div>
+          <div className="project-tags" aria-label="Tecnologie del progetto">{project.tags.map((tag, index) => <TechBadge label={tag} key={index} />)}</div>
           <span className="project-card-cta">Apri la scheda <span aria-hidden="true">→</span></span>
         </div>
       </Link>

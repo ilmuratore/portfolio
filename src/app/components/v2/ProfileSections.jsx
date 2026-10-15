@@ -1,4 +1,7 @@
 import Link from "next/link";
+import TechBadge from "./TechBadge";
+import TechIcon from "./TechIcon";
+import UiIcon from "./UiIcon";
 import {
   profile, skillAreas, profileChapters, contactChannels,
   experience, education, certificates, certificationProviders, futureProjects
@@ -16,11 +19,14 @@ export function SkillsSection() {
           {skillAreas.map((area) => (
             <article className="skill-tile" key={area.number}>
               <span className="skill-number">{area.number} / AMBITO</span>
-              <span className="skill-glyph" aria-hidden="true">{area.number === "01" ? "⌘" : area.number === "02" ? "{ }" : area.number === "03" ? "▤" : "↗"}</span>
+              <div className="skill-glyph-group" aria-hidden="true">
+                <span className="skill-glyph"><TechIcon label={area.technologies[0]} size={27} /></span>
+                <span className="skill-glyph-secondary"><TechIcon label={area.technologies[1]} size={20} /></span>
+              </div>
               <h3>{area.name}</h3>
               <p>{area.description}</p>
               <div className="skill-technologies" aria-label={"Strumenti per " + area.name}>
-                {area.technologies.map((tech) => <span key={tech}>{tech}</span>)}
+                {area.technologies.map((tech) => <TechBadge label={tech} key={tech} />)}
               </div>
             </article>
           ))}
@@ -145,7 +151,7 @@ export function CertificationsSection() {
           <span className="eyebrow">CREDENZIALI / DA COMPLETARE</span>
           <h3>Certificazioni in aggiornamento.</h3>
           <p>Uno spazio dedicato agli attestati conseguiti. Titoli, date e collegamenti di verifica verranno aggiunti dopo la raccolta delle credenziali.</p>
-          <div className="certification-providers" aria-label="Piattaforme indicate">{certificationProviders.map((name) => <span key={name}>{name}</span>)}</div>
+          <div className="certification-providers" aria-label="Piattaforme indicate">{certificationProviders.map((name) => <span key={name}><TechIcon label={name} size={18} />{name}</span>)}</div>
         </div>
       )}
     </div>
@@ -158,7 +164,7 @@ export function FutureProjectsSection() {
       {futureProjects.map((item, index) => (
         <article className="future-project" key={item.id}>
           <div className="future-project-top"><span>0{index + 1} / PROGETTO A LUNGO TERMINE</span><span>{item.status}</span></div>
-          <h3>{item.name}</h3>
+          <div className="future-project-heading"><UiIcon name={item.id === "rustos" ? "terminal" : "layers"} size={25} /><h3>{item.name}</h3></div>
           <p>{item.description}</p>
           <span className="future-project-note">Presentazione pubblica in preparazione</span>
         </article>
@@ -170,9 +176,9 @@ export function FutureProjectsSection() {
 export function ContactChannels({ variant = "default" }) {
   return (
     <div className={"contact-channels " + (variant === "wide" ? "contact-channels-wide" : "")}>
-      {contactChannels.map((channel, i) => (
+      {contactChannels.map((channel) => (
         <a className="contact-channel" href={channel.href} key={channel.id} target="_blank" rel="noopener noreferrer">
-          <span className="contact-channel-number">0{i + 1}</span>
+          <span className="contact-channel-symbol">{channel.id === "github" ? <TechIcon label="GitHub" size={25} /> : <UiIcon name="linkedin" size={25} />}</span>
           <span className="contact-channel-body"><strong>{channel.label}</strong><small>{channel.type}</small><span>{channel.short}</span></span>
           <span className="contact-channel-arrow" aria-hidden="true">↗</span>
         </a>

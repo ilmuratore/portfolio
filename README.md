@@ -61,6 +61,7 @@ La pubblicazione con dominio proprio resta una fase separata. Nessuna GitHub Act
 
 - [Architettura](docs/ARCHITECTURE.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
+- [Icone e asset grafici](docs/VISUAL_ASSETS.md)
 - [Progetti](docs/PROJECTS.md)
 - [Hosting](docs/HOSTING.md)
 - [Sicurezza](docs/SECURITY.md)
