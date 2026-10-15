@@ -37,3 +37,10 @@ jobs:
           test -f out/index.html
           test -f out/robots.txt
           test -f out/sitemap.xml
+          test -f out/projects/index.html
+          test -f out/projects/progetto-01/index.html
+          test -f out/projects/progetto-02/index.html
+          test -f out/projects/progetto-03/index.html
+          grep -q 'noindex' out/projects/index.html
+          grep -q 'noindex' out/projects/progetto-01/index.html
+          grep -q '/portfolio/projects/progetto-01/' out/projects/index.html

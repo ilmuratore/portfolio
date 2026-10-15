@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const links = [
-  { href: "#projects", label: "Progetti" },
-  { href: "#process", label: "Processo" },
-  { href: "#skills", label: "Competenze" },
-  { href: "#about", label: "Chi sono" },
-  { href: "#contact", label: "Contatti" },
+  { href: "/projects", label: "Progetti" },
+  { href: "/#process", label: "Processo" },
+  { href: "/#skills", label: "Competenze" },
+  { href: "/#about", label: "Chi sono" },
+  { href: "/#contact", label: "Contatti" },
 ];
 
 export default function SiteHeader() {
@@ -42,7 +43,7 @@ export default function SiteHeader() {
   return (
     <header ref={headerRef} className="site-header" id="top">
       <div className="site-container header-inner">
-        <a className="brand" href="#top" aria-label="Torna all'inizio del portfolio" onClick={() => setMenuOpen(false)}>SI<span>.</span><span className="brand-name">Portfolio</span></a>
+        <Link className="brand" href="/" aria-label="Torna all'inizio del portfolio" onClick={() => setMenuOpen(false)}>SI<span>.</span><span className="brand-name">Portfolio</span></Link>
         <button
           ref={toggleRef}
           type="button"
@@ -55,7 +56,7 @@ export default function SiteHeader() {
           <span className={menuOpen ? "menu-icon is-open" : "menu-icon"} aria-hidden="true"><span /><span /></span>
         </button>
         <nav id="primary-navigation" className={menuOpen ? "site-navigation is-open" : "site-navigation"} aria-label="Navigazione principale">
-          {links.map((link) => <a href={link.href} key={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>)}
+          {links.map((link) => <Link href={link.href} key={link.href} onClick={() => setMenuOpen(false)}>{link.label}</Link>)}
           <a className="nav-contact" href="https://github.com/ilmuratore" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>GitHub <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
