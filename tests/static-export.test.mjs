@@ -20,5 +20,5 @@ test("il vecchio endpoint POST non blocca l'export statico", () => {
 
 test("SEO e analytics non assumono l'hosting Vercel nell'export", () => {
   assert.match(layout, /canonical: siteConfig.url/);
-  assert.match(layout, /useVercelInsights/);
+  assert.doesNotMatch(layout, /@vercel\/|SpeedInsights|Analytics/);
 });

@@ -1,16 +1,7 @@
-import { featuredProjects, processSteps, skillAreas } from "@/content/placeholder.mjs";
+import { featuredProjects, processSteps } from "@/content/placeholder.mjs";
 import { HeroSoftwareVisual } from "./SoftwareVisuals";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
-
-function SectionIntro({ eyebrow, title, description, aside, id }) {
-  return (
-    <div className="section-intro">
-      <div><p className="eyebrow">{eyebrow}</p><h2 className="section-title" id={id}>{title}</h2></div>
-      {(description || aside) && <div className="section-aside">{description && <p>{description}</p>}{aside}</div>}
-    </div>
-  );
-}
 
 export function HeroSection() {
   return (
@@ -66,34 +57,4 @@ export function ProcessSection() {
   );
 }
 
-export function SkillsSection() {
-  return (
-    <section className="section section-skills" id="skills" aria-labelledby="skills-title">
-      <div className="site-container">
-        <SectionIntro id="skills-title" eyebrow="03 / COMPETENZE" title={<>Strumenti per <em>costruire.</em></>} description="Le competenze saranno organizzate per area, senza percentuali arbitrarie o elenchi infiniti." />
-        <div className="skills-grid">
-          {skillAreas.map((item) => <div className="skill-tile" key={item.number}><span className="skill-number">{item.number} / AREA</span><span className="skill-icon" aria-hidden="true">{item.number === "01" ? "</>" : item.number === "02" ? "{ }" : item.number === "03" ? "▤" : "⌘"}</span><h3>{item.name}</h3><p>{item.description}</p></div>)}
-        </div>
-      </div>
-    </section>
-  );
-}
 
-export function AboutSection() {
-  return (
-    <section className="section section-about" id="about" aria-labelledby="about-title">
-      <div className="site-container about-grid">
-        <div className="about-visual" role="img" aria-label="Elemento tipografico decorativo segnaposto, senza fotografia personale"><span className="about-visual-top">ABOUT / PLACEHOLDER</span><div className="about-monogram">SI<span>.</span></div><span className="about-visual-bottom">DESIGN · DEVELOP · DOCUMENT</span></div>
-        <div className="about-copy"><p className="eyebrow">04 / CHI SONO</p><h2 className="section-title" id="about-title">Un percorso fatto di <em>progetti.</em></h2><p>Questa sezione ospiterà una biografia breve, le esperienze significative e il collegamento tra competenze e progetti realizzati.</p><p>Nessun contenuto definitivo sarà pubblicato prima della revisione dei materiali.</p><a className="text-link" href="#contact">Vai ai contatti <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </section>
-  );
-}
-
-export function ContactSection() {
-  return (
-    <section className="contact-section" id="contact" aria-labelledby="contact-title">
-      <div className="site-container contact-grid"><div><p className="eyebrow">05 / CONTATTI</p><h2 id="contact-title">Uno spazio per <em>collaborare.</em></h2></div><div className="contact-side"><p>Qui inseriremo un breve invito a entrare in contatto. Per ora sono disponibili i profili esterni già verificati.</p><a className="button button-light" href="https://www.linkedin.com/in/simone-iengo-557914109/" target="_blank" rel="noopener noreferrer">Apri LinkedIn <span aria-hidden="true">↗</span></a></div></div>
-    </section>
-  );
-}

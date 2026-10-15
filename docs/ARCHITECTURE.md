@@ -16,7 +16,6 @@ src/
       SiteFooter.jsx           link esterni verificati
       EditorialSections.jsx    sezioni homepage (server)
       SoftwareVisuals.jsx      visual segnaposto (server)
-    api/send/route.js          API legacy non collegata alla UI v2
   content/placeholder.mjs      dati dimostrativi
   config/site.js               identità, URL e SEO
 tests/placeholder-content.test.mjs
