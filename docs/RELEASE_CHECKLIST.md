@@ -25,7 +25,7 @@ Prima della review, controllare almeno 360, 390, 768, 1024 e 1440 px; navigazion
 
 ## SEO e contenuti
 
-- Sostituire titoli e testi placeholder con contenuti verificati.
+- **Progetti:** verificare le 3 schede tratte da GitHub; sostituire solo i placeholder di homepage, profilo, processo e competenze.
 - Inserire screenshot veri oppure visual tecnici autentici.
 - Verificare profilo, competenze e contatti pubblicati.
 - Abilitare `NEXT_PUBLIC_PORTFOLIO_PUBLISHED=true` **solo dopo** la revisione.

@@ -27,13 +27,13 @@ export function FeaturedSection() {
       <div className="site-container">
         <div className="section-intro">
           <div><p className="eyebrow">01 / PROGETTI IN EVIDENZA</p><h2 className="section-title" id="projects-title">Una selezione di <em>lavori.</em></h2></div>
-          <div className="section-aside"><p>Qui presenteremo i progetti principali: contesto, tecnologie, architettura e risultati verificabili.</p><span className="plain-meta">CASE STUDY IN PREPARAZIONE</span></div>
+          <div className="section-aside"><p>Tre repository pubblici con descrizioni, tecnologie e scelte architetturali ricavate dalla loro documentazione.</p><span className="plain-meta">CASE STUDY / REPOSITORY PUBBLICI</span></div>
         </div>
         <div className="project-grid">
           {featuredProjects.map((project) => <ProjectCard key={project.id} project={project} compact />)}
         </div>
         <div className="featured-footer">
-          <p className="projects-disclaimer">Anteprime dimostrative: i progetti reali verranno aggiunti dopo la revisione dei repository.</p>
+          <p className="projects-disclaimer">Progetti reali; anteprime grafiche illustrative, non screenshot dei software.</p>
           <Link className="text-link" href="/projects">Tutti i progetti <span aria-hidden="true">↗</span></Link>
         </div>
       </div>

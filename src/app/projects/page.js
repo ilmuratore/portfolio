@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: `Progetti — ${siteConfig.name}`,
-  description: "Catalogo dimostrativo dei progetti: struttura in preparazione, contenuti non ancora definitivi.",
+  description: "Progetti software documentati: banca Python, assistente AI locale e gestionale Java.",
   alternates: { canonical: `${siteConfig.url}/projects` },
   robots: { index: false, follow: false }
 };
@@ -17,10 +17,10 @@ export default function ProjectsPage() {
         <nav className="breadcrumbs" aria-label="Percorso"><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">Progetti</span></nav>
         <div className="catalog-hero">
           <div><p className="eyebrow">PORTFOLIO / PROGETTI</p><h1 id="catalog-title" className="catalog-title">Il lavoro, <em>nel dettaglio.</em></h1></div>
-          <p>Un catalogo pensato per raccontare processi, scelte tecniche e risultati. Le schede attuali sono placeholder e verranno sostituite da progetti reali.</p>
+          <p>Un catalogo pensato per raccontare processi, scelte tecniche e risultati. Le schede presentano repository pubblici e documentazione tecnica. Le anteprime restano illustrative.</p>
         </div>
         <ProjectCatalog />
-        <div className="catalog-footnote"><span>01 — 03 / DEMO</span><Link className="text-link" href="/#contact">Vai ai contatti <span aria-hidden="true">↗</span></Link></div>
+        <div className="catalog-footnote"><span>01 — 03 / REPOSITORY</span><Link className="text-link" href="/contact">Vai ai contatti <span aria-hidden="true">↗</span></Link></div>
       </section>
     </SitePageFrame>
   );

@@ -1,53 +1,57 @@
-# Catalogo e case study — PR04
+# Catalogo e case study — PR07
 
-La sezione progetti ha una struttura completa ma **non contiene ancora progetti reali**. I dati temporanei sono esplicitamente marcati come dimostrativi, e le schede provvisorie sono `noindex`.
+## Repository selezionati per la review
+
+Sono stati usati tre repository **pubblici** dell'account GitHub `ilmuratore`. I testi si basano sulla documentazione presente nei rispettivi repository, senza informazioni su progetti privati o metriche inventate.
+
+| Progetto | Repository | Documentazione verificata |
+| --- | --- | --- |
+| Banca Python | https://github.com/ilmuratore/banca-python | `README.md`, `docs/ARCHITECTURE.md` |
+| Python Developer AI | https://github.com/ilmuratore/python-developer-ai | `README.md`, `PROJECT_AUDIT.md`, `pyproject.toml` |
+| AziendaJava | https://github.com/ilmuratore/AziendaJava | `README.md`, `pom.xml` |
+
+Questa selezione può essere cambiata nella review; non è una dichiarazione che siano i soli o i migliori progetti del portfolio.
 
 ## Rotte
 
-| Percorso | Utilizzo |
-| --- | --- |
-| `/` | Homepage, tre progetti selezionati |
-| `/projects` | Catalogo filtrabile |
-| `/projects/[slug]` | Case study editoriali (5 capitoli) |
+- `/projects`: catalogo filtrabile per Data & Backend, AI, Gestionali.
+- `/projects/banca-python`
+- `/projects/python-developer-ai`
+- `/projects/azienda-java`
 
-Tutte le rotte sono compatibili con Next.js App Router ed esportazione statica: `generateStaticParams()` definisce le pagine concrete durante la build, `dynamicParams = false` evita pagine fuori catalogo.
+Le pagine sono compilate staticamente con `generateStaticParams()`; il routing di Next.js gestisce correttamente il base path di GitHub Pages.
 
-## Contenuti centralizzati
+## Dati
 
-`src/content/projects.mjs` definisce la collezione `projects`. Ogni elemento include:
+`src/content/projects.mjs` è la sorgente unica. Ogni scheda contiene:
 
-- `id`, `slug`, `index`, `title`
-- `category`, `categoryId`, `preview`
-- `description`, `intro`, `tags`
-- `featured`, per homepage
-- `sections.context`, `.challenge`, `.solution`, `.architecture`, `.results`
+- `id`, `slug`, `index`, `title`, `categoryId`, `category`
+- `description`, `intro`, `tags`, `featured`, `status`
+- `repositoryUrl`, `documentationUrl` verificati
+- `preview`: visual dimostrativo CSS, non screenshot del progetto
+- `architectureNodes`: 3 componenti sintetizzati dalla documentazione, non un diagramma ufficiale
+- `sections`: context, challenge, solution, architecture, results
 
-`featuredProjects`, `getProjectBySlug()` e `getAdjacentProjects()` derivano tutti dallo stesso array. La homepage non mantiene copie di testi né immagini.
+`ProjectCard` mostra la scheda nel catalogo e nella homepage. La pagina case study mostra i link GitHub, il contesto tecnico e i limiti documentati.
 
-## Componenti
+## Limiti e verifiche prima del rilascio
 
-- `src/app/components/v2/ProjectCard.jsx` — card linkabile, descrizioni e tag.
-- `src/app/components/v2/ProjectCatalog.jsx` — filtro categorie (unico Client Component aggiunto).
-- `src/app/components/v2/SoftwareVisuals.jsx` — preview illustrative HTML/CSS riutilizzate.
-- `src/app/components/v2/SitePageFrame.jsx` — layout condiviso per pagine interne.
-- `src/app/projects/page.js` — catalogo.
-- `src/app/projects/[slug]/page.js` — schede.
-- `src/app/globals.css` — elementi editoriali responsive.
+- Tutti e tre i repository sono reali e pubblici; le schede non asseriscono risultati di produzione o metriche non documentate.
+- Python Developer AI riporta M01 completata e M02 stabilizzata; M03 non viene presentata come implementata.
+- Banca Python è un simulatore educativo e non gestisce operazioni bancarie reali.
+- Le immagini illustrate in HTML/CSS sono segnaposto. Sostituirle solo con screenshot reali e revisionati.
+- Le pagine restano `noindex` fino alla revisione complessiva del sito.
+- I progetti privati non vengono citati o pubblicati.
+- Per ulteriori progetti, aggiungere dati reali, aggiornare i test e verificare i link alle fonti.
 
-## Passaggio ai contenuti reali
+## Controlli locali
 
-Per pubblicare un progetto:
+```bash
+npm ci
+npm test
+npm run lint
+npm run build
+npm run verify:static
+```
 
-1. Selezionare un repository effettivamente documentato.
-2. Scrivere contesto, problema, soluzione, architettura, verifica/risultati senza numeri inventati.
-3. Sostituire l'anteprima CSS con screenshot reali ottimizzati o diagrammi verificati.
-4. Inserire stack e collegamenti reali solo dopo averli controllati.
-5. Aggiornare `slug` a una URL definitiva evitando rotture nei collegamenti.
-6. Rimuovere la dicitura demo dai componenti **solo quando i dati non sono più placeholder**.
-7. Rimuovere `robots: { index: false, follow: false }` dalle pagine validate, aggiungere le nuove URL alla sitemap e verificare canonical/OG.
-
-Non aggiungere una pagina finta per ogni repository. Si può avere un catalogo di progetti selezionati e case study approfonditi solo per i lavori rappresentativi.
-
-## Hosting
-
-Il progetto non viene pubblicato da questa PR. L'esportazione statica si verifica ora localmente con `PORTFOLIO_STATIC_EXPORT=1`, controllando le pagine generate sotto `out/projects/...`. I workflow GitHub Actions sono rimossi su richiesta. I link interni devono usare `next/link` per ricevere automaticamente il base path `/portfolio` su GitHub Pages.
+Nessun workflow GitHub Actions o deploy automatico è stato introdotto.
