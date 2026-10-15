@@ -1,10 +1,10 @@
 import { featuredProjects, processSteps, skillAreas } from "@/content/placeholder.mjs";
 import { HeroSoftwareVisual, ProjectSoftwareVisual } from "./SoftwareVisuals";
 
-function SectionIntro({ eyebrow, title, description, aside }) {
+function SectionIntro({ eyebrow, title, description, aside, id }) {
   return (
     <div className="section-intro">
-      <div><p className="eyebrow">{eyebrow}</p><h2 className="section-title">{title}</h2></div>
+      <div><p className="eyebrow">{eyebrow}</p><h2 className="section-title" id={id}>{title}</h2></div>
       {(description || aside) && <div className="section-aside">{description && <p>{description}</p>}{aside}</div>}
     </div>
   );
@@ -75,7 +75,7 @@ export function SkillsSection() {
   return (
     <section className="section section-skills" id="skills" aria-labelledby="skills-title">
       <div className="site-container">
-        <SectionIntro eyebrow="03 / COMPETENZE" title={<>Strumenti per <em>costruire.</em></>} description="Le competenze saranno organizzate per area, senza percentuali arbitrarie o elenchi infiniti." />
+        <SectionIntro id="skills-title" eyebrow="03 / COMPETENZE" title={<>Strumenti per <em>costruire.</em></>} description="Le competenze saranno organizzate per area, senza percentuali arbitrarie o elenchi infiniti." />
         <div className="skills-grid">
           {skillAreas.map((item) => <div className="skill-tile" key={item.number}><span className="skill-number">{item.number} / AREA</span><span className="skill-icon" aria-hidden="true">{item.number === "01" ? "</>" : item.number === "02" ? "{ }" : item.number === "03" ? "▤" : "⌘"}</span><h3>{item.name}</h3><p>{item.description}</p></div>)}
         </div>
