@@ -1,23 +1,38 @@
 # Roadmap — Portfolio v2
 
-Workflow: una PR per ambito e verifiche locali prima di ogni merge. Nessuna pubblicazione automatica configurata.
+Una PR per ambito, test locali prima del merge, nessun deployment automatico.
 
 | PR | Ambito | Stato |
 | --- | --- | --- |
-| 01 | Fondamenta e documentazione | Mergiata |
-| 02 | Nuovo design editoriale e homepage | Mergiata |
-| 03 | UX mobile e compatibilità export statico | Mergiata |
-| 04 | Catalogo e case study placeholder | Mergiata |
-| 05 | Profilo, competenze e contatti; rimozione Vercel e Actions | Mergiata |
-| 06 | Upgrade Next 16, Tailwind 4, React 19.3 e controlli locali | Mergiata; audit toolchain ancora da verificare |
-| 07 | Tre case study da repository pubblici, catalogo e fonti | In review |
-| 08 | Profilo personale definitivo, screenshot reali e audit finale | Da pianificare |
-| 09 | Dominio, hosting e pubblicazione statica | Da pianificare |
+| 01 | Foundation | Mergiata |
+| 02 | Nuovo design editoriale | Mergiata |
+| 03 | UX e export statico | Mergiata |
+| 04 | Catalogo e template case study | Mergiata |
+| 05 | About, contatti, pulizia Vercel/Actions | Mergiata |
+| 06 | Next.js 16, React 19.3, Tailwind 4, sicurezza | Mergiata; audit npm ancora da rivedere |
+| 07 | Tre progetti reali e fonti GitHub | Mergiata |
+| 08 | Profilo professionale, specializzazione AI, certificazioni e progetti futuri | In revisione |
+| 09 | Materiali finali, audit, dominio e pubblicazione statica | Da pianificare, divisibile in più PR |
 
-## Linee guida
+## PR08 — Scelte professionali
 
-Stile minimal/editoriale e palette autunnale approvati. Niente dati professionali inventati, CV finto, metriche arbitrarie, form simulati o immagini stock. Le pagine provvisorie sono non indicizzabili.
+- Posizionamento: Software Engineer · AI Systems & Backend. Non è una dichiarazione di aver ricoperto un incarico professionale denominato AI Engineer.
+- Esperienza tecnica recente: Talentform, Nea Services, Itconsulting.
+- Esperienza organizzativa e commerciale: Aurora Finanziamenti, Facile.it, Generali Italia.
+- EPICODE nella sezione formazione.
+- Google e Coursera sono le piattaforme citate dal proprietario, ma senza titolo e verifica di singoli attestati: la raccolta certificazioni resta vuota.
+- RustOS e Il Presidente sono indicati solo come progetti in sviluppo, senza collegamenti ai repository privati.
+- Le anteprime grafiche dei case study non sono screenshot reali; il catalogo resta aggiornabile un progetto per volta.
+- Rimane la protezione noindex e non viene attivato alcun hosting.
 
-## Hosting
+## PR09 — Criteri prima del rilascio
 
-Preparazione per GitHub Pages e altri provider statici, senza deploy prima del completamento. Tutte le verifiche sono locali dopo la rimozione dei workflow GitHub Actions.
+1. Revisionare descrizioni, date e competenze pubbliche.
+2. Inserire i certificati reali con titoli e credenziali verificabili.
+3. Aggiungere screenshot autentici soltanto ai case study pronti.
+4. Verificare accessibilità, prestazioni, layout mobile e export statico.
+5. Esaminare le vulnerabilità residue di npm audit, comprese quelle della toolchain lint/build.
+6. Scegliere GitHub Pages o altro hosting, con o senza dominio personalizzato.
+7. Abilitare l'indicizzazione solo dopo approvazione di tutti i contenuti.
+
+RustOS e Il Presidente potranno diventare case study soltanto dopo revisione e decisione di pubblicazione.

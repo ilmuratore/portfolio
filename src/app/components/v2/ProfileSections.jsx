@@ -1,13 +1,16 @@
 import Link from "next/link";
-import { profile, skillAreas, profileChapters, contactChannels } from "@/content/profile.mjs";
+import {
+  profile, skillAreas, profileChapters, contactChannels,
+  experience, education, certificates, certificationProviders, futureProjects
+} from "@/content/profile.mjs";
 
 export function SkillsSection() {
   return (
     <section className="section section-skills" id="skills" aria-labelledby="skills-title">
       <div className="site-container">
         <div className="section-intro">
-          <div><p className="eyebrow">03 / AREE DI COMPETENZA</p><h2 className="section-title" id="skills-title">Strumenti per <em>costruire.</em></h2></div>
-          <div className="section-aside"><p>Una panoramica ordinata per ambiti. Le tecnologie definitive saranno inserite dopo la revisione delle esperienze e dei progetti.</p></div>
+          <div><p className="eyebrow">03 / COMPETENZE</p><h2 className="section-title" id="skills-title">Tecnologie, <em>con metodo.</em></h2></div>
+          <div className="section-aside"><p>Dallo sviluppo Java enterprise ai sistemi AI con Python. Le competenze sono presentate per contesto d'uso, non con percentuali arbitrarie.</p></div>
         </div>
         <div className="skills-grid skill-groups">
           {skillAreas.map((area) => (
@@ -16,13 +19,12 @@ export function SkillsSection() {
               <span className="skill-glyph" aria-hidden="true">{area.number === "01" ? "⌘" : area.number === "02" ? "{ }" : area.number === "03" ? "▤" : "↗"}</span>
               <h3>{area.name}</h3>
               <p>{area.description}</p>
-              <div className="skill-technologies" aria-label="Tecnologie da confermare">
+              <div className="skill-technologies" aria-label={"Strumenti per " + area.name}>
                 {area.technologies.map((tech) => <span key={tech}>{tech}</span>)}
               </div>
             </article>
           ))}
         </div>
-        <p className="skills-footnote">Elenco dimostrativo — nessun livello di competenza attribuito arbitrariamente.</p>
       </div>
     </section>
   );
@@ -33,16 +35,16 @@ export function AboutSection() {
     <section className="section section-about" id="about" aria-labelledby="about-title">
       <div className="site-container about-grid">
         <div className="about-visual" aria-hidden="true">
-          <span className="about-visual-top">PROFILO / PLACEHOLDER</span>
+          <span className="about-visual-top">SOFTWARE / AI / FORMAZIONE</span>
           <div className="about-monogram">SI<span>.</span></div>
-          <span className="about-visual-bottom">IDEA — PROGETTO — CODICE</span>
+          <span className="about-visual-bottom">ANALISI — ARCHITETTURA — SVILUPPO</span>
         </div>
         <div className="about-copy">
           <p className="eyebrow">04 / CHI SONO</p>
-          <h2 className="section-title" id="about-title">Un percorso fatto di <em>progetti.</em></h2>
+          <h2 className="section-title" id="about-title">Esperienza concreta. <em>Nuove direzioni.</em></h2>
           <p>{profile.introduction}</p>
-          <p>Approccio, esperienze e percorso saranno raccontati nella pagina dedicata, senza informazioni inventate.</p>
-          <Link className="text-link" href="/about">Scopri il profilo <span aria-hidden="true">↗</span></Link>
+          <p>Un percorso che unisce sviluppo enterprise, analisi funzionale, progetti Python e attività di formazione.</p>
+          <Link className="text-link" href="/about">Percorso professionale <span aria-hidden="true">↗</span></Link>
         </div>
       </div>
     </section>
@@ -53,10 +55,10 @@ export function ContactSection() {
   return (
     <section className="contact-section" id="contact" aria-labelledby="contact-title">
       <div className="site-container contact-grid">
-        <div><p className="eyebrow">05 / CONTATTI</p><h2 id="contact-title">Uno spazio per <em>collaborare.</em></h2></div>
+        <div><p className="eyebrow">05 / CONTATTI</p><h2 id="contact-title">Tecnologia e <em>confronto.</em></h2></div>
         <div className="contact-side">
-          <p>La pagina contatti raccoglie i canali pubblici verificati. Il form email sarà valutato soltanto quando ne avremo definito il servizio.</p>
-          <Link className="button button-light" href="/contact">Contatti e profili <span aria-hidden="true">↗</span></Link>
+          <p>Software engineering, sistemi AI e formazione: trovi il codice pubblico su GitHub e le esperienze professionali su LinkedIn.</p>
+          <Link className="button button-light" href="/contact">Vai ai contatti <span aria-hidden="true">↗</span></Link>
         </div>
       </div>
     </section>
@@ -67,10 +69,99 @@ export function ProfileChapters() {
   return (
     <div className="profile-chapters">
       {profileChapters.map((chapter) => (
-        <section className="profile-chapter" key={chapter.id} id={chapter.id} aria-labelledby={`profile-${chapter.id}`}>
+        <section className="profile-chapter" key={chapter.id} id={chapter.id} aria-labelledby={"profile-" + chapter.id}>
           <span className="profile-number">{chapter.index}</span>
-          <div><h2 id={`profile-${chapter.id}`}>{chapter.title}</h2><p>{chapter.description}</p></div>
+          <div><h3 id={"profile-" + chapter.id}>{chapter.title}</h3><p>{chapter.description}</p></div>
         </section>
+      ))}
+    </div>
+  );
+}
+
+export function ExperienceTimeline() {
+  const primary = experience.filter((item) => item.category === "tech");
+  const previous = experience.filter((item) => item.category === "previous");
+  return (
+    <div className="career">
+      <div className="career-list">
+        {primary.map((item) => (
+          <article className="career-entry" key={item.id}>
+            <div className="career-entry-period">{item.period}</div>
+            <div className="career-entry-body">
+              <span className="career-organization">{item.organization}</span>
+              <h3>{item.role}</h3>
+              <p className="career-arrangement">{item.arrangement}</p>
+              <p>{item.description}</p>
+              {item.highlights.length > 0 && <ul>{item.highlights.map((point) => <li key={point}>{point}</li>)}</ul>}
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="career-previous">
+        <h3>Esperienza precedente</h3>
+        <p>{profile.previousCareer}</p>
+        {previous.map((item) => (
+          <article key={item.id} className="career-previous-item">
+            <span>{item.period}</span>
+            <div><strong>{item.role}</strong><span>{item.organization}</span><p>{item.description}</p></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function EducationSection() {
+  return (
+    <div className="education-list">
+      {education.map((item) => (
+        <article className="education-entry" key={item.id}>
+          <span className="eyebrow">{item.period}</span>
+          <h3>{item.title}</h3>
+          <p className="career-organization">{item.organization}</p>
+          <p>{item.detail}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+export function CertificationsSection() {
+  return (
+    <div className="certification-panel">
+      {certificates.length > 0 ? (
+        <div className="certification-grid">
+          {certificates.map((certificate) => (
+            <article className="certification-item" key={certificate.id}>
+              <span className="eyebrow">{certificate.issuer}</span>
+              <h3>{certificate.title}</h3>
+              {certificate.date && <p>{certificate.date}</p>}
+              {certificate.credentialUrl && <a className="text-link" href={certificate.credentialUrl} target="_blank" rel="noopener noreferrer">Verifica credenziale <span aria-hidden="true">↗</span></a>}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="certification-empty">
+          <span className="eyebrow">CREDENZIALI / DA COMPLETARE</span>
+          <h3>Certificazioni in aggiornamento.</h3>
+          <p>Uno spazio dedicato agli attestati conseguiti. Titoli, date e collegamenti di verifica verranno aggiunti dopo la raccolta delle credenziali.</p>
+          <div className="certification-providers" aria-label="Piattaforme indicate">{certificationProviders.map((name) => <span key={name}>{name}</span>)}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function FutureProjectsSection() {
+  return (
+    <div className="future-project-grid">
+      {futureProjects.map((item, index) => (
+        <article className="future-project" key={item.id}>
+          <div className="future-project-top"><span>0{index + 1} / PROGETTO A LUNGO TERMINE</span><span>{item.status}</span></div>
+          <h3>{item.name}</h3>
+          <p>{item.description}</p>
+          <span className="future-project-note">Presentazione pubblica in preparazione</span>
+        </article>
       ))}
     </div>
   );

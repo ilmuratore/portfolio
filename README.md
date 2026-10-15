@@ -1,6 +1,6 @@
 # Simone Iengo — Portfolio v2
 
-Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo.** Il catalogo presenta tre repository pubblici reali; biografia, processo, competenze e anteprime grafiche restano provvisori. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
+Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo.** Il catalogo presenta tre repository pubblici reali; esperienze e competenze derivano dal profilo condiviso; certificazioni e anteprime autentiche restano da completare. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
 
 ## Stack
 
@@ -44,8 +44,8 @@ Il comando di upgrade richiede accesso npm e modifica `package.json` e `package-
 ## Struttura dei contenuti
 
 - `src/content/projects.mjs` — schede reali basate su repository pubblici: Banca Python, Python Developer AI, AziendaJava
-- `src/content/profile.mjs` — About, competenze e contatti
-- `src/content/placeholder.mjs` — processo
+- `src/content/profile.mjs` — percorso professionale, competenze, formazione, certificazioni e contatti
+- `src/content/placeholder.mjs` — processo di lavoro coerente con il percorso professionale
 - `src/app/components/v2/` — componenti editoriali riutilizzabili
 - `src/app/globals.css` — design system responsive
 - `scripts/` — lint, export statico e verifiche di sicurezza
@@ -66,6 +66,7 @@ La pubblicazione con dominio proprio resta una fase separata. Nessuna GitHub Act
 - [Sicurezza](docs/SECURITY.md)
 - [Checklist rilascio](docs/RELEASE_CHECKLIST.md)
 - [Roadmap](docs/ROADMAP.md)
+- [Profilo professionale](docs/PROFILE.md)
 
 ## Migrazione PR06: Next.js 16
 
@@ -86,3 +87,7 @@ Le schede del catalogo sono collegate ai repository pubblici e alla documentazio
 - [AziendaJava](https://github.com/ilmuratore/AziendaJava) — gestionale Spring Boot/Java/JPA
 
 Le anteprime sono costruzioni CSS illustrative, non screenshot. Le altre sezioni mantengono i placeholder e l'intero sito resta non indicizzabile in attesa del rilascio.
+
+## Profilo professionale — PR08
+
+Il posizionamento «Software Engineer · AI Systems & Backend» valorizza esperienza Java enterprise, sistemi Python/AI e formazione tecnica, senza attribuire un precedente impiego con il titolo AI Engineer. RustOS e Il Presidente sono menzionati soltanto come iniziative in sviluppo, senza collegamenti ai repository privati. La sezione certificazioni Google/Coursera non contiene titoli o credenziali inventati.
