@@ -16,12 +16,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) return { title: "Progetto non trovato", robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false } };
+  if (!project) return { title: "Progetto non trovato", robots: { index: false, follow: false } };
   return {
     title: `${project.title} — ${siteConfig.name}`,
     description: project.description,
     alternates: { canonical: `${siteConfig.url}/projects/${project.slug}/` },
-    robots: { index: false, follow: false }
+    robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false }
   };
 }
 

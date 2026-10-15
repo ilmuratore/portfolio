@@ -9,7 +9,8 @@
 - [ ] Navigazione tastiera e layout a 360, 390, 768, 1024 e 1440 px verificati.
 - [ ] `npm ci`, `npm test`, `npm run lint`, `npm run build` superati.
 - [ ] `npm run verify:static` superato (preview noindex).
-- [ ] `npm run verify:pages` superato (build pubblica, sitemap, robots e asset).
+- [ ] `npm run verify:pages` superato (build pubblica, sitemap, robots, metadata indicizzabili dei **tre case study** e asset).
+- [ ] Il deploy non dipende da Docker; file obsoleti e test non utilizzati non sono presenti.
 - [ ] `npm run security:check`, `npm run audit`, `npm run audit:prod` analizzati. Non affermare che i problemi sono risolti finché non lo sono.
 
 ## Pubblicazione

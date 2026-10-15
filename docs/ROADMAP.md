@@ -1,31 +1,29 @@
-# Roadmap — Portfolio v2
+# Roadmap — Portfolio
 
-Tutte le modifiche al sorgente passano da pull request; la pubblicazione avviene dopo il merge con uno script di export statico locale.
+Tutte le modifiche al codice passano da pull request. La pubblicazione è manuale, con export statico verso GitHub Pages.
 
 | Fase | Ambito | Stato |
 | --- | --- | --- |
-| PR01–PR05 | Foundation, design, responsive, pagine | Mergiate |
-| PR06 | Next.js 16, React, Tailwind, hardening | Mergiata |
-| PR07 | Tre case study da repository pubblici | Mergiata |
-| PR08 | Profilo, esperienze, competenze, formazione | Mergiata |
-| PR09A | Icone SVG, favicon e social image | Mergiata |
-| PR10 | Junior developer, 3 anni IT e obiettivo AI Engineer | Mergiata |
-| **PR11** | **Preparazione release su GitHub Pages: SEO, verifica e deploy manuale** | **In review** |
-| Evoluzione continua | Screenshot, certificazioni e nuove schede dei repository | Iterativa |
-| Opzionale | Dominio personalizzato con configurazione dedicata | Successiva |
+| PR01–PR06 | Fondamenta, design, accessibilità, Next.js 16 e pulizia Vercel | Mergiate |
+| PR07 | Case study di repository pubblici | Mergiata |
+| PR08 | Profilo, formazione, competenze e certificazioni | Mergiata |
+| PR09A | Loghi SVG, favicon e immagini social | Mergiata |
+| PR10 | Profilo junior e obiettivo AI Engineer | Mergiata |
+| PR11 | Preparazione hosting statico su GitHub Pages | Mergiata |
+| PR12 | Correzioni metadata Twitter e test canonical | Mergiata |
+| PR13 | Export PNG social e normalizzazione URL | Mergiata |
+| **PR14** | **Correzione SEO dei case study, rimozione Docker e file obsoleti** | **In revisione** |
+| Evoluzione successiva | Certificati, screenshot reali e nuovi progetti pubblici | Iterativa |
+| Facoltativo | Dominio personalizzato | Da valutare |
 
-## Politica editoriale
+## Requisiti del primo rilascio
 
-- Profilo attuale junior, in crescita; AI Engineer è un obiettivo e non un titolo già acquisito.
-- La laurea L-31 è un obiettivo universitario, non un titolo conseguito.
-- Esperienza finanziaria e gestionale distinta dall'esperienza di sviluppo.
-- Le schede dei repository possono descrivere lavori formativi o prototipi in miglioramento.
-- Le anteprime illustrate non sono spacciate per screenshot.
-- Le certificazioni restano senza titoli finché non vengono fornite e verificate.
-- RustOS e Il Presidente non vengono collegati a repository privati.
+1. I test `npm run verify`, `npm run verify:static` e `npm run verify:pages` devono superare i controlli locali.
+2. La build Pages è indicizzabile: niente `noindex` sui tre case study pubblici.
+3. Le immagini social vengono pubblicate come PNG validi e tutti i link hanno `basePath=/portfolio`.
+4. Il profilo distingue chiaramente esperienza IT junior, esperienza precedente finanziaria e obiettivo futuro AI Engineer.
+5. Le anteprime CSS restano identificate come illustrative e le certificazioni senza titolo come in aggiornamento.
+6. Gli avvisi `npm audit` sono conosciuti e documentati; nessun downgrade forzato delle dipendenze.
+7. Il deploy avviene soltanto da `main`, senza Docker, Vercel o workflow GitHub Actions personalizzati.
 
-## Hosting
-
-GitHub Pages (repository pubblico) consente l'hosting statico gratuito con URL `https://ilmuratore.github.io/portfolio/`. La release avviene da `gh-pages`, popolato dallo script `npm run deploy:pages`; il repository non contiene workflow GitHub Actions personalizzati. I processi interni GitHub Pages possono produrre run nella sezione Actions del servizio.
-
-Vercel non è più usato dal codice; la rimozione dell'integrazione esterna richiede una verifica nelle impostazioni Vercel e nelle GitHub Apps. Nessun dominio acquistato o deployment live viene creato automaticamente con la PR11.
+Dopo il primo deploy si aggiornano gradualmente case study, certificati e asset veri, senza riscrivere di nuovo il sito.

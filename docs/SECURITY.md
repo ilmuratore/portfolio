@@ -21,11 +21,11 @@ Questo non annulla l'advisory e non autorizza a dichiarare l'audit pulito. Occor
 
 ## Build statica e deploy
 
-Il log del 15 ottobre 2026 riportava **due blocchi distinti**:
-- Un test `tests/static-export.test.mjs` presumeva il vecchio canonical senza slash finale; con PR12 ora verifica la forma coerente con `trailingSlash: true`.
-- Next.js 16 rifiutava la riesportazione di `dynamic` da `twitter-image.jsx`. Con PR12 la configurazione statica viene dichiarata direttamente nel file della route Twitter.
+Il 15 ottobre 2026 il log locale ha confermato che la compilazione Next.js 16 e le 14 pagine statiche si generano correttamente. La PR13 ha inoltre risolto la normalizzazione dei file PNG social.
 
-La build Next e il deploy non sono ancora stati rieseguiti dopo le correzioni: `npm run verify`, `npm run verify:static` e `npm run verify:pages` devono superare i test locali prima del merge.
+L'ultimo blocco riscontrato è **l'indicizzazione delle pagine progetto**: `generateMetadata()` impostava ancora `noindex` per Banca Python anche nella build pubblica. La PR14 uniforma la policy SEO dei case study a `siteConfig.published` e aggiunge un test di regressione specifico. Non eseguire il deploy da una PR: dopo i controlli locali e il merge, pubblicare esclusivamente da `main`.
+
+La pulizia ha eliminato Docker e lo script di upgrade delle dipendenze che reinstalla versioni esatte del 2026. Per gli aggiornamenti futuri usare npm con un lockfile coerente e verificare il risultato di `npm audit`, evitando il downgrade forzato di Next/eslint-config-next.
 
 ## Controlli consigliati
 

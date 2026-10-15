@@ -1,4 +1,5 @@
-import { featuredProjects, processSteps } from "@/content/placeholder.mjs";
+import { featuredProjects } from "@/content/projects.mjs";
+import { processSteps } from "@/content/process.mjs";
 import { HeroSoftwareVisual } from "./SoftwareVisuals";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
