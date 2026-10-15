@@ -1,6 +1,6 @@
 # Simone Iengo — Portfolio v2
 
-Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo e contenuti placeholder.** Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
+Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo.** Il catalogo presenta tre repository pubblici reali; biografia, processo, competenze e anteprime grafiche restano provvisori. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
 
 ## Stack
 
@@ -43,7 +43,7 @@ Il comando di upgrade richiede accesso npm e modifica `package.json` e `package-
 
 ## Struttura dei contenuti
 
-- `src/content/projects.mjs` — case study dimostrativi e catalogo
+- `src/content/projects.mjs` — schede reali basate su repository pubblici: Banca Python, Python Developer AI, AziendaJava
 - `src/content/profile.mjs` — About, competenze e contatti
 - `src/content/placeholder.mjs` — processo
 - `src/app/components/v2/` — componenti editoriali riutilizzabili
@@ -76,3 +76,13 @@ Le versioni sono definite in `package.json`, ma **prima di verificare o fare il 
 - ESLint utilizza `eslint.config.mjs`, senza `.eslintrc.json` e senza `next lint`.
 - Verificare la resa grafica mobile/desktop: la nuova versione Tailwind comprende modifiche al CSS reset.
 - Non eseguire `npm audit fix --force` prima di esaminare le incompatibilità.
+
+## Progetti verificabili
+
+Le schede del catalogo sono collegate ai repository pubblici e alla documentazione tecnica:
+
+- [Banca Python](https://github.com/ilmuratore/banca-python) — simulator Python/PostgreSQL/Pandas
+- [Python Developer AI](https://github.com/ilmuratore/python-developer-ai) — backend FastAPI con memoria e LLM locale
+- [AziendaJava](https://github.com/ilmuratore/AziendaJava) — gestionale Spring Boot/Java/JPA
+
+Le anteprime sono costruzioni CSS illustrative, non screenshot. Le altre sezioni mantengono i placeholder e l'intero sito resta non indicizzabile in attesa del rilascio.

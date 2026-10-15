@@ -1,72 +1,85 @@
-// Dati dimostrativi: nessuna scheda descrive un progetto realmente pubblicato.
+// Schede sintetizzate dai README e dalla documentazione dei repository pubblici.
+// Le anteprime grafiche rimangono illustrative: non sono screenshot dei progetti.
 export const projects = [
   {
-    id: "project-01",
-    slug: "progetto-01",
+    id: "banca-python",
+    slug: "banca-python",
     index: "01",
-    title: "Titolo progetto 01",
-    category: "Applicazione web",
-    categoryId: "web",
-    description: "Presentazione segnaposto: qui illustreremo il problema, le funzionalità e le scelte di sviluppo.",
-    intro: "Questo spazio ospiterà la sintesi di un progetto reale, con obiettivi, responsabilità, tecnologie e risultati verificabili.",
+    title: "Banca Python",
+    category: "Data & Backend",
+    categoryId: "data",
+    description: "Simulatore bancario da terminale: logica a oggetti, persistenza PostgreSQL, import/export CSV e analisi con Pandas.",
+    intro: "Un'applicazione Python per simulare la gestione di una filiale bancaria. Un modello a oggetti, un controller e un repository PostgreSQL coordinano operazioni, archiviazione e analisi.",
     preview: "dashboard",
-    tags: ["Tecnologia 01", "Tecnologia 02", "Tecnologia 03"],
+    tags: ["Python", "PostgreSQL", "Pandas"],
     featured: true,
+    status: "Simulazione didattica",
+    repositoryUrl: "https://github.com/ilmuratore/banca-python",
+    documentationUrl: "https://github.com/ilmuratore/banca-python/blob/main/docs/ARCHITECTURE.md",
+    architectureNodes: ["Menu terminale", "Controller", "Repository SQL"],
     sections: {
-      context: "Descrizione del contesto e delle esigenze da cui è nato il progetto. I dettagli verranno compilati dopo aver scelto un repository.",
-      challenge: "Il problema da risolvere, i vincoli iniziali e gli obiettivi del lavoro saranno descritti in questa sezione.",
-      solution: "Qui troveranno spazio le decisioni di progettazione, le funzionalità principali e le motivazioni delle scelte tecniche.",
-      architecture: "Questa sezione conterrà una panoramica di componenti, relazioni, flussi dati e integrazioni realmente implementate.",
-      results: "Risultati dimostrabili, test, compromessi e possibili evoluzioni saranno documentati senza inventare metriche."
+      context: "Il repository nasce come progetto pratico per simulare le attività quotidiane di una filiale: clienti, conti, movimenti, personale, ATM, finanziamenti e investimenti. Non è software bancario di produzione e non gestisce denaro reale.",
+      challenge: "Separare la logica del dominio dall'interazione nel terminale e dalla persistenza. Le modifiche devono essere salvate nel database senza affidarsi a file CSV come sorgente principale dei dati.",
+      solution: "L'applicazione usa modelli Python, un controller applicativo, servizi CSV e un modulo Pandas. Le funzioni coprono anagrafiche, operazioni sui conti e analisi, mentre importazione ed esportazione CSV sono azioni esplicite.",
+      architecture: "La documentazione descrive una separazione ispirata a MVC: view/menu → controller → repository PostgreSQL. Le scritture usano transazioni e le operazioni sul saldo sfruttano blocchi di riga SQL. Pandas legge dal repository e può produrre grafici PNG.",
+      results: "Nel repository sono presenti unit test per dominio, CSV e interazioni SQL simulate, oltre a dati sintetici per le dimostrazioni. Non sono dichiarati test end-to-end automatizzati con PostgreSQL reale; l'uso resta didattico."
     }
   },
   {
-    id: "project-02",
-    slug: "progetto-02",
+    id: "python-developer-ai",
+    slug: "python-developer-ai",
     index: "02",
-    title: "Titolo progetto 02",
-    category: "Prodotto digitale",
-    categoryId: "product",
-    description: "Presentazione segnaposto: uno spazio per descrivere la soluzione e mostrare l'interfaccia reale.",
-    intro: "La seconda scheda presenterà un prodotto digitale selezionato, il contesto d'uso e il percorso dallo studio iniziale alla realizzazione.",
-    preview: "board",
-    tags: ["Tecnologia 01", "Tecnologia 02", "Tecnologia 03"],
+    title: "Python Developer AI",
+    category: "AI & Backend",
+    categoryId: "ai",
+    description: "Backend sperimentale per un assistente Python con memoria persistente e integrazione con un modello linguistico locale.",
+    intro: "Un progetto di backend che sperimenta il dialogo fra memoria strutturata e modelli LLM locali. Conserva concetti, correzioni ed esempi tecnici per comporre risposte contestualizzate.",
+    preview: "terminal",
+    tags: ["Python", "FastAPI", "SQLite"],
     featured: true,
+    status: "Progetto sperimentale",
+    repositoryUrl: "https://github.com/ilmuratore/python-developer-ai",
+    documentationUrl: "https://github.com/ilmuratore/python-developer-ai/blob/main/PROJECT_AUDIT.md",
+    architectureNodes: ["API FastAPI", "Servizi memoria", "LLM locale"],
     sections: {
-      context: "Qui verranno introdotti utenti, requisiti e ambito del prodotto, sulla base della documentazione effettiva.",
-      challenge: "La sfida progettuale sarà descritta con esempi concreti, vincoli e requisiti verificabili.",
-      solution: "La scheda illustrerà progettazione delle interfacce, organizzazione del software e funzionalità principali.",
-      architecture: "Un diagramma reale sostituirà questo placeholder per documentare moduli, interazioni e flussi.",
-      results: "Questa sezione raccoglierà risultati, verifiche e prospettive di miglioramento supportate da evidenze."
+      context: "Il progetto nasce per studiare un assistente tecnico specializzato in Python che possa recuperare conoscenza salvata, correzioni e codice validato. Non è presentato come un sistema autonomo capace di apprendere senza supervisione.",
+      challenge: "Gestire la conoscenza persistente e distinguerla dalle risposte del modello linguistico, mantenendo tracciabili le fonti recuperate e controllando errori, timeout e disponibilità del server LLM.",
+      solution: "Il backend espone API FastAPI con schemi Pydantic e persistenza SQLite/SQLAlchemy. Un ConversationService coordina riconoscimento dell'intento, ricerca nella memoria, costruzione del prompt, client LLM locale e composizione della risposta.",
+      architecture: "La documentazione M02 descrive il flusso FastAPI → ConversationService → MemoryService/PromptBuilder → LocalLLMClient → modello locale via LM Studio → ResponseComposer. Il sistema documentato lavora su singoli turni e non conserva implicitamente la cronologia della conversazione.",
+      results: "La documentazione tecnica indica M01 completata e M02 stabilizzata con test e una verifica di integrazione con LM Studio. La memoria semantica avanzata prevista per M03 è ancora una milestone futura, non una funzionalità già presente."
     }
   },
   {
-    id: "project-03",
-    slug: "progetto-03",
+    id: "azienda-java",
+    slug: "azienda-java",
     index: "03",
-    title: "Titolo progetto 03",
-    category: "Software engineering",
-    categoryId: "engineering",
-    description: "Presentazione segnaposto: architettura, codice, scelte progettuali e risultati del software.",
-    intro: "La terza scheda sarà dedicata a un lavoro software, con attenzione all'architettura, all'implementazione e alla manutenzione.",
-    preview: "terminal",
-    tags: ["Tecnologia 01", "Tecnologia 02", "Tecnologia 03"],
+    title: "AziendaJava",
+    category: "Backend & Gestionale",
+    categoryId: "backend",
+    description: "Progetto gestionale dipendenti con Java 21, Spring Boot, persistenza relazionale e gestione di ruoli e account.",
+    intro: "Un sistema dimostrativo per la gestione di dipendenti, account e ruoli. Il repository include un backend Spring Boot, persistenza JPA e documentazione delle API.",
+    preview: "board",
+    tags: ["Java 21", "Spring Boot", "JPA"],
     featured: true,
+    status: "Progetto dimostrativo",
+    repositoryUrl: "https://github.com/ilmuratore/AziendaJava",
+    documentationUrl: "https://github.com/ilmuratore/AziendaJava/blob/main/README.md",
+    architectureNodes: ["API Spring", "JPA / Hibernate", "Database"],
     sections: {
-      context: "Qui descriveremo requisiti, scenario e obiettivi tecnici dell'applicazione reale.",
-      challenge: "Questo spazio chiarirà quali problematiche sono state affrontate e quali vincoli hanno guidato il lavoro.",
-      solution: "Qui saranno presentate le componenti sviluppate e le decisioni progettuali rilevanti.",
-      architecture: "L'architettura sarà documentata con moduli, dipendenze e percorsi dei dati verificabili nel repository.",
-      results: "Test, comportamenti osservabili, limiti noti e opportunità di evoluzione saranno descritti con precisione."
+      context: "Un gestionale Java per organizzare anagrafiche dei dipendenti, ruoli e account. Il README lo presenta come sistema dimostrativo sviluppato con Spring Boot e un database relazionale.",
+      challenge: "Organizzare le operazioni CRUD e la persistenza delle entità, distinguendo le informazioni dei dipendenti dagli account e dalle autorizzazioni applicative.",
+      solution: "La documentazione elenca endpoint e funzionalità per dipendenti, ruoli e account; descrive l'uso di Spring Security e JWT. Sono inoltre documentati strumenti per la configurazione iniziale e la generazione di dati di esempio.",
+      architecture: "Il file Maven dichiara Java 21, Spring Boot 3.5, JPA, librerie Spring Security, JWT e OpenAPI. Il README documenta MariaDB per la persistenza e H2 in sviluppo, con Hibernate come livello ORM.",
+      results: "Il repository rende consultabili codice e documentazione delle funzionalità previste. Non vengono riportate misure di prestazione o risultati di produzione; la scheda si limita agli elementi descritti dai file pubblici."
     }
   }
 ];
 
 export const projectFilters = [
   { id: "all", label: "Tutti" },
-  { id: "web", label: "Applicazioni web" },
-  { id: "product", label: "Prodotti digitali" },
-  { id: "engineering", label: "Software engineering" }
+  { id: "data", label: "Data & Backend" },
+  { id: "ai", label: "AI" },
+  { id: "backend", label: "Gestionali" }
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);

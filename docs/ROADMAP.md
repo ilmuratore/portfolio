@@ -8,9 +8,11 @@ Workflow: una PR per ambito e verifiche locali prima di ogni merge. Nessuna pubb
 | 02 | Nuovo design editoriale e homepage | Mergiata |
 | 03 | UX mobile e compatibilità export statico | Mergiata |
 | 04 | Catalogo e case study placeholder | Mergiata |
-| 05 | Profilo, competenze e contatti; rimozione Vercel e Actions | In revisione |
-| 06 | Audit dipendenze, accessibilità, SEO, ottimizzazione e controlli locali | In revisione: upgrade Next/React richiesto |
-| 07 | Contenuti definitivi e scelta dominio/hosting, pubblicazione | Da pianificare |
+| 05 | Profilo, competenze e contatti; rimozione Vercel e Actions | Mergiata |
+| 06 | Upgrade Next 16, Tailwind 4, React 19.3 e controlli locali | Mergiata; audit toolchain ancora da verificare |
+| 07 | Tre case study da repository pubblici, catalogo e fonti | In review |
+| 08 | Profilo personale definitivo, screenshot reali e audit finale | Da pianificare |
+| 09 | Dominio, hosting e pubblicazione statica | Da pianificare |
 
 ## Linee guida
 

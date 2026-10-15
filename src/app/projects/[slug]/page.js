@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   if (!project) return { title: "Progetto non trovato", robots: { index: false, follow: false } };
   return {
     title: `${project.title} — ${siteConfig.name}`,
-    description: `Scheda dimostrativa per ${project.title}. Contenuti provvisori, non corrispondono a un progetto pubblicato.`,
+    description: project.description,
     alternates: { canonical: `${siteConfig.url}/projects/${project.slug}` },
     robots: { index: false, follow: false }
   };
@@ -44,10 +44,10 @@ export default async function ProjectDetailPage({ params }) {
             <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/projects">Progetti</Link><span aria-hidden="true">/</span><span aria-current="page">{project.title}</span>
           </nav>
           <header className="case-header">
-            <p className="eyebrow">{project.index} / {project.category.toUpperCase()} / SCHEDA DEMO</p>
+            <p className="eyebrow">{project.index} / {project.category.toUpperCase()} / CASE STUDY</p>
             <h1>{project.title}<span className="case-title-accent">.</span></h1>
             <p>{project.intro}</p>
-            <div className="case-tags"><span className="case-status">CONTENUTO PROVVISORIO</span>{project.tags.map((tag, i) => <span key={i}>{tag}</span>)}</div>
+            <div className="case-tags"><span className="case-status">{project.status}</span>{project.tags.map((tag, i) => <span key={i}>{tag}</span>)}</div>
           </header>
           <div className="case-hero-visual"><ProjectSoftwareVisual variant={project.preview} /><div className="case-visual-note"><span>ANTEPRIMA ILLUSTRATIVA</span><span>NESSUNA IMMAGINE REALE DISPONIBILE</span></div></div>
           <div className="case-body">
@@ -56,7 +56,7 @@ export default async function ProjectDetailPage({ params }) {
               <nav aria-label="Indice del case study">
                 {details.map((item) => <a href={`#${item.key}`} key={item.key}>{item.number} <span>{item.label}</span></a>)}
               </nav>
-              <p className="case-aside-note">I dati e le rappresentazioni di questa pagina sono segnaposto, non informazioni su un progetto reale.</p>
+              <p className="case-aside-note">Contenuti ricavati da README e documenti tecnici pubblici. Le anteprime sono illustrative.</p>
             </aside>
             <div className="case-content">
               {details.map((item) => (
@@ -64,12 +64,21 @@ export default async function ProjectDetailPage({ params }) {
                   <span className="eyebrow">{item.number} / CASE STUDY</span>
                   <h2 id={`heading-${item.key}`}>{item.label}</h2>
                   <p>{project.sections[item.key]}</p>
-                  {item.key === "architecture" && <div className="architecture-placeholder" role="img" aria-label="Schema architetturale dimostrativo, non rappresenta un sistema reale">
-                    <div>Modulo A <small>Placeholder</small></div><span aria-hidden="true">→</span><div>Modulo B <small>Placeholder</small></div><span aria-hidden="true">→</span><div>Modulo C <small>Placeholder</small></div>
+                  {item.key === "architecture" && <div className="architecture-placeholder" role="img" aria-label="Schema riepilogativo dei componenti descritti dal repository; non è un diagramma ufficiale">
+                    {project.architectureNodes.map((node) => (
+                      <div key={node}>{node}<small>Componente documentato</small></div>
+                    ))}
                   </div>}
                 </section>
               ))}
-              <div className="case-disclosure"><strong>Nota sui contenuti</strong><p>Questa è una scheda di impaginazione. Testi, immagini, moduli e tecnologie saranno sostituiti con documentazione autentica prima della pubblicazione definitiva.</p></div>
+              <div className="case-disclosure">
+                <strong>Fonti e limiti</strong>
+                <p>La scheda riassume documenti pubblici del repository. I riquadri software sono illustrazioni e non screenshot; non vengono dichiarate metriche di produzione.</p>
+                <div className="case-source-links">
+                  <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">Esamina il codice su GitHub ↗</a>
+                  <a href={project.documentationUrl} target="_blank" rel="noopener noreferrer">Leggi la documentazione ↗</a>
+                </div>
+              </div>
             </div>
           </div>
           <nav className="case-navigation" aria-label="Navigazione tra i progetti">

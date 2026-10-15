@@ -26,10 +26,10 @@ export default function ProjectCatalog() {
         </div>
         <p className="catalog-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? "scheda" : "schede"}</p>
       </div>
-      <div className="project-grid catalog-grid" aria-label="Elenco dei progetti dimostrativi">
+      <div className="project-grid catalog-grid" aria-label="Elenco dei progetti">
         {filtered.map((project) => <ProjectCard key={project.id} project={project} />)}
       </div>
-      <p className="projects-disclaimer">Le schede sono dimostrative. I progetti, le immagini e le informazioni definitive saranno inseriti dopo la revisione dei repository.</p>
+      <p className="projects-disclaimer">Le descrizioni derivano dai repository pubblici. Le anteprime sono illustrazioni grafiche e non screenshot delle applicazioni.</p>
     </>
   );
 }

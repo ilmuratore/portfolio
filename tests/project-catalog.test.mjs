@@ -4,28 +4,39 @@ import { readFileSync } from "node:fs";
 import { projects, featuredProjects, projectFilters, getProjectBySlug, getAdjacentProjects } from "../src/content/projects.mjs";
 
 const chapterKeys = ["context", "challenge", "solution", "architecture", "results"];
+const expectedRepos = [
+  "https://github.com/ilmuratore/banca-python",
+  "https://github.com/ilmuratore/python-developer-ai",
+  "https://github.com/ilmuratore/AziendaJava"
+];
 
-test("i progetti hanno slug unici e URL statici validi", () => {
+test("catalogo reale: slug, repository e fonti unici", () => {
   assert.equal(projects.length, 3);
   assert.equal(new Set(projects.map((project) => project.id)).size, projects.length);
   assert.equal(new Set(projects.map((project) => project.slug)).size, projects.length);
+  assert.deepEqual(projects.map((project) => project.repositoryUrl), expectedRepos);
   for (const project of projects) {
     assert.match(project.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.equal(getProjectBySlug(project.slug), project);
-    assert.equal(project.title.startsWith("Titolo progetto"), true);
-    assert.ok(project.description.length >= 25);
-    assert.ok(project.intro.length >= 25);
+    assert.ok(!project.title.startsWith("Titolo progetto"));
+    assert.ok(project.description.length > 25);
+    assert.ok(project.intro.length > 25);
+    assert.ok(project.status.length > 5);
     assert.equal(project.tags.length, 3);
+    assert.ok(project.tags.every((tag) => !tag.startsWith("Tecnologia ")));
     assert.ok(["dashboard", "board", "terminal"].includes(project.preview));
+    assert.equal(new URL(project.repositoryUrl).hostname, "github.com");
+    assert.equal(new URL(project.documentationUrl).hostname, "github.com");
     assert.deepEqual(Object.keys(project.sections), chapterKeys);
-    assert.ok(chapterKeys.every((key) => project.sections[key].length > 30));
+    assert.ok(chapterKeys.every((key) => project.sections[key].length > 50));
+    assert.equal(project.architectureNodes.length, 3);
   }
   assert.equal(getProjectBySlug("../../admin"), undefined);
 });
 
-test("progetti in evidenza, filtri e navigazione usano il medesimo catalogo", () => {
-  assert.equal(featuredProjects.length, 3);
+test("homepage, filtri e navigazione condividono lo stesso catalogo", () => {
   assert.deepEqual(featuredProjects, projects.filter((project) => project.featured));
+  assert.equal(featuredProjects.length, 3);
   assert.equal(new Set(projectFilters.map((filter) => filter.id)).size, projectFilters.length);
   assert.ok(projectFilters.some((filter) => filter.id === "all"));
   for (const project of projects) {
@@ -36,13 +47,16 @@ test("progetti in evidenza, filtri e navigazione usano il medesimo catalogo", ()
   assert.deepEqual(getAdjacentProjects("sconosciuto"), { previous: null, next: null });
 });
 
-test("nessun progetto fittizio o statistica inventata viene pubblicato come reale", () => {
-  const data = JSON.stringify(projects);
+test("case study generati staticamente, non indicizzati e con link alle fonti", () => {
+  const source = readFileSync(new URL("../src/app/projects/[slug]/page.js", import.meta.url), "utf8");
+  assert.match(source, /generateStaticParams/);
+  assert.match(source, /dynamicParams = false/);
+  assert.match(source, /index: false, follow: false/);
+  assert.match(source, /project\.repositoryUrl/);
+  assert.match(source, /project\.documentationUrl/);
+  assert.match(source, /project\.architectureNodes/);
+  const body = JSON.stringify(projects);
   for (const name of ["Vorpal", "SpankEdicola", "Il Presidente", "Personal CRM", "10k users"]) {
-    assert.equal(data.includes(name), false);
+    assert.ok(!body.includes(name), "Progetto privato o metrica non verificata nel catalogo: " + name);
   }
-  const page = readFileSync(new URL("../src/app/projects/[slug]/page.js", import.meta.url), "utf8");
-  assert.match(page, /generateStaticParams/);
-  assert.match(page, /dynamicParams = false/);
-  assert.match(page, /index: false, follow: false/);
 });
