@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/projects", label: "Progetti" },
@@ -13,6 +14,7 @@ const links = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
   const headerRef = useRef(null);
   const toggleRef = useRef(null);
 
@@ -56,7 +58,10 @@ export default function SiteHeader() {
           <span className={menuOpen ? "menu-icon is-open" : "menu-icon"} aria-hidden="true"><span /><span /></span>
         </button>
         <nav id="primary-navigation" className={menuOpen ? "site-navigation is-open" : "site-navigation"} aria-label="Navigazione principale">
-          {links.map((link) => <Link href={link.href} key={link.href} onClick={() => setMenuOpen(false)}>{link.label}</Link>)}
+          {links.map((link) => {
+            const current = link.href === "/projects" ? pathname.startsWith("/projects") : pathname === link.href;
+            return <Link href={link.href} key={link.href} aria-current={current ? "page" : undefined} onClick={() => setMenuOpen(false)}>{link.label}</Link>;
+          })}
           <a className="nav-contact" href="https://github.com/ilmuratore" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>GitHub <span aria-hidden="true">↗</span></a>
         </nav>
       </div>

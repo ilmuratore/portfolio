@@ -1,8 +1,8 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import { siteConfig } from '@/config/site';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const geist = localFont({ src: './fonts/GeistVF.woff', display: 'swap', variable: '--font-geist', weight: '100 900' });
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -11,6 +11,7 @@ export const metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   alternates: { canonical: siteConfig.url },
+  robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale,
@@ -29,7 +30,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
-      <body className={inter.className}>
+      <body className={geist.className}>
         {children}
       </body>
     </html>

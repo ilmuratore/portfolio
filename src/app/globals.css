@@ -23,7 +23,7 @@ body { margin: 0; background: var(--color-canvas); color: var(--color-ink); -web
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
-a:focus-visible, button:focus-visible { outline: 3px solid var(--color-olive); outline-offset: 4px; }
+a:focus-visible, button:focus-visible, main:focus-visible { outline: 3px solid var(--color-olive); outline-offset: 4px; }
 section[id] { scroll-margin-top: 100px; }
 ::selection { background: #d9b4a4; color: var(--color-ink); }
 
@@ -547,3 +547,17 @@ section[id] { scroll-margin-top: 100px; }
 @media (prefers-reduced-motion:reduce) {
   .contact-channel:hover, .contact-channel:hover .contact-channel-arrow { transform:none; }
 }
+
+/* PR06 — keyboard navigation, AA accents and not-found layout. */
+.site-navigation a[aria-current="page"]:not(.nav-contact) { color:var(--color-accent-hover); }
+.site-navigation a[aria-current="page"]:not(.nav-contact)::after { right:0; }
+.contact-section .eyebrow { color:#fff0e6; }
+.contact-section h2 em { color:#ffe8d7; }
+main:focus { outline:none; }
+@media (max-width:860px) { .site-navigation a[aria-current="page"] { border-left:2px solid var(--color-accent); padding-left:14px; } }
+.not-found-page { min-height:calc(100dvh - 300px); display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding-block:100px 120px; }
+.not-found-page h1 { max-width:850px; font-family:var(--font-display); font-size:clamp(3.8rem,7vw,7rem); font-weight:600; line-height:1.06; letter-spacing:-.065em; margin:0; }
+.not-found-page h1 em { color:var(--color-accent); font-weight:500; }
+.not-found-page > p:not(.eyebrow) { color:var(--color-muted); line-height:1.8; max-width:530px; margin:24px 0 0; }
+.not-found-page .hero-actions { margin-top:29px; }
+@media (max-width:600px) { .not-found-page { min-height:460px; padding-block:65px 80px; } }
