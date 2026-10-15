@@ -176,7 +176,7 @@ export function FutureProjectsSection() {
 export function ContactChannels({ variant = "default" }) {
   return (
     <div className={"contact-channels " + (variant === "wide" ? "contact-channels-wide" : "")}>
-      {contactChannels.map((channel, i) => (
+      {contactChannels.map((channel) => (
         <a className="contact-channel" href={channel.href} key={channel.id} target="_blank" rel="noopener noreferrer">
           <span className="contact-channel-symbol">{channel.id === "github" ? <TechIcon label="GitHub" size={25} /> : <UiIcon name="linkedin" size={25} />}</span>
           <span className="contact-channel-body"><strong>{channel.label}</strong><small>{channel.type}</small><span>{channel.short}</span></span>

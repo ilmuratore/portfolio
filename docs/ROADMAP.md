@@ -12,7 +12,9 @@ Una PR per ambito, test locali prima del merge, nessun deployment automatico.
 | 06 | Next.js 16, React 19.3, Tailwind 4, sicurezza | Mergiata; audit npm ancora da rivedere |
 | 07 | Tre progetti reali e fonti GitHub | Mergiata |
 | 08 | Profilo professionale, specializzazione AI, certificazioni e progetti futuri | In revisione |
-| 09 | Materiali finali, audit, dominio e pubblicazione statica | Da pianificare, divisibile in più PR |
+| 09A | Icone stack, asset grafici, favicon e social preview | In revisione |
+| 09B | Screenshot autentici, certificati reali e audit finale | Da pianificare |
+| 09C | Dominio, hosting statico e pubblicazione | Da pianificare |
 
 ## PR08 — Scelte professionali
 
