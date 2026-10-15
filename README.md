@@ -1,50 +1,54 @@
-# Simone Iengo — Portfolio
+# Simone Iengo — Portfolio v2
 
-Portfolio personale dedicato a sviluppo software full stack, architettura applicativa e progetti reali.
+Il portfolio utilizza un nuovo stile **editoriale, flat, autunnale**, con UI mobile-first e visual software progettati in HTML/CSS.
 
-> **Stato:** portfolio esistente attivo; refactor v2.0 incrementale in corso. Le specifiche del nuovo design non sono ancora tutte implementate.
+> PR02 — **contenuti placeholder**. Titoli, descrizioni, tecnologie e anteprime dei progetti sono dimostrativi. Non sono pubblicati dati fittizi presentati come risultati reali.
 
-## Stack attuale
+## Stack
 
-- Next.js 15 (App Router), React 19
-- Tailwind CSS 3, Framer Motion
-- Vercel Analytics e Speed Insights
-- Node.js 22 per build e CI
+- Next.js 15, React 19, Tailwind CSS 3 e CSS semantico personalizzato
+- Server Components per le sezioni, Client Component solo per il menu mobile
+- Vercel Analytics e Speed Insights (già presenti)
 
 ## Avvio locale
+
+Node.js 22 e npm richiesti.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Aprire `http://localhost:3000`.
+Aprire http://localhost:3000.
 
-## Verifica
+## Test e build
 
 ```bash
+npm test
 npm run build
 ```
 
-La verifica del build avviene anche nella CI delle pull request. L'adozione di test automatici e la revisione della configurazione lint sono previste nelle PR successive.
+La CI esegue test e build. Verificare anche i layout a 360, 390, 768, 1024 e 1440 px, il menu da tastiera e le preferenze di movimento ridotto.
+
+## Dove cambiare i placeholder
+
+- `src/content/placeholder.mjs`: contenuti dimostrativi di progetti, processo e competenze
+- `src/app/components/v2/EditorialSections.jsx`: sezioni della homepage
+- `src/app/components/v2/SoftwareVisuals.jsx`: anteprime HTML/CSS per i progetti
+- `src/app/components/v2/SiteHeader.jsx`: menu mobile accessibile
+- `src/app/globals.css`: palette, tipografia, motion, layout responsive
+- `src/app/icon.svg`: icona site v2
 
 ## Configurazione
 
-Copiare `.env.example` in `.env.local` e impostare le variabili necessarie. Non inserire mai segreti nel repository.
-
-- `NEXT_PUBLIC_SITE_URL`: URL canonico del sito, senza slash finale; in assenza della variabile si utilizza l'URL Vercel corrente.
-- `GMAIL_USER`, `GMAIL_PASSWORD`: credenziali usate dal form di contatto esistente. La sicurezza e l'implementazione del form saranno riviste durante il refactor.
+Copiare `.env.example` in `.env.local` per impostare le variabili necessarie. Non pubblicare credenziali. La vecchia API email resta nel codice ma non è utilizzata dalla nuova homepage, in attesa della revisione di sicurezza.
 
 ## Documentazione
 
-- [Visione e motion design](docs/DESIGN_SYSTEM.md)
-- [Architettura e confini](docs/ARCHITECTURE.md)
-- [Roadmap v2.0](docs/ROADMAP.md)
+- [Design system](docs/DESIGN_SYSTEM.md)
+- [Architettura](docs/ARCHITECTURE.md)
+- [Roadmap](docs/ROADMAP.md)
 
 ## Workflow
 
-Lavorare su branch dedicati, aprire pull request verso `main`, verificare la CI e richiedere revisione prima del merge. `main` resta il ramo di pubblicazione stabile.
-
-## Licenza
-
-Consultare [LICENSE](LICENSE).
+Branch dedicati, PR verso `main`, review e CI prima del merge. I progetti e i case study reali saranno aggiunti nelle PR successive.

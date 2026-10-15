@@ -1,70 +1,42 @@
-# Architettura — stato attuale e obiettivo v2
+# Architettura — Portfolio v2
 
-## Stato attuale
+## Struttura implementata nella PR02
 
-Il progetto usa Next.js App Router, JavaScript e Tailwind. Le sezioni dell'intera homepage sono componenti sotto `src/app/components`. Il contenuto dei progetti è attualmente hardcoded in `ProjectsSection.jsx`.
-
-La PR 01 non sposta o riscrive componenti esistenti: elimina configurazioni duplicate, centralizza l'identità pubblica e prepara documentazione e controlli CI. Questo consente di verificare regressioni prima di cambiare l'interfaccia.
-
-## Struttura obiettivo (incrementale)
+Il progetto rimane in Next.js App Router e React. La homepage è un Server Component con sezioni e anteprime modulari. Solo il menu mobile richiede `use client`.
 
 ```text
 src/
   app/
-    (site)/
-      page.jsx
-      about/page.jsx
-      contact/page.jsx
-      projects/page.jsx
-      projects/[slug]/page.jsx
-    api/
-    layout.js
-    globals.css
-  components/
-    ui/
-    layout/
-    motion/
-    projects/
-  config/
-    site.js
-  content/
-    projects.js
-    experience.js
-  lib/
-    projects.js
-  styles/
-    tokens.css
-public/
-  images/
-    projects/
-    og/
-docs/
-  DESIGN_SYSTEM.md
-  ARCHITECTURE.md
-  ROADMAP.md
+    page.js                    homepage v2
+    layout.js                  metadati, font, analytics
+    globals.css                token e responsive
+    icon.svg                   favicon editoriale
+    components/v2/
+      SiteHeader.jsx           menu accessibile (client)
+      SiteFooter.jsx           link esterni verificati
+      EditorialSections.jsx    sezioni homepage (server)
+      SoftwareVisuals.jsx      visual segnaposto (server)
+    api/send/route.js          API legacy non collegata alla UI v2
+  content/placeholder.mjs      dati dimostrativi
+  config/site.js               identità, URL e SEO
+tests/placeholder-content.test.mjs
 ```
 
-Il file tree è una proposta: le directory verranno create quando servono, non tutte nella prima PR.
+## Decisioni
 
-## Regole
+1. Layout mobile-first; le griglie sono progressive, non un desktop rimpicciolito.
+2. CSS semantico e Tailwind con token coordinati, senza dipendenze aggiuntive.
+3. Server Components predefiniti, client isolato per navigazione mobile.
+4. Oggetti placeholder centralizzati; nessun nome, numero o URL di progetto inventato.
+5. Asset legacy eliminati; anteprime di editor/dashboard create con HTML/CSS.
+6. Le card dimostrative non hanno link: le CTA funzionanti puntano a sezioni o profili verificati.
+7. Accessibilità: skip link, focus visibile, Escape per chiudere il menu, reduced motion.
+8. L'API email precedente resta non esposta dalla homepage, fino a successiva revisione server.
 
-1. Configurazione e identità del sito in `src/config/site.js`.
-2. Contenuti dei progetti separati dai componenti; i componenti ricevono dati tramite props.
-3. `server components` come default e `use client` solo per interazioni necessarie.
-4. Ogni progetto può essere `featured`, `archived`, `public` o `private case study`; nessuna URL placeholder `/`.
-5. Media caricati con Next Image o equivalenti ottimizzati; niente asset di peso elevato per mera decorazione.
-6. Gestione contatti con validazione server, protezione antiabuso adatta al deployment, errori gestiti e nessun segreto esposto.
-7. SEO canonico centralizzato; `robots.js` e `sitemap.js` sono route metadata di App Router, senza sitemap pubblica duplicata.
-8. Componenti animati devono avere fallback statici e supportare `prefers-reduced-motion`.
+## Evoluzione
 
-## Contenuti dei case study
+Le pagine progetto con slug e contenuti verificati saranno realizzate successivamente. Nessuna dipendenza da database, CMS o WebGL necessaria per la v2.
 
-Ogni progetto selezionato dovrebbe avere: `slug`, nome, tagline, descrizione, anno/stato verificato, ruolo, stack, problema, soluzione, architettura, decisioni tecniche, immagini, risultati dimostrabili e link pubblici verificati. Nessun numero inventato (utenti, prestazioni, metriche).
+## Verifica
 
-## Tecnologia
-
-Conservare Next.js/React fino a quando audit e CI non dimostrano la necessità di una migrazione. Valutare TypeScript in modo progressivo, insieme alla riorganizzazione dei componenti. Non introdurre database/CMS per un catalogo piccolo e controllato.
-
-## Graphify
-
-Valutare uno step di generazione di mappa del codice solo dopo la riorganizzazione dei componenti. L'artefatto, se utile, va versionato o pubblicato in CI con percorso e processo riproducibili. Non è un prerequisito della prima release.
+Eseguire `npm test`, `npm run build` e una revisione visiva su smartphone e desktop. I test statici non sostituiscono i controlli su browser.
