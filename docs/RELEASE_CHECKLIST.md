@@ -5,7 +5,6 @@
 ## Verifiche da eseguire in locale
 
 ```bash
-npm run upgrade:security
 npm ci
 npm test
 npm run lint
@@ -25,7 +24,8 @@ Prima della review, controllare almeno 360, 390, 768, 1024 e 1440 px; navigazion
 
 ## SEO e contenuti
 
-- **Progetti:** verificare le 3 schede tratte da GitHub; sostituire solo i placeholder di homepage, profilo, processo e competenze.
+- **Profilo:** verificare la seniority junior e circa tre anni IT, senza confondere gli incarichi finanziari con esperienza di sviluppo. Confermare lo stato universitario L-31 prima di pubblicare dettagli aggiuntivi.
+- **Progetti:** verificare le 3 schede tratte da GitHub; indicare esplicitamente quando un repository è sperimentale o ancora in sviluppo.
 - Inserire screenshot veri oppure visual tecnici autentici.
 - Verificare profilo, competenze e contatti pubblicati.
 - Abilitare `NEXT_PUBLIC_PORTFOLIO_PUBLISHED=true` **solo dopo** la revisione.

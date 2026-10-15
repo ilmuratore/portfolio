@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: `Contatti — ${siteConfig.name}`,
-  description: "Contatti professionali di Simone Iengo: GitHub, sviluppo backend, progetti AI e LinkedIn.",
+  description: "Contatti di Simone Iengo, sviluppatore software junior: progetti Java/Python e percorso verso l’AI engineering.",
   alternates: { canonical: `${siteConfig.url}/contact` },
   robots: { index: false, follow: false }
 };

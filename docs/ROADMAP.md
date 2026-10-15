@@ -1,40 +1,29 @@
 # Roadmap — Portfolio v2
 
-Una PR per ambito, test locali prima del merge, nessun deployment automatico.
+Un branch e una PR per ambito; test locali prima del merge. Il sito non viene ancora pubblicato automaticamente.
 
 | PR | Ambito | Stato |
 | --- | --- | --- |
-| 01 | Foundation | Mergiata |
-| 02 | Nuovo design editoriale | Mergiata |
-| 03 | UX e export statico | Mergiata |
-| 04 | Catalogo e template case study | Mergiata |
-| 05 | About, contatti, pulizia Vercel/Actions | Mergiata |
-| 06 | Next.js 16, React 19.3, Tailwind 4, sicurezza | Mergiata; audit npm ancora da rivedere |
-| 07 | Tre progetti reali e fonti GitHub | Mergiata |
-| 08 | Profilo professionale, specializzazione AI, certificazioni e progetti futuri | In revisione |
-| 09A | Icone stack, asset grafici, favicon e social preview | In revisione |
-| 09B | Screenshot autentici, certificati reali e audit finale | Da pianificare |
-| 09C | Dominio, hosting statico e pubblicazione | Da pianificare |
+| 01–05 | Foundation, design, UX, pagine, refactor | Mergiate |
+| 06 | Next.js 16 / React / Tailwind e hardening | Mergiata; audit sicurezza finale ancora da verificare |
+| 07 | Primi tre progetti pubblici e case study | Mergiata |
+| 08 | Profilo professionale, timeline, skill e certificazioni | Mergiata |
+| 09A | SVG tecnologie, favicon e social preview | Mergiata |
+| 10 | Revisione veritiera dei contenuti: junior, circa 3 anni IT, obiettivo AI Engineer, L-31 | In review |
+| 11 | Attestati verificati, screenshot veri, ulteriori repository pronti e QA | Da pianificare |
+| 12 | Audit finale, dominio e hosting statico | Da pianificare |
 
-## PR08 — Scelte professionali
+## Principi editoriali
 
-- Posizionamento: Software Engineer · AI Systems & Backend. Non è una dichiarazione di aver ricoperto un incarico professionale denominato AI Engineer.
-- Esperienza tecnica recente: Talentform, Nea Services, Itconsulting.
-- Esperienza organizzativa e commerciale: Aurora Finanziamenti, Facile.it, Generali Italia.
-- EPICODE nella sezione formazione.
-- Google e Coursera sono le piattaforme citate dal proprietario, ma senza titolo e verifica di singoli attestati: la raccolta certificazioni resta vuota.
-- RustOS e Il Presidente sono indicati solo come progetti in sviluppo, senza collegamenti ai repository privati.
-- Le anteprime grafiche dei case study non sono screenshot reali; il catalogo resta aggiornabile un progetto per volta.
-- Rimane la protezione noindex e non viene attivato alcun hosting.
+1. **Identità attuale:** Software Developer junior, in crescita verso competenze mid-level. Circa tre anni di percorso nel software fra formazione, sviluppo e docenza, non un decennio di esperienza IT.
+2. **AI Engineer è un obiettivo professionale**, sostenuto da studio, progetti Python e interesse verso i sistemi AI; non è il ruolo attualmente ricoperto.
+3. **L-31 in Artificial Intelligence** è un obiettivo universitario; non sono confermati né immatricolazione né conseguimento del titolo.
+4. L'esperienza finanziaria e gestionale è distinta dall'anzianità nello sviluppo software.
+5. I repository pubblici possono essere prototipi o esercitazioni ancora in evoluzione; aggiornarli e migliorare le relative schede gradualmente.
+6. Certificazioni Google/Coursera solo quando i dati dell'attestato saranno disponibili.
+7. RustOS e Il Presidente non sono case study pubblici finché l'utente non deciderà di renderli tali.
+8. L'intero sito resta `noindex` durante lo sviluppo; nessuna configurazione Vercel o GitHub Actions viene ripristinata.
 
-## PR09 — Criteri prima del rilascio
+## Prima del rilascio
 
-1. Revisionare descrizioni, date e competenze pubbliche.
-2. Inserire i certificati reali con titoli e credenziali verificabili.
-3. Aggiungere screenshot autentici soltanto ai case study pronti.
-4. Verificare accessibilità, prestazioni, layout mobile e export statico.
-5. Esaminare le vulnerabilità residue di npm audit, comprese quelle della toolchain lint/build.
-6. Scegliere GitHub Pages o altro hosting, con o senza dominio personalizzato.
-7. Abilitare l'indicizzazione solo dopo approvazione di tutti i contenuti.
-
-RustOS e Il Presidente potranno diventare case study soltanto dopo revisione e decisione di pubblicazione.
+Verifica contenuti, certificati e documentazione, test mobile/tastiera, asset di progetto autentici, aggiornamento `npm audit` e corretta generazione statica con l'eventuale dominio. Solo dopo sarà impostata la pubblicazione e revisionata la sitemap.
