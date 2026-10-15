@@ -1,64 +1,78 @@
 # Simone Iengo — Portfolio v2
 
-Portfolio personale in Next.js con design **editoriale, flat, autunnale**, responsive e orientato al contenuto.
-
-> **Stato:** contenuti in preparazione. I case study, le descrizioni professionali, l'elenco delle tecnologie e le anteprime sono dimostrativi. Le nuove pagine provvisorie sono marcate come `noindex`.
+Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo e contenuti placeholder.** Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
 
 ## Stack
 
-- Next.js 15, React 19, Tailwind CSS 3 e CSS personalizzato
-- Server Components per le pagine; Client Components limitati alle interazioni
-- Nessuna integrazione Vercel o API server per l'invio di email
-- Esportazione statica opzionale, compatibile con GitHub Pages
+Next.js 16.4.1, React 19.3.1, Tailwind CSS 4.3.3, ESLint Flat Config, componenti server per le pagine statiche e componenti client limitati a menu e filtri. Le anteprime di codice e dashboard sono illustrative.
 
-## Avvio e test locale
+## Avvio locale
 
-Richiesti Node.js 22 e npm.
+Richiesti Node.js 22 e npm:
 
 ```bash
+npm run upgrade:security
 npm ci
-npm test
-npm run build
 npm run dev
 ```
 
-Sito locale: http://localhost:3000
+Aprire http://localhost:3000.
 
-### Esportazione statica
-
-Per testare il percorso GitHub Pages di progetto:
+## Test e controlli
 
 ```bash
-PORTFOLIO_STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=/portfolio NEXT_PUBLIC_SITE_URL=https://ilmuratore.github.io/portfolio npm run build
+npm test
+npm run lint
+npm run build
+npm run verify:static
 ```
 
-Su PowerShell impostare prima le variabili con `$env:NOME="valore"`. La directory risultante è `out/`.
+`verify:static` genera un export di prova con `basePath=/portfolio`, controlla tutte le pagine, verifica i link e i metadata `noindex`. Non effettua deployment.
 
-**La pubblicazione non è attiva.** Il workflow GitHub Actions di CI è stato rimosso su richiesta: test e build vanno eseguiti localmente prima delle PR e del merge. Quando decideremo dove pubblicare, definiremo un processo esplicito di rilascio.
+### Prima del rilascio
 
-## Struttura
+**Attenzione:** dopo la migrazione a Next.js 16, il lockfile va rigenerato tramite npm: il precedente commit usava Next.js 15.5.28, React 19.0.6 e Tailwind 3. Prima di considerare il progetto pronto per la pubblicazione è necessario eseguire:
 
-- `src/content/projects.mjs` — catalogo e schede dimostrative
-- `src/content/profile.mjs` — profilo, ambiti di competenza e contatti verificati
-- `src/content/placeholder.mjs` — processo e collegamenti ai contenuti provvisori
-- `src/app/components/v2/` — componenti del layout, contenuto e anteprime illustrative
-- `src/app/about/page.js` — profilo professionale (placeholder)
-- `src/app/contact/page.js` — contatti pubblici, senza modulo di invio
-- `src/app/projects/` — catalogo e case study
-- `src/app/globals.css` — design system e regole responsive
+```bash
+npm run upgrade:security
+npm ci
+npm run release:check
+```
 
-## Configurazione
+Il comando di upgrade richiede accesso npm e modifica `package.json` e `package-lock.json`. Leggere [SECURITY.md](docs/SECURITY.md) per i dettagli e includere il lockfile rigenerato nel commit. **Non effettuare un deploy pubblico prima della verifica.**
 
-`.env.example` contiene soltanto un URL pubblicabile indicativo. Modificare `NEXT_PUBLIC_SITE_URL` in base alla destinazione reale del sito e all'eventuale dominio personalizzato.
+## Struttura dei contenuti
+
+- `src/content/projects.mjs` — case study dimostrativi e catalogo
+- `src/content/profile.mjs` — About, competenze e contatti
+- `src/content/placeholder.mjs` — processo
+- `src/app/components/v2/` — componenti editoriali riutilizzabili
+- `src/app/globals.css` — design system responsive
+- `scripts/` — lint, export statico e verifiche di sicurezza
+- `tests/` — test unitari e di integrità delle configurazioni
+
+## Hosting
+
+Il sito è predisposto per export statico e può essere ospitato su GitHub Pages o un provider equivalente. Non è collegato a un processo automatico di deploy. `NEXT_PUBLIC_PORTFOLIO_PUBLISHED` ha valore predefinito **false**: genera `noindex` e `robots.txt` che blocca l'indicizzazione.
+
+La pubblicazione con dominio proprio resta una fase separata. Nessuna GitHub Actions o integrazione Vercel è configurata nel codice.
 
 ## Documentazione
 
-- [Design system](docs/DESIGN_SYSTEM.md)
 - [Architettura](docs/ARCHITECTURE.md)
-- [Progetti e case study](docs/PROJECTS.md)
-- [Hosting statico](docs/HOSTING.md)
+- [Design system](docs/DESIGN_SYSTEM.md)
+- [Progetti](docs/PROJECTS.md)
+- [Hosting](docs/HOSTING.md)
+- [Sicurezza](docs/SECURITY.md)
+- [Checklist rilascio](docs/RELEASE_CHECKLIST.md)
 - [Roadmap](docs/ROADMAP.md)
 
-## Workflow
+## Migrazione PR06: Next.js 16
 
-Un branch e una PR per ambito, test manuali e locali prima del merge. Non pubblicare dati fittizi o placeholder come contenuto definitivo.
+Le versioni sono definite in `package.json`, ma **prima di verificare o fare il merge** va aggiornato e committato il lockfile con `npm run upgrade:security`.
+
+- Turbopack è il bundler predefinito per `next dev` e `next build`.
+- Tailwind 4 si configura in CSS con `@import "tailwindcss"` e il plugin PostCSS dedicato.
+- ESLint utilizza `eslint.config.mjs`, senza `.eslintrc.json` e senza `next lint`.
+- Verificare la resa grafica mobile/desktop: la nuova versione Tailwind comprende modifiche al CSS reset.
+- Non eseguire `npm audit fix --force` prima di esaminare le incompatibilità.

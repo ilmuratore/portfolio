@@ -9,7 +9,8 @@ Workflow: una PR per ambito e verifiche locali prima di ogni merge. Nessuna pubb
 | 03 | UX mobile e compatibilità export statico | Mergiata |
 | 04 | Catalogo e case study placeholder | Mergiata |
 | 05 | Profilo, competenze e contatti; rimozione Vercel e Actions | In revisione |
-| 06 | Audit dipendenze, accessibilità, SEO, ottimizzazione e rilascio | Da svolgere |
+| 06 | Audit dipendenze, accessibilità, SEO, ottimizzazione e controlli locali | In revisione: upgrade Next/React richiesto |
+| 07 | Contenuti definitivi e scelta dominio/hosting, pubblicazione | Da pianificare |
 
 ## Linee guida
 

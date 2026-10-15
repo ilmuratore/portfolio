@@ -6,7 +6,7 @@ export default function SitePageFrame({ children }) {
     <>
       <a className="skip-link" href="#main-content">Vai al contenuto principale</a>
       <SiteHeader />
-      <main id="main-content">{children}</main>
+      <main id="main-content" tabIndex={-1}>{children}</main>
       <SiteFooter />
     </>
   );

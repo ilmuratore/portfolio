@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <a className="skip-link" href="#main-content">Vai al contenuto principale</a>
       <SiteHeader />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <HeroSection />
         <FeaturedSection />
         <ProcessSection />
