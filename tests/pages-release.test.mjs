@@ -19,6 +19,7 @@ test("la build pubblica usa URL GitHub Pages e file .nojekyll", () => {
   assert.match(build, /NEXT_PUBLIC_BASE_PATH: "\/portfolio"/);
   assert.match(build, /ilmuratore\.github\.io\/portfolio/);
   assert.match(build, /\.nojekyll/);
+  assert.match(build, /prepareSocialAssets\("out"\)/);
 });
 
 test("metadata indicizzabili solo nella modalità pubblicata", () => {

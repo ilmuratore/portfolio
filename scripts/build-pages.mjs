@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { writeFileSync, existsSync } from "node:fs";
 import { join, resolve } from "node:path";
+import { prepareSocialAssets } from "./prepare-social-assets.mjs";
 
 const next = resolve("node_modules/next/dist/bin/next");
 const env = {
@@ -22,4 +23,5 @@ if (!existsSync("out/index.html")) {
   process.exit(1);
 }
 writeFileSync(join("out", ".nojekyll"), "", "utf8");
+prepareSocialAssets("out");
 console.log("Build pubblica GitHub Pages pronta in out/ con .nojekyll.");

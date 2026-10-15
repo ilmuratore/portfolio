@@ -16,6 +16,14 @@ for (const file of files) {
 }
 assert.ok(existsSync(join(out, "_next")), "Mancano gli asset Next.js.");
 assert.equal(readFileSync(join(out, ".nojekyll"), "utf8"), "");
+const pngSignature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+for (const image of ["opengraph-image.png", "twitter-image.png"]) {
+  const buffer = readFileSync(join(out, image));
+  assert.ok(buffer.subarray(0, 8).equals(pngSignature), "Immagine social non PNG: " + image);
+  assert.equal(buffer.readUInt32BE(16), 1200);
+  assert.equal(buffer.readUInt32BE(20), 630);
+}
+
 
 const pages = files.filter((file) => file.endsWith(".html") && file !== "404.html");
 for (const path of pages) {
@@ -23,6 +31,8 @@ for (const path of pages) {
   assert.doesNotMatch(html, /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i, `Pagina ancora noindex: ${path}`);
   assert.match(html, /og:image/i, `Open Graph mancante: ${path}`);
   assert.match(html, /twitter:image/i, `Twitter image mancante: ${path}`);
+  assert.ok(html.includes(base + "/opengraph-image.png"), "URL Open Graph non valido: " + path);
+  assert.ok(html.includes(base + "/twitter-image.png"), "URL Twitter non valido: " + path);
   assert.ok(html.includes("/portfolio/_next/"), `Asset con basePath errato: ${path}`);
 }
 
