@@ -1,74 +1,79 @@
-# Portfolio v2.0 — Creative Engineering
+# Portfolio v2 — Design system editoriale
 
-## Visione
+> Stato: direzione grafica approvata; specifica per PR02. L'implementazione è in corso.
 
-Un portfolio interattivo che comunica capacità di progettare e sviluppare software reale. Non un template con slider e icone: una vetrina di sistemi, processi, architetture e risultati, con una direzione art-directed contemporanea.
+## Identità
 
-**Tre principi:** progetti prima dell'elenco di skill; interazioni con funzione narrativa; esperienza mobile completa, non un desktop rimpicciolito.
+**Obiettivo:** una vetrina professionale per progetti software reali. Design flat, minimale, mobile-first, con colori autunnali e contenuto prioritario. Il sito deve comunicare solidità, chiarezza e competenza tecnica.
 
-## Direzione estetica
+**Riferimento approvato:** il terzo concept editoriale, evoluto sostituendo fotografie di architettura e paesaggi con visual di software (dashboard, editor, componenti e interfacce). Nessun recupero degli asset storici.
 
-- **Base:** dark grafite/blu notte, superfici stratificate, bordi sottili, texture tecniche appena percepibili.
-- **Accenti:** blu elettrico, violetto e ciano. Non utilizzare tutti gli accenti in ogni componente.
-- **Tipografia:** titoli display forti e compatti, testo sobrio, dati e label in monospace. Valutare Geist + Geist Mono nella PR design system; la prima PR non cambia i font.
-- **Griglia:** ritmo editoriale, spaziatura generosa, composizioni asimmetriche controllate.
-- **Immagini:** veri screenshot, schemi architetturali e anteprime di progetto; evitare fotografie stock e illustrazioni decorative generiche.
+### Da fare / da evitare
 
-### Token iniziali
+- **Sì:** gerarchie editoriali, spaziatura ampia, geometrie semplici, bordi sottili, tipografia distintiva, microinterazioni.
+- **Sì:** un'immagine hero composta da pannelli software disegnati appositamente, leggibile anche su smartphone.
+- **No:** neon, glow, glassmorphism, gradienti vistosi, effetti 3D, scenografie architettoniche, foto stock.
+- **No:** carrelli automatici, metriche inventate, slogan generici, badge «disponibile» non confermati.
+- **No:** contenuti reali nella PR02. Usare solo placeholder espliciti, facilmente sostituibili.
 
-| Token | Valore | Utilizzo |
-|---|---|---|
-| `--color-canvas` | `#0B1017` | Background |
-| `--color-surface` | `#151D28` | Card |
-| `--color-surface-raised` | `#1B283A` | Layer attivi |
-| `--color-border` | `#2C3A4E` | Divisori |
-| `--color-text` | `#F1F5F9` | Testo principale |
-| `--color-text-muted` | `#A6B4C7` | Testo secondario |
-| `--color-accent` | `#4F8BFF` | CTA/focus |
-| `--color-accent-alt` | `#8B6DFF` | Highlight |
-| `--color-glow` | `#48D7F0` | Dettagli interattivi |
+## Palette proposta
 
-## Homepage: sequenza narrativa
+| Token | HEX | Ruolo |
+| --- | --- | --- |
+| `--color-canvas` | `#F8F4ED` | Sfondo principale |
+| `--color-surface` | `#FFFCF7` | Superfici e card |
+| `--color-surface-muted` | `#EFE7DC` | Superfici secondarie |
+| `--color-ink` | `#241D19` | Testo principale |
+| `--color-muted` | `#625A53` | Testo secondario |
+| `--color-border` | `#DCD0C3` | Separazioni |
+| `--color-accent` | `#A34F34` | CTA, link e accenti terracotta |
+| `--color-accent-hover` | `#843B29` | Stato hover |
+| `--color-olive` | `#626C55` | Accento secondario, dosato |
 
-1. **Hero immersiva:** headline sintetica, ruolo professionale e CTA immediata. Fondale con griglia prospettica o gradient mesh animata leggerissima. Un singolo elemento grafico distintivo che reagisce al puntatore, senza compromettere touch o lettura.
-2. **Selected work:** 2–3 progetti principali con screenshot, etichetta del ruolo, stack, problema risolto e link al case study. Card editoriali grandi, non una griglia di sei placeholder uguali.
-3. **Engineering capabilities:** backend, frontend, data, infrastrutture e strumenti organizzati per competenza dimostrabile, non barre di percentuale.
-4. **Approach:** diagramma sintetico di come un problema diventa un'architettura, poi un software funzionante.
-5. **About / timeline:** esperienza e percorso collegati a lavori verificabili.
-6. **Contact:** CTA chiara, GitHub/LinkedIn, e un form soltanto se realmente affidabile.
+Verificare i contrasti nel codice implementato. I token saranno centralizzati e non duplicati nelle sezioni.
 
-## Motion language
+## Tipografia e griglia
 
-| Interazione | Desktop | Mobile/touch |
-|---|---|---|
-| Hero | Parallasse lieve e glow che segue il cursore | Motion ambientale semplificata, senza tracking del dito |
-| Entrata sezioni | Reveal di opacità + traslazione breve | Stesso reveal, distanza ridotta |
-| Progetti | Tilt 3D moderato, bordo luminoso, anteprima su hover | Card interamente navigabile, preview visibile senza hover |
-| Navigazione | Highlight animato e progress indicator | Menu full-screen accessibile, transizioni rapide |
-| Case study | Diagrammi a step durante lo scroll | Diagrammi statici o step manuali, leggibili anche in verticale |
-| CTA | Feedback microinterattivo | Feedback tap, senza target piccoli |
+- **Titoli:** carattere display editoriale con grazie (serif); **interfaccia/testo:** sans leggibile; **frammenti tecnici:** monospace solo dove sensato.
+- Gerarchia: hero display > heading sezione > titolo progetto > corpo > metadata.
+- Ritmo mobile-first a partire da **360 px**. Griglia 1 colonna su smartphone, 2 a tablet quando serve, 3 card progetto su desktop.
+- Larghezza contenuti desktop indicativa: **1200 px**; spaziature laterali fluide; nessun overflow orizzontale.
+- Radius contenuto: **8–12 px** dove utile; niente elementi sistematicamente pill. Bordi leggeri e ombre quasi impercettibili.
 
-Nessuna animazione deve nascondere dati, bloccare lo scroll, ritardare il click o diventare prerequisito per comprendere il contenuto. Preferire trasformazioni CSS/GPU (`transform`, `opacity`) a calcoli layout continui. Caricare moduli pesanti solo nelle sezioni che ne hanno bisogno.
+## Homepage (solo placeholder nella PR02)
 
-## Mobile-first e accessibilità
+1. **Header:** monogramma provvisorio, menu mobile accessibile, navigazione sintetica.
+2. **Hero:** titolo + sottotitolo + breve paragrafo placeholder, CTA funzionanti verso sezioni, visual composto da finestra editor di codice e pannello dashboard *fittizi*, senza dati veri.
+3. **Featured projects:** tre card con asset segnaposto software, titolo, descrizione e tag generici. Non associare nomi/link a progetti non ancora selezionati.
+4. **Process:** quattro step sintetici con simboli lineari.
+5. **Skills:** griglia di tile segnaposto; niente barre percentuali arbitrarie.
+6. **About:** blocco grafico neutro e testo placeholder, nessun ritratto inventato.
+7. **Contact CTA:** invito generico e collegamento interno o a contatto verificato; nessun form inattivo simulato.
+8. **Footer:** navigazione e link social già verificati, senza metriche.
 
-- Progettare da **360 px** in su; testare almeno 360, 390, 768, 1024 e 1440 px.
-- Touch target di almeno **44 × 44 px**; navigazione e filtri disponibili anche senza hover.
-- Contrasto WCAG AA per i testi, focus visibile, landmark semantici, tastiera funzionante.
-- Rispettare `prefers-reduced-motion` e fornire stati statici equivalenti.
-- Evitare scrolling orizzontale accidentale, autoplay audio/video e animazioni permanenti di alta intensità.
+## Motion
 
-## Performance budget (obiettivi, da misurare)
+- **Ingresso elementi:** `opacity` e `translateY` brevi, una volta; mai indispensabili per leggere.
+- **Pulsanti e link:** colore, sottolineatura e traslazione minima (1–2 px).
+- **Card:** piccoli cambi di bordo/ombra, senza tilt tridimensionali.
+- Durata indicativa 160–300 ms, easing morbido; evitare scroll-jacking e animazioni perpetue.
+- `prefers-reduced-motion: reduce` disabilita le transizioni non essenziali.
+- Gli stati hover devono avere un equivalente accessibile per tastiera e touch.
 
-- Core Web Vitals al 75° percentile: LCP < 2,5 s, INP < 200 ms, CLS < 0,1.
-- Preferire animazioni CSS/SVG; usare canvas/WebGL soltanto se il beneficio giustifica payload e consumo energetico.
-- `next/image`, formati moderni, responsive `sizes`, lazy loading per media sotto la fold.
-- Limitare la quantità di JavaScript client e rispettare i dispositivi con bassa potenza.
+## Accessibilità, prestazioni, qualità
 
-## Da evitare
+- Focus visibile, semantic HTML, contrasto AA, pulsanti con area touch adeguata.
+- Verificare almeno **360, 390, 768, 1024, 1440 px**.
+- Preferire CSS, SVG e HTML per i placeholder visuali; immagini locali ottimizzate solo quando necessarie.
+- Conservare SSR/Server Components dove possibile, JavaScript client solo per interazioni.
+- Target da misurare su build e deploy: LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1.
 
-Testo che cambia in loop e rende difficile leggere il nome; cursori custom intrusivi; particelle in ogni sezione; skill bars arbitrarie; caroselli che nascondono i contenuti; terminali finti utilizzati come unico mezzo di navigazione; splash screen; effetti di scroll che interrompono la navigazione.
+## Criteri di accettazione PR02
 
-## Approvazione visual prima dell'implementazione
+- Homepage interamente ricostruita con placeholder e nessun contenuto fittizio presentato come reale.
+- Responsive mobile-first, tutti i link/CTA funzionanti e menu navigabile da tastiera.
+- Nuovo sistema di token riutilizzabile, struttura componenti manutenibile.
+- Nessun asset visivo ereditato dal design precedente.
+- Build e controlli CI superati; validazione visiva desktop/mobile prima del merge.
 
-La PR 02 definirà e mostrerà hero, navbar, progetto in evidenza e card mobile. La direzione va verificata visivamente su mobile e desktop prima della riscrittura delle sezioni.
+I contenuti dei repository reali verranno integrati separatamente, dopo revisione e documentazione.
