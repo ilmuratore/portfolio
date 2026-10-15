@@ -50,4 +50,4 @@ Non aggiungere una pagina finta per ogni repository. Si può avere un catalogo d
 
 ## Hosting
 
-Il progetto non viene pubblicato da questa PR. La CI compila anche con `PORTFOLIO_STATIC_EXPORT=1` e controlla che le rotte statiche dei case study siano state generate sotto `out/projects/...`. I link interni devono usare `next/link` per ricevere automaticamente il base path `/portfolio` su GitHub Pages.
+Il progetto non viene pubblicato da questa PR. L'esportazione statica si verifica ora localmente con `PORTFOLIO_STATIC_EXPORT=1`, controllando le pagine generate sotto `out/projects/...`. I workflow GitHub Actions sono rimossi su richiesta. I link interni devono usare `next/link` per ricevere automaticamente il base path `/portfolio` su GitHub Pages.
