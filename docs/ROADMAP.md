@@ -1,20 +1,20 @@
-# Roadmap — Portfolio v2.0
+# Roadmap — Portfolio v2
 
-Una PR per ambito. Nessun merge automatico su `main`; CI e preview prima dell'approvazione.
+Workflow: una PR per ambito e verifiche locali prima di ogni merge. Nessuna pubblicazione automatica configurata.
 
-| PR | Ambito | Completamento |
+| PR | Ambito | Stato |
 | --- | --- | --- |
-| 01 — Foundation | Configurazioni, SEO, CI e documentazione | Mergiata |
-| 02 — Editorial UI | Palette calda, componenti, homepage placeholder, responsive, rimozione legacy | Test + build + approvazione visiva |
-| 03 — UX refinement | Menu mobile, affordance e verifica export statico opzionale | Test standard e build statica GitHub Pages in CI |
-| 04 — Projects | Catalogo filtrabile e pagine case study placeholder | Static export + navigazione e review |
-| 05 — About & Contact | Bio, esperienza, CV e form sicuro | Dati aggiornati e antiabuso |
-| 06 — Quality & Release | SEO, test di regressione, audit web vitals, documentazione | Rilascio v2.0.0 |
+| 01 | Fondamenta e documentazione | Mergiata |
+| 02 | Nuovo design editoriale e homepage | Mergiata |
+| 03 | UX mobile e compatibilità export statico | Mergiata |
+| 04 | Catalogo e case study placeholder | Mergiata |
+| 05 | Profilo, competenze e contatti; rimozione Vercel e Actions | In revisione |
+| 06 | Audit dipendenze, accessibilità, SEO, ottimizzazione e rilascio | Da svolgere |
 
-## Regole sui contenuti provvisori
+## Linee guida
 
-Nessun dato personale inventato, nessun nome progetto fittizio presentato come reale, nessuna CTA verso pagine inesistenti. I visual sono esplicitamente illustrativi.
+Stile minimal/editoriale e palette autunnale approvati. Niente dati professionali inventati, CV finto, metriche arbitrarie, form simulati o immagini stock. Le pagine provvisorie sono non indicizzabili.
 
-## Design approvato
+## Hosting
 
-Flat/editoriale, crema, sabbia, terracotta, un accento oliva discreto, molto spazio e gerarchia tipografica netta. Niente neon, glassmorphism, illustrazioni architettoniche o asset della vecchia UI.
+Preparazione per GitHub Pages e altri provider statici, senza deploy prima del completamento. Tutte le verifiche sono locali dopo la rimozione dei workflow GitHub Actions.

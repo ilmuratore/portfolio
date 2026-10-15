@@ -1,21 +1,20 @@
-# Strategia hosting — Portfolio v2
+# Hosting statico — Portfolio v2
 
-**Decisione non ancora presa:** la pubblicazione è rimandata fino al completamento delle pagine e dei contenuti. La CI può soltanto *verificare* la build statica: non effettua alcun deployment.
+**Hosting non ancora scelto né attivato.** Il repository è preparato per un'esportazione statica indipendente da un servizio specifico. Vercel non è più integrato nel codice.
 
-## Possibili destinazioni
+## Opzioni
 
-| Soluzione | Compatibile con sito statico | Note |
-| --- | --- | --- |
-| GitHub Pages | Sì | Pubblico e gratuito su GitHub Free; URL iniziale `ilmuratore.github.io/portfolio/`; possibile dominio personalizzato |
-| Cloudflare Pages | Sì | Verificare quote, termini e build/deploy quando si pubblica |
-| Vercel | Sì | Può ospitare la build Next.js corrente; eventuali funzionalità server restano dipendenti dalla piattaforma |
-| VPS | Sì | Maggiore controllo ma server, sicurezza, aggiornamenti e costi a carico del proprietario |
+| Destinazione | Note |
+| --- | --- |
+| GitHub Pages | Hosting statico gratuito per repository pubblici secondo le condizioni attuali; dominio GitHub oppure personalizzato |
+| Cloudflare Pages | Hosting statico con limiti del relativo piano gratuito |
+| Hosting statico su server proprio | Maggior controllo, ma sicurezza, manutenzione e costi del server restano responsabilità del proprietario |
 
-Le condizioni commerciali possono cambiare: non promettere hosting «gratuito per sempre». Il dominio personale, se acquistato, ha normalmente un costo di rinnovo.
+Il dominio personalizzato ha generalmente un costo di rinnovo. Nessun piano gratuito è garantito a tempo indeterminato.
 
-## Export statico (già testabile, NON pubblica nulla)
+## Test della build statica
 
-Il progetto mantiene una build Next.js standard:
+La build normale resta possibile:
 
 ```bash
 npm ci
@@ -23,26 +22,29 @@ npm test
 npm run build
 ```
 
-Per verificare l'esportazione statica come **GitHub Pages di progetto** (`/portfolio/`):
+Per GitHub Pages, con repository `portfolio` e URL di progetto `/portfolio`:
 
 ```bash
 PORTFOLIO_STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=/portfolio NEXT_PUBLIC_SITE_URL=https://ilmuratore.github.io/portfolio npm run build
 ```
 
-Su PowerShell impostare prima le tre variabili con `$env:...`. La cartella risultante è `out/`, da considerare un artefatto e non da committare. Per un dominio proprio, **non impostare** `NEXT_PUBLIC_BASE_PATH` e valorizzare `NEXT_PUBLIC_SITE_URL` con il dominio reale.
+La build statica è generata in `out/` e comprende homepage, pagine About/Contact e case study costruiti con `generateStaticParams()`. Questo comando **non pubblica nulla**.
 
-La CI su pull request verifica entrambe le compilazioni, ma non distribuisce `out/`: servirà un workflow separato abilitato solo al rilascio finale. Per GitHub Pages si potranno utilizzare `actions/upload-pages-artifact` e `actions/deploy-pages` dopo avere configurato Pages nelle impostazioni del repository.
+Se viene scelto un dominio personalizzato servono `NEXT_PUBLIC_SITE_URL=https://dominio.example` e `NEXT_PUBLIC_BASE_PATH` vuoto. Per il deployment si sceglierà successivamente tra caricamento manuale degli artefatti e un workflow di pubblicazione dedicato.
 
-## Vincoli Next.js
+## GitHub Actions rimosse
 
-- Il sito pubblico può utilizzare componenti server calcolati **durante la build**, ma non richiedere un server alla visita.
-- Le pagine dinamiche dei case study richiederanno `generateStaticParams()` oppure una generazione equivalente per creare HTML statico per ogni progetto.
-- Eventuali immagini devono essere già ottimizzate oppure utilizzare un image loader compatibile; il default ottimizzatore di Next.js non è disponibile in export.
-- Niente route POST, Server Actions o logiche che richiedono header/cookie dinamici.
-- Il vecchio endpoint POST `/api/send`, non collegato alla homepage v2, è rimosso in PR03. Per il form finale valutare mailto, servizi form esterni o backend separato.
-- Le security headers definite in `next.config.js` valgono solo con server Next.js; un hosting statico richiede la propria configurazione se si desiderano header personalizzati.
-- La URL canonica e la sitemap seguono `NEXT_PUBLIC_SITE_URL`, che deve includere `/portfolio` quando si usa l'URL GitHub Pages di progetto.
+Su richiesta sono eliminati i workflow GitHub Actions presenti in `.github/workflows`; non eseguiamo test o deploy automaticamente. Prima di ogni merge eseguire i test locali e la build. Le run storiche di Actions rimangono visibili su GitHub, a meno di operazioni ulteriori nelle impostazioni del repository.
 
-## Niente deploy prima della release
+## Limiti dell'export statico
 
-La PR03 **non configura o attiva GitHub Pages**. L'attuale errore di build su Vercel si affronterà soltanto se decideremo di usarlo. Prima di pubblicare: contenuti verificati, QA mobile, dominio, policy di contatto e SEO.
+- Nessun endpoint POST o server in esecuzione sul provider statico.
+- Il modulo email preesistente è già stato rimosso; in PR05 vengono mostrati soltanto GitHub e LinkedIn.
+- Le pagine progetto sono prerenderizzate in fase di build.
+- Immagini e video vanno ottimizzati prima della pubblicazione; l'ottimizzazione dinamica di `next/image` non è disponibile.
+- Gli header HTTP personalizzati in `next.config.js` non vengono applicati da GitHub Pages.
+- Impostare correttamente canonical e sitemap quando si sceglie il dominio definitivo.
+
+## Disconnessione esterna del vecchio provider
+
+Eliminare dipendenze e codice dal repository **non disconnette il progetto remoto** da un provider già associato. Se il vecchio provider continua a effettuare deployment automatici, scollegare il repository nelle impostazioni del servizio esterno o cancellare il relativo progetto. Queste operazioni non sono eseguite dalle modifiche al codice.

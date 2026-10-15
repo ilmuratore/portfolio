@@ -1,6 +1,7 @@
 import SiteHeader from "./components/v2/SiteHeader";
 import SiteFooter from "./components/v2/SiteFooter";
-import { HeroSection, FeaturedSection, ProcessSection, SkillsSection, AboutSection, ContactSection } from "./components/v2/EditorialSections";
+import { HeroSection, FeaturedSection, ProcessSection } from "./components/v2/EditorialSections";
+import { SkillsSection, AboutSection, ContactSection } from "./components/v2/ProfileSections";
 
 export default function Home() {
   return (

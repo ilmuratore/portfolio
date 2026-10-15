@@ -7,8 +7,8 @@ const links = [
   { href: "/projects", label: "Progetti" },
   { href: "/#process", label: "Processo" },
   { href: "/#skills", label: "Competenze" },
-  { href: "/#about", label: "Chi sono" },
-  { href: "/#contact", label: "Contatti" },
+  { href: "/about", label: "Chi sono" },
+  { href: "/contact", label: "Contatti" },
 ];
 
 export default function SiteHeader() {

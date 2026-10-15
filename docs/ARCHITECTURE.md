@@ -16,7 +16,6 @@ src/
       SiteFooter.jsx           link esterni verificati
       EditorialSections.jsx    sezioni homepage (server)
       SoftwareVisuals.jsx      visual segnaposto (server)
-    api/send/route.js          API legacy non collegata alla UI v2
   content/placeholder.mjs      dati dimostrativi
   config/site.js               identità, URL e SEO
 tests/placeholder-content.test.mjs
@@ -31,7 +30,7 @@ tests/placeholder-content.test.mjs
 5. Asset legacy eliminati; anteprime di editor/dashboard create con HTML/CSS.
 6. Le card dimostrative non hanno link: le CTA funzionanti puntano a sezioni o profili verificati.
 7. Accessibilità: skip link, focus visibile, Escape per chiudere il menu, reduced motion.
-8. L'API email precedente resta non esposta dalla homepage, fino a successiva revisione server.
+8. L'API email preesistente è stata rimossa. I contatti puntano a profili verificati, senza endpoint server.
 
 ## Evoluzione
 
@@ -39,4 +38,4 @@ Le pagine progetto con slug e contenuti verificati saranno realizzate successiva
 
 ## Verifica
 
-Eseguire `npm test`, `npm run build` e una revisione visiva su smartphone e desktop. I test statici non sostituiscono i controlli su browser.
+Dopo la PR05 non sono configurati workflow GitHub Actions. Eseguire localmente `npm test`, `npm run build` e una revisione visiva su smartphone e desktop; i test statici non sostituiscono i controlli su browser.

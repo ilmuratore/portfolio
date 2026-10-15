@@ -1,4 +1,4 @@
-const fallbackUrl = 'https://portfolio-psi-tan-23.vercel.app';
+const fallbackUrl = 'https://ilmuratore.github.io/portfolio';
 
 export const siteConfig = {
   name: 'Simone Iengo',

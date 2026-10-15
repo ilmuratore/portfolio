@@ -1,11 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
 import { siteConfig } from '@/config/site';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
-const useVercelInsights = process.env.PORTFOLIO_STATIC_EXPORT !== '1';
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -34,8 +31,6 @@ export default function RootLayout({ children }) {
     <html lang="it">
       <body className={inter.className}>
         {children}
-        {useVercelInsights && <SpeedInsights />}
-        {useVercelInsights && <Analytics />}
       </body>
     </html>
   );
