@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+2:"/portfolio/_next/static/chunks/0umf92h1sb77c.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+5:"/portfolio/_next/static/chunks/2cs8x3otxcls_.js"
+6:"/portfolio/_next/static/chunks/144clfvk3ffof.js"
+7:I[32022,["$5","$6"],"default"]
+8:I[22016,["$5","$6"],""]
+9:I[5500,["$5","$6"],"Image"]
+10:I[16579,["$5","$6"],"default"]
+19:"ViewportBoundary"
+1a:I[97367,["$2"],"$19"]
+1b:"MetadataBoundary"
+1c:I[97367,["$2"],"$1b"]
+1d:"$Sreact.suspense"
+:HL["/portfolio/_next/static/chunks/3r-u-w87g3e-0.css","style"]
+b:X
+e:X
+e:C
+f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","a",null,{"className":"skip-link","href":"#main-content","children":"Vai al contenuto principale"}],["$","$L7",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"children":["$","section",null,{"className":"catalog-page site-container","aria-labelledby":"catalog-title","children":[["$","nav",null,{"className":"breadcrumbs","aria-label":"Percorso","children":[["$","$L8",null,{"href":"/","children":"Home"}],["$","span",null,{"aria-hidden":"true","children":"/"}],["$","span",null,{"aria-current":"page","children":"Progetti"}]]}],["$","div",null,{"className":"catalog-hero","children":[["$","div",null,{"children":[["$","p",null,{"className":"eyebrow","children":"PORTFOLIO / PROGETTI"}],["$","h1",null,{"id":"catalog-title","className":"catalog-title","children":["Il lavoro, ",["$","em",null,{"children":"nel dettaglio."}]]}]]}],["$","p",null,{"children":"Un catalogo pensato per raccontare processi, scelte tecniche e risultati. Mostro repository pubblici, progetti formativi e prototipi in evoluzione: contenuti e funzionalità vengono migliorati progressivamente. Le anteprime restano illustrative."}]]}],["$","$L10",null,{}],["$","div",null,{"className":"catalog-footnote","children":[["$","span",null,{"children":"01 — 03 / REPOSITORY"}],["$","$L8",null,{"className":"text-link","href":"/contact","children":["Vai ai contatti ",["$","span",null,{"aria-hidden":"true","children":"↗"}]]}]]}]]}]}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"site-container footer-inner","children":[["$","div",null,{"children":[["$","$L8",null,{"href":"/","className":"footer-brand","aria-label":"Torna alla homepage","children":["SI","$L11"]}],"$L12"]}],"$L13","$L14"]}]}]],["$L15","$L16"],"$L17"]}],"p":"$@18","v":null,"s":"$b"}}]]
+c:[["children",{"s":"projects","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@d","v":"$e","s":"$b"},"c":"$Qf"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/portfolio/_next/static/chunks/3r-u-w87g3e-0.css","precedence":"next"}]],["$","html",null,{"lang":"it","children":["$","body",null,{"className":"enaOeG_className","children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[[["$","a",null,{"className":"skip-link","href":"#main-content","children":"Vai al contenuto principale"}],["$","$L7",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"children":["$","section",null,{"className":"site-container not-found-page","aria-labelledby":"not-found-title","children":[["$","p",null,{"className":"eyebrow","children":"ERRORE 404 / PAGINA NON TROVATA"}],["$","h1",null,{"id":"not-found-title","children":["Qui non c'è ",["$","em",null,{"children":"nessuna pagina."}]]}],["$","p",null,{"children":"Il collegamento potrebbe essere cambiato o la pagina non è ancora disponibile."}],["$","div",null,{"className":"hero-actions","children":[["$","$L8",null,{"className":"button button-primary","href":"/","children":["Torna alla homepage ",["$","span",null,{"aria-hidden":"true","children":"↗"}]]}],["$","$L8",null,{"className":"button button-outline","href":"/projects","children":["Esplora i progetti ",["$","span",null,{"aria-hidden":"true","children":"↗"}]]}]]}]]}]}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"site-container footer-inner","children":[["$","div",null,{"children":[["$","$L8",null,{"href":"/","className":"footer-brand","aria-label":"Torna alla homepage","children":["SI",["$","span",null,{"children":"."}]]}],["$","p",null,{"children":"Software Developer · Java · Python"}]]}],["$","nav",null,{"aria-label":"Collegamenti nel footer","children":[["$","$L8",null,{"href":"/projects","children":"Progetti"}],["$","$L8",null,{"href":"/about","children":"Chi sono"}],["$","$L8",null,{"href":"/contact","children":"Contatti"}],["$","a",null,{"href":"https://github.com/ilmuratore","target":"_blank","rel":"noopener noreferrer","children":[["$","$L9",null,{"className":"","src":"/portfolio/icons/tech/github.svg","width":15,"height":15,"alt":"","unoptimized":true,"aria-hidden":"true"}]," GitHub ↗"]}],["$","a",null,{"href":"https://www.linkedin.com/in/simone-iengo-557914109/","target":"_blank","rel":"noopener noreferrer","children":[["$","svg",null,{"className":"","width":15,"height":15,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"1.75","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":[["$","path",null,{"d":"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"}],["$","rect",null,{"x":"2","y":"9","width":"4","height":"12"}],["$","circle",null,{"cx":"4","cy":"4","r":"2"}]]}]," LinkedIn ↗"]}]]}],["$","p",null,{"className":"copyright","children":["© ",2026," Simone Iengo"]}]]}]}]],[]]}]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Progetti — Simone Iengo"}],["$","meta","1",{"name":"description","content":"Progetti software documentati: banca Python, assistente AI locale e gestionale Java."}],["$","meta","2",{"name":"author","content":"Simone Iengo"}],["$","meta","3",{"name":"creator","content":"Simone Iengo"}],["$","meta","4",{"name":"robots","content":"index, follow"}],["$","link","5",{"rel":"canonical","href":"https://ilmuratore.github.io/portfolio/projects/"}],["$","meta","6",{"property":"og:title","content":"Simone Iengo | Software Developer · Java, Python & Backend"}],["$","meta","7",{"property":"og:description","content":"Sviluppatore software junior con circa tre anni di percorso IT: Java, Spring Boot, Python, docenza e obiettivo AI Engineer."}],["$","meta","8",{"property":"og:url","content":"https://ilmuratore.github.io/portfolio/"}],["$","meta","9",{"property":"og:site_name","content":"Simone Iengo"}],["$","meta","10",{"property":"og:locale","content":"it_IT"}],["$","meta","11",{"property":"og:image","content":"https://ilmuratore.github.io/portfolio/opengraph-image?6d75d820ea8d1188"}],["$","meta","12",{"property":"og:image:type","content":"image/png"}],["$","meta","13",{"property":"og:image:width","content":"1200"}],["$","meta","14",{"property":"og:image:height","content":"630"}],["$","meta","15",{"property":"og:image:alt","content":"Simone Iengo — Software Developer, Java & Python, verso AI engineering"}],"$L1e","$L1f","$L20","$L21","$L22","$L23","$L24","$L25","$L26","$L27","$L28"]}]}],null]}],"$L29"]}],"p":"$@2a","v":null,"s":"$b"}},"a":"$@2b","u":"$@2c","b":"ODJUBztjjJH9aX7P13Cxx"}
+2d:I[97367,["$2"],"OutletBoundary"]
+2f:I[27201,["$2"],"IconMark"]
+11:["$","span",null,{"children":"."}]
+12:["$","p",null,{"children":"Software Developer · Java · Python"}]
+13:["$","nav",null,{"aria-label":"Collegamenti nel footer","children":[["$","$L8",null,{"href":"/projects","children":"Progetti"}],["$","$L8",null,{"href":"/about","children":"Chi sono"}],["$","$L8",null,{"href":"/contact","children":"Contatti"}],["$","a",null,{"href":"https://github.com/ilmuratore","target":"_blank","rel":"noopener noreferrer","children":[["$","$L9",null,{"className":"","src":"/portfolio/icons/tech/github.svg","width":15,"height":15,"alt":"","unoptimized":true,"aria-hidden":"true"}]," GitHub ↗"]}],["$","a",null,{"href":"https://www.linkedin.com/in/simone-iengo-557914109/","target":"_blank","rel":"noopener noreferrer","children":[["$","svg",null,{"className":"","width":15,"height":15,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"1.75","strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":"true","focusable":"false","children":"$0:t:t:d:r:props:children:1:props:children:props:children:props:notFound:0:3:props:children:props:children:1:props:children:4:props:children:0:props:children"}]," LinkedIn ↗"]}]]}]
+14:["$","p",null,{"className":"copyright","children":["© ",2026," Simone Iengo"]}]
+15:["$","script","script-0",{"src":"/portfolio/_next/static/chunks/2cs8x3otxcls_.js","async":true}]
+16:["$","script","script-1",{"src":"/portfolio/_next/static/chunks/144clfvk3ffof.js","async":true}]
+17:["$","$L2d",null,{"children":["$","$1d",null,{"name":"Next.MetadataOutlet","children":"$@2e"}]}]
+1e:["$","meta","16",{"property":"og:type","content":"website"}]
+1f:["$","meta","17",{"name":"twitter:card","content":"summary_large_image"}]
+20:["$","meta","18",{"name":"twitter:title","content":"Simone Iengo | Software Developer · Java, Python & Backend"}]
+21:["$","meta","19",{"name":"twitter:description","content":"Sviluppatore software junior con circa tre anni di percorso IT: Java, Spring Boot, Python, docenza e obiettivo AI Engineer."}]
+22:["$","meta","20",{"name":"twitter:image","content":"https://ilmuratore.github.io/portfolio/twitter-image?057730bd39e040f0"}]
+23:["$","meta","21",{"name":"twitter:image:alt","content":"Simone Iengo — Software Developer, Java & Python, verso AI engineering"}]
+24:["$","meta","22",{"name":"twitter:image:type","content":"image/png"}]
+25:["$","meta","23",{"name":"twitter:image:width","content":"1200"}]
+26:["$","meta","24",{"name":"twitter:image:height","content":"630"}]
+27:["$","link","25",{"rel":"icon","href":"/portfolio/icon.svg?icon.3vqprxk6w_0ac.svg","sizes":"any","type":"image/svg+xml"}]
+28:["$","$L2f","26",{}]
+29:["$","meta",null,{"name":"next-size-adjust","content":""}]
+b:300
+2e:null
+2c:true
+b:C
+2b:0
+d:"$undefined"
+a:"$undefined"
+2a:"$undefined"
+18:"$undefined"
