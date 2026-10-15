@@ -4,7 +4,7 @@ import TechIcon from "./TechIcon";
 import UiIcon from "./UiIcon";
 import {
   profile, skillAreas, profileChapters, contactChannels,
-  experience, education, certificates, certificationProviders, futureProjects
+  experience, education, academicGoal, certificates, certificationProviders, futureProjects
 } from "@/content/profile.mjs";
 
 export function SkillsSection() {
@@ -13,7 +13,7 @@ export function SkillsSection() {
       <div className="site-container">
         <div className="section-intro">
           <div><p className="eyebrow">03 / COMPETENZE</p><h2 className="section-title" id="skills-title">Tecnologie, <em>con metodo.</em></h2></div>
-          <div className="section-aside"><p>Dallo sviluppo Java enterprise ai sistemi AI con Python. Le competenze sono presentate per contesto d'uso, non con percentuali arbitrarie.</p></div>
+          <div className="section-aside"><p>Java e Spring nel lavoro, Python e AI nei progetti di apprendimento. Strumenti distinti per ambito, senza autovalutazioni arbitrarie.</p></div>
         </div>
         <div className="skills-grid skill-groups">
           {skillAreas.map((area) => (
@@ -47,9 +47,9 @@ export function AboutSection() {
         </div>
         <div className="about-copy">
           <p className="eyebrow">04 / CHI SONO</p>
-          <h2 className="section-title" id="about-title">Esperienza concreta. <em>Nuove direzioni.</em></h2>
+          <h2 className="section-title" id="about-title">Tre anni nel software. <em>Un percorso che cresce.</em></h2>
           <p>{profile.introduction}</p>
-          <p>Un percorso che unisce sviluppo enterprise, analisi funzionale, progetti Python e attività di formazione.</p>
+          <p>La mia esperienza professionale è junior: continuo a consolidare il backend e ad approfondire l’intelligenza artificiale.</p>
           <Link className="text-link" href="/about">Percorso professionale <span aria-hidden="true">↗</span></Link>
         </div>
       </div>
@@ -63,7 +63,7 @@ export function ContactSection() {
       <div className="site-container contact-grid">
         <div><p className="eyebrow">05 / CONTATTI</p><h2 id="contact-title">Tecnologia e <em>confronto.</em></h2></div>
         <div className="contact-side">
-          <p>Software engineering, sistemi AI e formazione: trovi il codice pubblico su GitHub e le esperienze professionali su LinkedIn.</p>
+          <p>Backend Java, progetti Python e formazione: trovi codice e lavori pubblici su GitHub e il percorso professionale su LinkedIn.</p>
           <Link className="button button-light" href="/contact">Vai ai contatti <span aria-hidden="true">↗</span></Link>
         </div>
       </div>
@@ -128,6 +128,12 @@ export function EducationSection() {
           <p>{item.detail}</p>
         </article>
       ))}
+      <aside className="academic-goal" aria-labelledby="academic-goal-title">
+        <span className="eyebrow">PROSSIMA DIREZIONE / STUDI UNIVERSITARI</span>
+        <h3 id="academic-goal-title">{academicGoal.title}</h3>
+        <p className="academic-goal-status">{academicGoal.status}</p>
+        <p>{academicGoal.detail}</p>
+      </aside>
     </div>
   );
 }

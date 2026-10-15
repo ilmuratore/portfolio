@@ -8,6 +8,7 @@ export const profile = {
   softwareExperience: "Circa 3 anni di percorso IT tra formazione, sviluppo e docenza",
   aiGoal: "Diventare AI Engineer attraverso progetti pratici e studi universitari",
   headline: "Dal backend software verso l’AI engineering.",
+  heroIntroduction: "Sono uno sviluppatore junior con circa tre anni di percorso IT. Lavoro con Java e Python, insegno programmazione e studio per arrivare all’AI engineering.",
   introduction: "Sono uno sviluppatore software junior con circa tre anni di percorso nell’IT, tra formazione, esperienza professionale e docenza. Ho lavorato soprattutto con Java e Spring Boot su applicazioni backend e sto approfondendo Python e i sistemi AI attraverso progetti personali. Il mio obiettivo è diventare AI Engineer.",
   biography: [
     "Dal 2024 costruisco il mio percorso nello sviluppo software. Ho iniziato con la formazione full stack e con un’esperienza junior su Java e Spring Boot, per poi lavorare in un team che sviluppa e mantiene applicazioni enterprise nei settori bancario, finanziario e della pubblica amministrazione. Mi sono occupato di API REST, persistenza con JPA/Hibernate e supporto all’analisi funzionale.",

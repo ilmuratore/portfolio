@@ -3,19 +3,20 @@ import { HeroSoftwareVisual } from "./SoftwareVisuals";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
 import UiIcon from "./UiIcon";
+import { profile } from "@/content/profile.mjs";
 
 export function HeroSection() {
   return (
     <section className="hero site-container" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <p className="eyebrow"><span className="eyebrow-mark" /> SOFTWARE ENGINEER / AI & BACKEND</p>
-        <h1 id="hero-title">Software, dati <span>e sistemi AI.</span></h1>
-        <p className="hero-description">Sono Simone Iengo. Sviluppo applicazioni backend e sistemi software, con esperienza Java enterprise e progetti Python dedicati anche ai modelli AI locali.</p>
+        <p className="eyebrow"><span className="eyebrow-mark" /> JUNIOR SOFTWARE DEVELOPER / JAVA & PYTHON</p>
+        <h1 id="hero-title">Sviluppo software. <span>Verso l’AI.</span></h1>
+        <p className="hero-description">{profile.heroIntroduction}</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#projects">Esplora i progetti <span aria-hidden="true">↗</span></a>
           <a className="button button-outline" href="#about">Scopri di più <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="hero-note"><span className="rule" /><span>Java enterprise · Python · AI systems · Formazione</span></div>
+        <div className="hero-note"><span className="rule" /><span>Backend Java · Python · Docenza · Obiettivo AI Engineer</span></div>
       </div>
       <HeroSoftwareVisual />
     </section>

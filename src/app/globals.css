@@ -688,3 +688,11 @@ main:focus { outline:none; }
   .future-project-heading { align-items:flex-start; gap:12px; }
   .future-project-heading h3 { font-size:clamp(2.1rem,9vw,3rem); }
 }
+
+/* Obiettivo accademico distinto dai titoli di studio conseguiti. */
+.academic-goal { padding:26px 31px; margin-top:17px; border:1px solid #D7BFAC; border-left:3px solid var(--color-accent); border-radius:6px; background:#F1E7DC; }
+.academic-goal .eyebrow { color:var(--color-accent-hover); }
+.academic-goal h3 { margin:10px 0 8px; font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.2rem); font-weight:600; letter-spacing:-.035em; line-height:1.2; }
+.academic-goal p { max-width:780px; color:var(--color-muted); font-size:13px; line-height:1.85; margin:9px 0 0; }
+.academic-goal .academic-goal-status { color:var(--color-accent-hover); font-weight:700; font-size:12px; }
+@media (max-width:600px) { .academic-goal { padding:23px 21px; margin-top:12px; } }

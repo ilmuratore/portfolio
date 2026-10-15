@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Simone Iengo — Software Engineer, AI Systems & Backend";
+export const alt = "Simone Iengo — Software Developer, Java & Python, verso AI engineering";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
@@ -21,14 +21,14 @@ export default function OpenGraphImage() {
         <div style={{display:"flex", flexDirection:"column", width:700, gap:20}}>
           <div style={{display:"flex", alignItems:"center", gap:12, color:"#99553F", fontSize:18, fontWeight:700, letterSpacing:2, ...sans}}>
             <span style={{width:9, height:9, borderRadius:5, background:"#A34F34"}} />
-            SOFTWARE ENGINEER
+            SOFTWARE DEVELOPER
           </div>
           <div style={{display:"flex", flexDirection:"column", fontSize:84, fontWeight:750, letterSpacing:-4, lineHeight:1.02, ...sans}}>
             <span>Simone Iengo<span style={{color:"#A34F34"}}>.</span></span>
           </div>
           <div style={{display:"flex", flexDirection:"column", fontSize:29, lineHeight:1.35, color:"#66594E", ...sans}}>
-            <span>AI Systems & Backend</span>
-            <span>Java · Python · Software Architecture</span>
+            <span>Java · Python · Backend</span>
+            <span>Verso AI Engineering</span>
           </div>
         </div>
         <div style={{display:"flex", flexDirection:"column", width:260, height:300, borderRadius:14, background:"#EADAC9", border:"1px solid #D5BFA9", padding:24, transform:"rotate(5deg)", justifyContent:"center", gap:14}}>
@@ -48,7 +48,7 @@ export default function OpenGraphImage() {
         </div>
       </div>
       <div style={{display:"flex", width:"100%", borderTop:"1px solid #D7C7B8", paddingTop:23, justifyContent:"space-between", fontSize:15, color:"#66594E", ...sans}}>
-        <span>Engineering · AI · Formazione</span>
+        <span>Backend · Formazione · AI in apprendimento</span>
         <span>github.com/ilmuratore</span>
       </div>
     </div>,

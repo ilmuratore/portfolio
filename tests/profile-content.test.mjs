@@ -3,13 +3,19 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   skillAreas, contactChannels, profile, profileChapters, experience,
-  education, certificates, certificationProviders, futureProjects
+  education, academicGoal, certificates, certificationProviders, futureProjects
 } from "../src/content/profile.mjs";
 import { siteConfig } from "../src/config/site.js";
 
 test("profilo professionale e posizionamento AI senza qualifica lavorativa inventata", () => {
   assert.equal(profile.name, siteConfig.name);
-  assert.match(profile.title, /Software Engineer/);
+  assert.match(profile.title, /Software Developer/);
+  assert.doesNotMatch(profile.title, /AI Engineer/);
+  assert.match(profile.label, /JUNIOR/);
+  assert.match(profile.level, /Junior/);
+  assert.match(profile.softwareExperience, /3 anni/);
+  assert.match(profile.aiGoal, /AI Engineer/);
+  assert.match(profile.heroIntroduction, /junior/);
   assert.match(profile.title, /AI/);
   assert.ok(profile.introduction.includes("Java"));
   assert.ok(profile.introduction.includes("Python"));
@@ -41,6 +47,28 @@ test("cronologia coerente con i dati professionali forniti", () => {
   assert.ok(experience.find((item) => item.id === "aurora").description.includes("12"));
   assert.equal(education.length, 1);
   assert.equal(education[0].organization, "EPICODE");
+});
+
+test("la laurea L-31 è esplicitamente un obiettivo, non un titolo conseguito", () => {
+  assert.match(academicGoal.title, /L-31/);
+  assert.match(academicGoal.title, /Artificial Intelligence/);
+  assert.match(academicGoal.status, /non ancora conseguita/);
+  assert.match(academicGoal.detail, /obiettivo/);
+  const sections = readFileSync(new URL("../src/app/components/v2/ProfileSections.jsx", import.meta.url), "utf8");
+  assert.match(sections, /academicGoal\.status/);
+  const about = readFileSync(new URL("../src/app/about/page.js", import.meta.url), "utf8");
+  assert.match(about, /non una laurea conseguita/);
+});
+
+test("metadata, hero e social preview non attribuiscono un ruolo AI già acquisito", () => {
+  const hero = readFileSync(new URL("../src/app/components/v2/EditorialSections.jsx", import.meta.url), "utf8");
+  const og = readFileSync(new URL("../src/app/opengraph-image.jsx", import.meta.url), "utf8");
+  assert.match(hero, /profile\.heroIntroduction/);
+  assert.match(hero, /Verso l’AI/);
+  assert.match(siteConfig.title, /Software Developer/);
+  assert.doesNotMatch(siteConfig.title, /AI Engineer/);
+  assert.match(og, /SOFTWARE DEVELOPER/);
+  assert.doesNotMatch(og, /SOFTWARE ENGINEER/);
 });
 
 test("certificazioni: struttura pronta ma senza inventare attestati", () => {

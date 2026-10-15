@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: "Chi sono — " + siteConfig.name,
-  description: "Il percorso professionale di Simone Iengo: sviluppo Java enterprise, backend Python, progetti AI, formazione tecnica e coordinamento.",
+  description: "Simone Iengo, sviluppatore software junior: Java, Spring Boot, Python, docenza e percorso verso l’AI engineering.",
   alternates: { canonical: siteConfig.url + "/about" },
   robots: { index: false, follow: false }
 };
@@ -24,19 +24,19 @@ export default function AboutPage() {
         </nav>
         <header className="profile-hero">
           <p className="eyebrow">{profile.label}</p>
-          <h1>Dal software enterprise <em>ai sistemi AI.</em></h1>
+          <h1>Sviluppo software oggi. <em>AI engineering come obiettivo.</em></h1>
           <p>{profile.introduction}</p>
         </header>
 
         <div className="profile-intro-grid">
           <div className="profile-poster" aria-hidden="true">
-            <span>SOFTWARE ENGINEERING / AI SYSTEMS</span>
+            <span>JUNIOR DEVELOPER / BACKEND</span>
             <strong>SI<span>.</span></strong>
             <small>BACKEND · PROGETTI · FORMAZIONE</small>
           </div>
           <div className="profile-biography">
             <p className="eyebrow">PROFILO / CHI SONO</p>
-            <h2>Esperienza e <em>curiosità tecnica.</em></h2>
+            <h2>Pratica, formazione e <em>crescita continua.</em></h2>
             {profile.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <Link href="/projects" className="text-link">Esplora il lavoro <span aria-hidden="true">↗</span></Link>
           </div>
@@ -53,7 +53,7 @@ export default function AboutPage() {
         <section className="profile-experience" aria-labelledby="profile-experience-title">
           <div className="section-intro">
             <div><p className="eyebrow">02 / ESPERIENZA PROFESSIONALE</p><h2 className="section-title" id="profile-experience-title">Il percorso, <em>nel concreto.</em></h2></div>
-            <div className="section-aside"><p>Dall'esperienza organizzativa alla programmazione enterprise, fino alla formazione tecnica e ai progetti AI.</p></div>
+            <div className="section-aside"><p>Il percorso tecnico inizia nel 2024. Prima ho lavorato in ambito finanziario e gestionale: due esperienze diverse, entrambe utili.</p></div>
           </div>
           <ExperienceTimeline />
         </section>
@@ -61,7 +61,7 @@ export default function AboutPage() {
         <section className="profile-skills" aria-labelledby="profile-skills-title">
           <div className="section-intro">
             <div><p className="eyebrow">03 / SKILL SET</p><h2 className="section-title" id="profile-skills-title">Competenze <em>applicate.</em></h2></div>
-            <div className="section-aside"><p>Ambiti e strumenti utilizzati nello sviluppo, nei progetti e nella formazione; nessun punteggio arbitrario.</p></div>
+            <div className="section-aside"><p>Distinguo le tecnologie usate nel lavoro da quelle esplorate nella formazione e nei progetti personali.</p></div>
           </div>
           <div className="profile-skill-list">
             {skillAreas.map((area) => (
@@ -77,7 +77,7 @@ export default function AboutPage() {
         <section className="profile-training" aria-labelledby="profile-training-title">
           <div className="section-intro">
             <div><p className="eyebrow">04 / FORMAZIONE</p><h2 className="section-title" id="profile-training-title">Formazione <em>continua.</em></h2></div>
-            <div className="section-aside"><p>Il percorso di formazione tecnica si affianca allo sviluppo professionale e ai progetti realizzati.</p></div>
+            <div className="section-aside"><p>EPICODE è una formazione conclusa; la L-31 in Artificial Intelligence è un obiettivo universitario, non una laurea conseguita.</p></div>
           </div>
           <EducationSection />
         </section>

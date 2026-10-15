@@ -1,6 +1,6 @@
 # Simone Iengo — Portfolio v2
 
-Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo.** Il catalogo presenta tre repository pubblici reali; esperienze e competenze derivano dal profilo condiviso; certificazioni e anteprime autentiche restano da completare. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
+Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo.** Il catalogo presenta tre repository pubblici reali; il profilo distingue circa tre anni di percorso IT dalla carriera precedente; alcune esperienze e progetti sono ancora in aggiornamento. Certificazioni e screenshot autentici restano da completare. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
 
 ## Stack
 
@@ -11,7 +11,6 @@ Next.js 16.4.1, React 19.3.1, Tailwind CSS 4.3.3, ESLint Flat Config, componenti
 Richiesti Node.js 22 e npm:
 
 ```bash
-npm run upgrade:security
 npm ci
 npm run dev
 ```
@@ -31,15 +30,14 @@ npm run verify:static
 
 ### Prima del rilascio
 
-**Attenzione:** dopo la migrazione a Next.js 16, il lockfile va rigenerato tramite npm: il precedente commit usava Next.js 15.5.28, React 19.0.6 e Tailwind 3. Prima di considerare il progetto pronto per la pubblicazione è necessario eseguire:
+La migrazione a Next.js 16 è già stata integrata nel lockfile. Prima di considerare il progetto pronto per la pubblicazione è necessario eseguire:
 
 ```bash
-npm run upgrade:security
 npm ci
 npm run release:check
 ```
 
-Il comando di upgrade richiede accesso npm e modifica `package.json` e `package-lock.json`. Leggere [SECURITY.md](docs/SECURITY.md) per i dettagli e includere il lockfile rigenerato nel commit. **Non effettuare un deploy pubblico prima della verifica.**
+Consultare [SECURITY.md](docs/SECURITY.md) ed esaminare le vulnerabilità eventualmente residue. **Non effettuare un deploy pubblico prima della verifica.**
 
 ## Struttura dei contenuti
 
@@ -69,9 +67,9 @@ La pubblicazione con dominio proprio resta una fase separata. Nessuna GitHub Act
 - [Roadmap](docs/ROADMAP.md)
 - [Profilo professionale](docs/PROFILE.md)
 
-## Migrazione PR06: Next.js 16
+## Stack Next.js 16
 
-Le versioni sono definite in `package.json`, ma **prima di verificare o fare il merge** va aggiornato e committato il lockfile con `npm run upgrade:security`.
+Le versioni sono definite e bloccate in `package.json` e `package-lock.json`.
 
 - Turbopack è il bundler predefinito per `next dev` e `next build`.
 - Tailwind 4 si configura in CSS con `@import "tailwindcss"` e il plugin PostCSS dedicato.
@@ -91,4 +89,6 @@ Le anteprime sono costruzioni CSS illustrative, non screenshot. Le altre sezioni
 
 ## Profilo professionale — PR08
 
-Il posizionamento «Software Engineer · AI Systems & Backend» valorizza esperienza Java enterprise, sistemi Python/AI e formazione tecnica, senza attribuire un precedente impiego con il titolo AI Engineer. RustOS e Il Presidente sono menzionati soltanto come iniziative in sviluppo, senza collegamenti ai repository privati. La sezione certificazioni Google/Coursera non contiene titoli o credenziali inventati.
+Il profilo attuale è **Software Developer junior**, in crescita verso competenze intermedie, con **circa tre anni di percorso nel settore IT** fra formazione, sviluppo e docenza. Il precedente lavoro finanziario è raccontato separatamente e non conta come esperienza nello sviluppo. **Diventare AI Engineer è un obiettivo**, non un ruolo già ricoperto. La laurea **L-31 in Artificial Intelligence** è indicata come direzione universitaria, non come titolo conseguito o iscrizione già confermata.
+
+RustOS e Il Presidente restano iniziative in sviluppo senza collegamenti ai repository privati. I progetti GitHub vengono aggiornati progressivamente; i certificati Google/Coursera non hanno ancora titoli inventati.
