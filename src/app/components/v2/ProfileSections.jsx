@@ -151,7 +151,7 @@ export function CertificationsSection() {
           <span className="eyebrow">CREDENZIALI / DA COMPLETARE</span>
           <h3>Certificazioni in aggiornamento.</h3>
           <p>Uno spazio dedicato agli attestati conseguiti. Titoli, date e collegamenti di verifica verranno aggiunti dopo la raccolta delle credenziali.</p>
-          <div className="certification-providers" aria-label="Piattaforme indicate">{certificationProviders.map((name) => <span key={name}>{name}</span>)}</div>
+          <div className="certification-providers" aria-label="Piattaforme indicate">{certificationProviders.map((name) => <span key={name}><TechIcon label={name} size={18} />{name}</span>)}</div>
         </div>
       )}
     </div>
@@ -164,7 +164,7 @@ export function FutureProjectsSection() {
       {futureProjects.map((item, index) => (
         <article className="future-project" key={item.id}>
           <div className="future-project-top"><span>0{index + 1} / PROGETTO A LUNGO TERMINE</span><span>{item.status}</span></div>
-          <h3>{item.name}</h3>
+          <div className="future-project-heading"><UiIcon name={item.id === "rustos" ? "terminal" : "layers"} size={25} /><h3>{item.name}</h3></div>
           <p>{item.description}</p>
           <span className="future-project-note">Presentazione pubblica in preparazione</span>
         </article>
