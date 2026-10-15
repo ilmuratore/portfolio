@@ -1,38 +1,41 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import { Inter } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import { siteConfig } from '@/config/site';
 
-const inter = Inter({subsets: ['latin'], display: 'swap',})
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata = {
-  title: 'Simone Iengo | Full Stack Developer',
-  description: 'Portfolio di Simone Iengo, Full Stack Developer specializzato in Java, JavaScript/TypeScript, Angular, React, Node.js e Spring Boot.',
-  keywords: ['Full Stack Developer', 'Java Developer', 'React Developer', 'Angular Developer', 'JavaScript', 'TypeScript', 'Node.js', 'Spring Boot', 'Portfolio', 'Napoli'],
-  authors: [{ name: 'Simone Iengo' }],
-  creator: 'Simone Iengo',
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    locale: 'it_IT',
-    url: 'https://portfolio-psi-tan-23.vercel.app/', 
-    title: 'Simone Iengo | Full Stack Developer',
-    description: 'Portfolio di Simone Iengo, Full Stack Developer specializzato in Java, JavaScript, Angular, React e Node.js.',
-    siteName: 'Simone Iengo Portfolio',
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Simone Iengo | Full Stack Developer',
-    description: 'Portfolio di Simone Iengo, Full Stack Developer',
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}
+    <html lang="it">
+      <body className={inter.className}>
+        {children}
         <SpeedInsights />
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

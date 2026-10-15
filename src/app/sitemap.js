@@ -1,12 +1,5 @@
-export default function sitemap() {
-  const baseUrl = 'https://portfolio-psi-tan-23.vercel.app'; 
+import { siteConfig } from '@/config/site';
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ];
+export default function sitemap() {
+  return [{ url: siteConfig.url, changeFrequency: 'monthly', priority: 1 }];
 }
