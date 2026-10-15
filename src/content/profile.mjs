@@ -1,21 +1,12 @@
-// Contenuti professionali tratti dalle informazioni fornite dal proprietario.
-// Le certificazioni senza titolo, data e credenziale non vengono presentate come attestati verificati.
 export const profile = {
-  name: "Simone Iengo",
   label: "JUNIOR SOFTWARE DEVELOPER / BACKEND",
-  title: "Software Developer · Java, Python & Backend",
-  level: "Junior, in crescita verso competenze mid-level",
-  softwareExperience: "Circa 3 anni di percorso IT tra formazione, sviluppo e docenza",
-  aiGoal: "Diventare AI Engineer attraverso progetti pratici e studi universitari",
-  headline: "Dal backend software verso l’AI engineering.",
   heroIntroduction: "Sono uno sviluppatore junior con circa tre anni di percorso IT. Lavoro con Java e Python, insegno programmazione e studio per arrivare all’AI engineering.",
   introduction: "Sono uno sviluppatore software junior con circa tre anni di percorso nell’IT, tra formazione, esperienza professionale e docenza. Ho lavorato soprattutto con Java e Spring Boot su applicazioni backend e sto approfondendo Python e i sistemi AI attraverso progetti personali. Il mio obiettivo è diventare AI Engineer.",
   biography: [
     "Dal 2024 costruisco il mio percorso nello sviluppo software. Ho iniziato con la formazione full stack e con un’esperienza junior su Java e Spring Boot, per poi lavorare in un team che sviluppa e mantiene applicazioni enterprise nei settori bancario, finanziario e della pubblica amministrazione. Mi sono occupato di API REST, persistenza con JPA/Hibernate e supporto all’analisi funzionale.",
     "Parallelamente lavoro come docente e formatore di programmazione, preparando materiali e seguendo esercitazioni e progetti. Con Python sperimento backend, memoria persistente e integrazione con modelli linguistici locali: sto imparando, non mi presento ancora come AI Engineer. Vorrei rafforzare questo percorso con gli studi universitari L-31 in Artificial Intelligence."
   ],
-  previousCareer: "Prima del passaggio all’IT ho lavorato nella consulenza finanziaria e nella gestione di una sede e di un team. È un’esperienza organizzativa distinta dagli anni dedicati allo sviluppo software.",
-  availability: null
+  previousCareer: "Prima del passaggio all’IT ho lavorato nella consulenza finanziaria e nella gestione di una sede e di un team. È un’esperienza organizzativa distinta dagli anni dedicati allo sviluppo software."
 };
 
 export const skillAreas = [
@@ -115,12 +106,7 @@ export const experience = [
     period: "Ott 2019 — Gen 2024",
     arrangement: "Reggio Emilia · In sede",
     category: "previous",
-    description: "Progressione da responsabilità tecnico-commerciali alla gestione di sede e al coordinamento di circa 12 collaboratori.",
-    highlights: [
-      "Socio dirigente da settembre 2021 a gennaio 2024; gestione e sviluppo del team.",
-      "Coordinamento, formazione e affiancamento della rete commerciale.",
-      "Valutazione delle pratiche di finanziamento e responsabilità operative."
-    ]
+    description: "Progressione da responsabilità tecnico-commerciali alla gestione di sede e al coordinamento di circa 12 collaboratori."
   },
   {
     id: "facile",
@@ -129,8 +115,7 @@ export const experience = [
     period: "Set 2018 — Ott 2019",
     arrangement: "Parma · In sede",
     category: "previous",
-    description: "Consulenza assicurativa e finanziaria presso lo store di Parma.",
-    highlights: []
+    description: "Consulenza assicurativa e finanziaria presso lo store di Parma."
   },
   {
     id: "generali",
@@ -139,8 +124,7 @@ export const experience = [
     period: "Set 2014 — Set 2018",
     arrangement: "Pomigliano d'Arco · In sede",
     category: "previous",
-    description: "Attività di consulenza e relazione con i clienti nel settore assicurativo.",
-    highlights: []
+    description: "Attività di consulenza e relazione con i clienti nel settore assicurativo."
   }
 ];
 
@@ -156,17 +140,12 @@ export const education = [
 
 
 export const academicGoal = {
-  id: "l31-ai",
   title: "L-31 · Artificial Intelligence",
-  organization: "Percorso universitario di riferimento",
   status: "Obiettivo formativo — laurea non ancora conseguita",
   detail: "Voglio approfondire le fondamenta informatiche, matematiche e dell’intelligenza artificiale attraverso un percorso universitario L-31. La laurea è un obiettivo del mio percorso, non un titolo già ottenuto."
 };
 
-// Nomi degli enti segnalati, non singole certificazioni pubblicate.
-// Inserire nell'array certificates soltanto attestati con titolo confermato.
 export const certificationProviders = ["Google", "Coursera"];
-export const certificates = [];
 
 export const futureProjects = [
   {

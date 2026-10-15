@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 255" width="1100" height="255" role="img" aria-labelledby="title desc">
+  <title id="title">Architettura del portfolio</title>
+  <desc id="desc">Contenuti e componenti Next.js sono compilati in un export statico e pubblicati su GitHub Pages.</desc>
+  <rect width="1100" height="255" fill="#F8F4ED" rx="15"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g>
+      <rect x="28" y="39" width="303" height="173" rx="12" fill="#FFFCF7" stroke="#DCD0C3" stroke-width="2"/>
+      <rect x="28" y="39" width="303" height="10" rx="5" fill="#9A6851"/>
+      <text x="52" y="82" font-size="13" font-weight="700" fill="#9A6851" letter-spacing="2">SOURCE</text>
+      <text x="52" y="119" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="700" fill="#241D19">Next.js + React</text>
+      <text x="52" y="147" font-size="15" fill="#625A53">Componenti, contenuti, CSS</text>
+      <text x="52" y="174" font-family="monospace" font-size="13" fill="#626C55">src/app · src/content</text>
+    </g>
+    <g fill="none" stroke="#A34F34" stroke-width="3" stroke-linecap="round">
+      <path d="M346 126h41"/><path d="m377 116 10 10-10 10"/>
+    </g>
+    <g>
+      <rect x="399" y="39" width="303" height="173" rx="12" fill="#FFFCF7" stroke="#DCD0C3" stroke-width="2"/>
+      <rect x="399" y="39" width="303" height="10" rx="5" fill="#626C55"/>
+      <text x="423" y="82" font-size="13" font-weight="700" fill="#626C55" letter-spacing="2">STATIC EXPORT</text>
+      <text x="423" y="119" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="700" fill="#241D19">Build di produzione</text>
+      <text x="423" y="147" font-size="15" fill="#625A53">HTML, CSS, JavaScript, SVG</text>
+      <text x="423" y="174" font-family="monospace" font-size="13" fill="#626C55">out/ · SEO · Open Graph</text>
+    </g>
+    <g fill="none" stroke="#A34F34" stroke-width="3" stroke-linecap="round">
+      <path d="M718 126h41"/><path d="m749 116 10 10-10 10"/>
+    </g>
+    <g>
+      <rect x="771" y="39" width="303" height="173" rx="12" fill="#241D19" stroke="#241D19" stroke-width="2"/>
+      <rect x="771" y="39" width="303" height="10" rx="5" fill="#A34F34"/>
+      <text x="795" y="82" font-size="13" font-weight="700" fill="#D7A98A" letter-spacing="2">PUBLIC WEBSITE</text>
+      <text x="795" y="119" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="700" fill="#F8F4ED">GitHub Pages</text>
+      <text x="795" y="147" font-size="15" fill="#D1C5B8">Hosting statico con HTTPS</text>
+      <text x="795" y="174" font-family="monospace" font-size="13" fill="#AFC0A8">branch: gh-pages</text>
+    </g>
+  </g>
+</svg>

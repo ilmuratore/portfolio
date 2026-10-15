@@ -1,9 +1,9 @@
 import Link from "next/link";
-import TechBadge from "@/app/components/v2/TechBadge";
-import UiIcon from "@/app/components/v2/UiIcon";
+import TechBadge from "@/app/components/site/TechBadge";
+import UiIcon from "@/app/components/site/UiIcon";
 import { notFound } from "next/navigation";
-import SitePageFrame from "@/app/components/v2/SitePageFrame";
-import { ProjectSoftwareVisual } from "@/app/components/v2/SoftwareVisuals";
+import SitePageFrame from "@/app/components/site/SitePageFrame";
+import { ProjectSoftwareVisual } from "@/app/components/site/SoftwareVisuals";
 import { projects, getProjectBySlug, getAdjacentProjects } from "@/content/projects.mjs";
 import { siteConfig } from "@/config/site";
 
@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({ params }) {
                   <span className="eyebrow">{item.number} / CASE STUDY</span>
                   <h2 id={`heading-${item.key}`}>{item.label}</h2>
                   <p>{project.sections[item.key]}</p>
-                  {item.key === "architecture" && <div className="architecture-placeholder" role="img" aria-label="Schema riepilogativo dei componenti descritti dal repository; non è un diagramma ufficiale">
+                  {item.key === "architecture" && <div className="architecture-diagram" role="img" aria-label="Schema riepilogativo dei componenti descritti dal repository; non è un diagramma ufficiale">
                     {project.architectureNodes.map((node) => (
                       <div key={node}>{node}<small>Componente documentato</small></div>
                     ))}

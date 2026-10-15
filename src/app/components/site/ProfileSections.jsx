@@ -4,7 +4,7 @@ import TechIcon from "./TechIcon";
 import UiIcon from "./UiIcon";
 import {
   profile, skillAreas, profileChapters, contactChannels,
-  experience, education, academicGoal, certificates, certificationProviders, futureProjects
+  experience, education, academicGoal, certificationProviders, futureProjects
 } from "@/content/profile.mjs";
 
 export function SkillsSection() {
@@ -141,25 +141,14 @@ export function EducationSection() {
 export function CertificationsSection() {
   return (
     <div className="certification-panel">
-      {certificates.length > 0 ? (
-        <div className="certification-grid">
-          {certificates.map((certificate) => (
-            <article className="certification-item" key={certificate.id}>
-              <span className="eyebrow">{certificate.issuer}</span>
-              <h3>{certificate.title}</h3>
-              {certificate.date && <p>{certificate.date}</p>}
-              {certificate.credentialUrl && <a className="text-link" href={certificate.credentialUrl} target="_blank" rel="noopener noreferrer">Verifica credenziale <span aria-hidden="true">↗</span></a>}
-            </article>
-          ))}
+      <div className="certification-empty">
+        <span className="eyebrow">CREDENZIALI</span>
+        <h3>Certificazioni e attestati.</h3>
+        <p>La sezione raccoglierà i dettagli degli attestati quando saranno disponibili titoli e credenziali verificabili.</p>
+        <div className="certification-providers" aria-label="Piattaforme indicate">
+          {certificationProviders.map((name) => <span key={name}><TechIcon label={name} size={18} />{name}</span>)}
         </div>
-      ) : (
-        <div className="certification-empty">
-          <span className="eyebrow">CREDENZIALI / DA COMPLETARE</span>
-          <h3>Certificazioni in aggiornamento.</h3>
-          <p>Uno spazio dedicato agli attestati conseguiti. Titoli, date e collegamenti di verifica verranno aggiunti dopo la raccolta delle credenziali.</p>
-          <div className="certification-providers" aria-label="Piattaforme indicate">{certificationProviders.map((name) => <span key={name}><TechIcon label={name} size={18} />{name}</span>)}</div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -170,7 +159,7 @@ export function FutureProjectsSection() {
       {futureProjects.map((item, index) => (
         <article className="future-project" key={item.id}>
           <div className="future-project-top"><span>0{index + 1} / PROGETTO A LUNGO TERMINE</span><span>{item.status}</span></div>
-          <div className="future-project-heading"><UiIcon name={item.id === "rustos" ? "terminal" : "layers"} size={25} /><h3>{item.name}</h3></div>
+          <div className="future-project-heading">{item.id === "rustos" ? <TechIcon label="Rust" size={25} /> : <UiIcon name="layers" size={25} />}<h3>{item.name}</h3></div>
           <p>{item.description}</p>
           <span className="future-project-note">Presentazione pubblica in preparazione</span>
         </article>
