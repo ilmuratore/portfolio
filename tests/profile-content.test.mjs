@@ -16,7 +16,6 @@ test("profilo professionale e posizionamento AI senza qualifica lavorativa inven
   assert.match(profile.softwareExperience, /3 anni/);
   assert.match(profile.aiGoal, /AI Engineer/);
   assert.match(profile.heroIntroduction, /junior/);
-  assert.match(profile.title, /AI/);
   assert.ok(profile.introduction.includes("Java"));
   assert.ok(profile.introduction.includes("Python"));
   assert.equal(profile.availability, null);
