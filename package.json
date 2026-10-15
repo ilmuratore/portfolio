@@ -15,7 +15,11 @@
     "upgrade:security": "node scripts/upgrade-security.mjs",
     "release:check": "npm run verify && npm run security:check && npm run audit",
     "audit": "npm audit",
-    "audit:prod": "npm audit --omit=dev"
+    "audit:prod": "npm audit --omit=dev",
+    "build:pages": "node scripts/build-pages.mjs",
+    "check:pages": "node scripts/check-pages.mjs",
+    "verify:pages": "npm run build:pages && npm run check:pages",
+    "deploy:pages": "node scripts/deploy-pages.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",

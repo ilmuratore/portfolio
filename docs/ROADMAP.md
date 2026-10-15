@@ -1,29 +1,31 @@
 # Roadmap — Portfolio v2
 
-Un branch e una PR per ambito; test locali prima del merge. Il sito non viene ancora pubblicato automaticamente.
+Tutte le modifiche al sorgente passano da pull request; la pubblicazione avviene dopo il merge con uno script di export statico locale.
 
-| PR | Ambito | Stato |
+| Fase | Ambito | Stato |
 | --- | --- | --- |
-| 01–05 | Foundation, design, UX, pagine, refactor | Mergiate |
-| 06 | Next.js 16 / React / Tailwind e hardening | Mergiata; audit sicurezza finale ancora da verificare |
-| 07 | Primi tre progetti pubblici e case study | Mergiata |
-| 08 | Profilo professionale, timeline, skill e certificazioni | Mergiata |
-| 09A | SVG tecnologie, favicon e social preview | Mergiata |
-| 10 | Revisione veritiera dei contenuti: junior, circa 3 anni IT, obiettivo AI Engineer, L-31 | In review |
-| 11 | Attestati verificati, screenshot veri, ulteriori repository pronti e QA | Da pianificare |
-| 12 | Audit finale, dominio e hosting statico | Da pianificare |
+| PR01–PR05 | Foundation, design, responsive, pagine | Mergiate |
+| PR06 | Next.js 16, React, Tailwind, hardening | Mergiata |
+| PR07 | Tre case study da repository pubblici | Mergiata |
+| PR08 | Profilo, esperienze, competenze, formazione | Mergiata |
+| PR09A | Icone SVG, favicon e social image | Mergiata |
+| PR10 | Junior developer, 3 anni IT e obiettivo AI Engineer | Mergiata |
+| **PR11** | **Preparazione release su GitHub Pages: SEO, verifica e deploy manuale** | **In review** |
+| Evoluzione continua | Screenshot, certificazioni e nuove schede dei repository | Iterativa |
+| Opzionale | Dominio personalizzato con configurazione dedicata | Successiva |
 
-## Principi editoriali
+## Politica editoriale
 
-1. **Identità attuale:** Software Developer junior, in crescita verso competenze mid-level. Circa tre anni di percorso nel software fra formazione, sviluppo e docenza, non un decennio di esperienza IT.
-2. **AI Engineer è un obiettivo professionale**, sostenuto da studio, progetti Python e interesse verso i sistemi AI; non è il ruolo attualmente ricoperto.
-3. **L-31 in Artificial Intelligence** è un obiettivo universitario; non sono confermati né immatricolazione né conseguimento del titolo.
-4. L'esperienza finanziaria e gestionale è distinta dall'anzianità nello sviluppo software.
-5. I repository pubblici possono essere prototipi o esercitazioni ancora in evoluzione; aggiornarli e migliorare le relative schede gradualmente.
-6. Certificazioni Google/Coursera solo quando i dati dell'attestato saranno disponibili.
-7. RustOS e Il Presidente non sono case study pubblici finché l'utente non deciderà di renderli tali.
-8. L'intero sito resta `noindex` durante lo sviluppo; nessuna configurazione Vercel o GitHub Actions viene ripristinata.
+- Profilo attuale junior, in crescita; AI Engineer è un obiettivo e non un titolo già acquisito.
+- La laurea L-31 è un obiettivo universitario, non un titolo conseguito.
+- Esperienza finanziaria e gestionale distinta dall'esperienza di sviluppo.
+- Le schede dei repository possono descrivere lavori formativi o prototipi in miglioramento.
+- Le anteprime illustrate non sono spacciate per screenshot.
+- Le certificazioni restano senza titoli finché non vengono fornite e verificate.
+- RustOS e Il Presidente non vengono collegati a repository privati.
 
-## Prima del rilascio
+## Hosting
 
-Verifica contenuti, certificati e documentazione, test mobile/tastiera, asset di progetto autentici, aggiornamento `npm audit` e corretta generazione statica con l'eventuale dominio. Solo dopo sarà impostata la pubblicazione e revisionata la sitemap.
+GitHub Pages (repository pubblico) consente l'hosting statico gratuito con URL `https://ilmuratore.github.io/portfolio/`. La release avviene da `gh-pages`, popolato dallo script `npm run deploy:pages`; il repository non contiene workflow GitHub Actions personalizzati. I processi interni GitHub Pages possono produrre run nella sezione Actions del servizio.
+
+Vercel non è più usato dal codice; la rimozione dell'integrazione esterna richiede una verifica nelle impostazioni Vercel e nelle GitHub Apps. Nessun dominio acquistato o deployment live viene creato automaticamente con la PR11.

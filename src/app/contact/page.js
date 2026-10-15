@@ -6,8 +6,8 @@ import { siteConfig } from "@/config/site";
 export const metadata = {
   title: `Contatti — ${siteConfig.name}`,
   description: "Contatti di Simone Iengo, sviluppatore software junior: progetti Java/Python e percorso verso l’AI engineering.",
-  alternates: { canonical: `${siteConfig.url}/contact` },
-  robots: { index: false, follow: false }
+  alternates: { canonical: `${siteConfig.url}/contact/` },
+  robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false }
 };
 
 export default function ContactPage() {
