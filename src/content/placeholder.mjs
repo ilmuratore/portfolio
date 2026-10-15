@@ -1,10 +1,10 @@
-// Raccolte temporanee condivise con la homepage.
+// Esperienza professionale descritta dal proprietario; approccio sintetizzato, non un processo formalmente certificato.
 export { featuredProjects } from "./projects.mjs";
 export { skillAreas } from "./profile.mjs";
 
 export const processSteps = [
-  { number: "01", title: "Fase iniziale", description: "Breve descrizione placeholder della prima fase del lavoro." },
-  { number: "02", title: "Progettazione", description: "Breve descrizione placeholder delle scelte e dell'architettura." },
-  { number: "03", title: "Sviluppo", description: "Breve descrizione placeholder della realizzazione del progetto." },
-  { number: "04", title: "Consegna", description: "Breve descrizione placeholder della verifica e del rilascio." }
+  { number: "01", title: "Analisi", description: "Comprendere requisiti, vincoli, problemi e obiettivi." },
+  { number: "02", title: "Progettazione", description: "Definire componenti, responsabilità, dati e integrazioni." },
+  { number: "03", title: "Sviluppo", description: "Realizzare e integrare le funzionalità, dal backend alle interfacce." },
+  { number: "04", title: "Verifica", description: "Testare, documentare e migliorare in modo iterativo." }
 ];

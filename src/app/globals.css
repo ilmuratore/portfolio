@@ -569,3 +569,67 @@ main:focus { outline:none; }
   .case-source-links { flex-direction:column; align-items:flex-start; }
   .case-study .architecture-placeholder > div { flex-basis:85px; }
 }
+
+
+/* PR08 — Profile: career, education, certificates and long-term projects. */
+.profile-experience, .profile-training, .profile-certifications, .profile-future { padding-block:73px 82px; border-top:1px solid var(--color-border); }
+.profile-chapter h3 { margin:0 0 11px; font-family:var(--font-display); font-weight:600; letter-spacing:-.035em; font-size:30px; }
+.career { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(255px,.65fr); gap:clamp(30px,5vw,75px); }
+.career-list { border-top:1px solid var(--color-border); }
+.career-entry { display:grid; grid-template-columns:125px minmax(0,1fr); gap:21px; padding:32px 0 37px; border-bottom:1px solid var(--color-border); }
+.career-entry-period { color:var(--color-accent-hover); font-size:11px; line-height:1.7; font-weight:700; }
+.career-organization { color:var(--color-accent-hover); font-size:12px; font-weight:700; }
+.career-entry-body h3 { margin:9px 0 7px; font-family:var(--font-display); font-weight:600; letter-spacing:-.04em; font-size:clamp(1.65rem,2.45vw,2.1rem); line-height:1.16; }
+.career-entry-body p { color:var(--color-muted); font-size:13px; line-height:1.8; margin:13px 0 0; }
+.career-entry-body .career-arrangement { margin:0; color:var(--color-muted); font-size:11px; }
+.career-entry-body ul { margin:18px 0 0; padding:0 0 0 16px; }
+.career-entry-body li { color:var(--color-muted); font-size:12px; line-height:1.8; padding-left:3px; margin-bottom:7px; }
+.career-previous { align-self:start; padding:26px 24px; border:1px solid var(--color-border); border-radius:6px; background:var(--color-surface); }
+.career-previous > h3 { font-family:var(--font-display); font-size:27px; line-height:1.2; letter-spacing:-.04em; font-weight:600; margin:0 0 10px; }
+.career-previous > p { color:var(--color-muted); font-size:12px; line-height:1.8; margin:0 0 22px; }
+.career-previous-item { padding-block:17px; border-top:1px solid var(--color-border); }
+.career-previous-item > span { display:block; margin-bottom:8px; color:var(--color-accent-hover); font-size:10px; font-weight:700; }
+.career-previous-item strong { font-size:13px; display:block; line-height:1.5; }
+.career-previous-item div > span { font-size:11px; color:var(--color-muted); display:block; margin-top:3px; }
+.career-previous-item p { font-size:11px; color:var(--color-muted); line-height:1.7; margin:9px 0 0; }
+.profile-skill-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:17px; }
+.profile-skill-tags span { padding:5px 7px; border:1px solid var(--color-border); border-radius:3px; background:var(--color-canvas); font-size:10px; line-height:1.2; color:var(--color-muted); font-weight:500; }
+.education-entry { border:1px solid var(--color-border); background:var(--color-surface); padding:27px 31px; border-radius:6px; }
+.education-entry .eyebrow { margin-bottom:12px; }
+.education-entry h3 { font-family:var(--font-display); font-size:30px; font-weight:600; letter-spacing:-.04em; margin:0 0 8px; }
+.education-entry p:not(.career-organization) { margin:12px 0 0; max-width:800px; font-size:13px; line-height:1.85; color:var(--color-muted); }
+.certification-empty { padding:34px 36px; background:#f0e7dc; border:1px solid var(--color-border); border-radius:6px; }
+.certification-empty h3 { font-family:var(--font-display); font-size:clamp(1.9rem,3vw,2.8rem); letter-spacing:-.04em; line-height:1.16; font-weight:600; margin:0 0 14px; }
+.certification-empty > p { max-width:710px; font-size:14px; color:var(--color-muted); line-height:1.85; margin:0; }
+.certification-providers { display:flex; flex-wrap:wrap; gap:8px; margin-top:25px; }
+.certification-providers span { background:var(--color-surface); border:1px solid #d7c6b5; border-radius:3px; padding:8px 14px; color:var(--color-accent-hover); font-weight:700; font-size:12px; }
+.certification-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+.certification-item { padding:25px; background:var(--color-surface); border:1px solid var(--color-border); border-radius:6px; }
+.certification-item h3 { font-family:var(--font-display); font-size:26px; font-weight:600; margin:0 0 10px; }
+.certification-item > p { color:var(--color-muted); font-size:12px; }
+.future-project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px; }
+.future-project { background:var(--color-surface); border:1px solid var(--color-border); border-radius:6px; padding:25px 27px; display:flex; flex-direction:column; min-height:255px; }
+.future-project-top { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--color-accent-hover); font-size:10px; font-weight:700; letter-spacing:.05em; }
+.future-project h3 { font-family:var(--font-display); font-size:clamp(2.3rem,3.7vw,3.3rem); line-height:1.14; letter-spacing:-.04em; font-weight:600; margin:23px 0 12px; }
+.future-project > p { color:var(--color-muted); font-size:13px; line-height:1.8; max-width:420px; margin:0 0 20px; }
+.future-project-note { border-top:1px solid var(--color-border); margin-top:auto; padding-top:17px; color:var(--color-muted); font-size:10px; letter-spacing:.08em; font-weight:700; }
+@media (max-width:950px) {
+  .career { grid-template-columns:1fr; }
+  .career-previous { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px 20px; }
+  .career-previous > h3, .career-previous > p { grid-column:1/-1; }
+  .career-previous-item { padding-block:18px; }
+}
+@media (max-width:600px) {
+  .profile-experience, .profile-training, .profile-certifications, .profile-future { padding-block:60px; }
+  .career-entry { grid-template-columns:1fr; gap:10px; padding-block:27px; }
+  .career-entry-period { font-size:10px; }
+  .career-entry-body h3 { font-size:27px; }
+  .career-previous { grid-template-columns:1fr; padding:22px; }
+  .career-previous-item { padding-block:14px; }
+  .profile-chapter h3 { font-size:26px; }
+  .profile-skill-tags span { font-size:9px; }
+  .future-project-grid, .certification-grid { grid-template-columns:1fr; }
+  .future-project { min-height:225px; }
+  .certification-empty { padding:25px 22px; }
+  .education-entry { padding:23px 21px; }
+}

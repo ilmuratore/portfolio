@@ -7,14 +7,14 @@ export function HeroSection() {
   return (
     <section className="hero site-container" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <p className="eyebrow"><span className="eyebrow-mark" /> PORTFOLIO / VERSIONE 2.0</p>
-        <h1 id="hero-title">Il titolo del tuo <span>portfolio.</span></h1>
-        <p className="hero-description">Qui inseriremo una presentazione sintetica del profilo, dei progetti e dell&apos;approccio allo sviluppo software.</p>
+        <p className="eyebrow"><span className="eyebrow-mark" /> SOFTWARE ENGINEER / AI & BACKEND</p>
+        <h1 id="hero-title">Software, dati <span>e sistemi AI.</span></h1>
+        <p className="hero-description">Sono Simone Iengo. Sviluppo applicazioni backend e sistemi software, con esperienza Java enterprise e progetti Python dedicati anche ai modelli AI locali.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#projects">Esplora i progetti <span aria-hidden="true">↗</span></a>
           <a className="button button-outline" href="#about">Scopri di più <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="hero-note"><span className="rule" /><span>Progettato per dare spazio alle idee e al codice.</span></div>
+        <div className="hero-note"><span className="rule" /><span>Java enterprise · Python · AI systems · Formazione</span></div>
       </div>
       <HeroSoftwareVisual />
     </section>
@@ -47,7 +47,7 @@ export function ProcessSection() {
       <div className="site-container">
         <div className="section-intro">
           <div><p className="eyebrow">02 / IL PROCESSO</p><h2 className="section-title" id="process-title">Dal problema <em>alla soluzione.</em></h2></div>
-          <div className="section-aside"><p>Uno spazio per raccontare il metodo di lavoro attraverso passaggi chiari e documentati.</p></div>
+          <div className="section-aside"><p>Un approccio orientato ai requisiti, all&apos;architettura e alla verifica, maturato attraverso sviluppo e analisi funzionale.</p></div>
         </div>
         <ol className="process-grid">
           {processSteps.map((step) => <li className="process-step" key={step.number}><span className="step-number">{step.number} <span aria-hidden="true">↗</span></span><h3>{step.title}</h3><p>{step.description}</p></li>)}
