@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SitePageFrame from "@/app/components/v2/SitePageFrame";
+import SitePageFrame from "@/app/components/site/SitePageFrame";
 
 export const metadata = {
   title: "Pagina non trovata",

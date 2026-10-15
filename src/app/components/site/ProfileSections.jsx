@@ -170,7 +170,7 @@ export function FutureProjectsSection() {
       {futureProjects.map((item, index) => (
         <article className="future-project" key={item.id}>
           <div className="future-project-top"><span>0{index + 1} / PROGETTO A LUNGO TERMINE</span><span>{item.status}</span></div>
-          <div className="future-project-heading"><UiIcon name={item.id === "rustos" ? "terminal" : "layers"} size={25} /><h3>{item.name}</h3></div>
+          <div className="future-project-heading">{item.id === "rustos" ? <TechIcon label="Rust" size={25} /> : <UiIcon name="layers" size={25} />}<h3>{item.name}</h3></div>
           <p>{item.description}</p>
           <span className="future-project-note">Presentazione pubblica in preparazione</span>
         </article>

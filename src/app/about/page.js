@@ -1,10 +1,10 @@
 import Link from "next/link";
-import TechBadge from "@/app/components/v2/TechBadge";
-import SitePageFrame from "@/app/components/v2/SitePageFrame";
+import TechBadge from "@/app/components/site/TechBadge";
+import SitePageFrame from "@/app/components/site/SitePageFrame";
 import {
   ProfileChapters, ExperienceTimeline, EducationSection,
   CertificationsSection, FutureProjectsSection
-} from "@/app/components/v2/ProfileSections";
+} from "@/app/components/site/ProfileSections";
 import { profile, skillAreas } from "@/content/profile.mjs";
 import { siteConfig } from "@/config/site";
 

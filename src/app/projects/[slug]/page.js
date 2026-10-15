@@ -1,9 +1,9 @@
 import Link from "next/link";
-import TechBadge from "@/app/components/v2/TechBadge";
-import UiIcon from "@/app/components/v2/UiIcon";
+import TechBadge from "@/app/components/site/TechBadge";
+import UiIcon from "@/app/components/site/UiIcon";
 import { notFound } from "next/navigation";
-import SitePageFrame from "@/app/components/v2/SitePageFrame";
-import { ProjectSoftwareVisual } from "@/app/components/v2/SoftwareVisuals";
+import SitePageFrame from "@/app/components/site/SitePageFrame";
+import { ProjectSoftwareVisual } from "@/app/components/site/SoftwareVisuals";
 import { projects, getProjectBySlug, getAdjacentProjects } from "@/content/projects.mjs";
 import { siteConfig } from "@/config/site";
 

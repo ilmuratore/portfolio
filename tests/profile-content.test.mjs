@@ -53,14 +53,14 @@ test("la laurea L-31 è esplicitamente un obiettivo, non un titolo conseguito", 
   assert.match(academicGoal.title, /Artificial Intelligence/);
   assert.match(academicGoal.status, /non ancora conseguita/);
   assert.match(academicGoal.detail, /obiettivo/);
-  const sections = readFileSync(new URL("../src/app/components/v2/ProfileSections.jsx", import.meta.url), "utf8");
+  const sections = readFileSync(new URL("../src/app/components/site/ProfileSections.jsx", import.meta.url), "utf8");
   assert.match(sections, /academicGoal\.status/);
   const about = readFileSync(new URL("../src/app/about/page.js", import.meta.url), "utf8");
   assert.match(about, /non una laurea conseguita/);
 });
 
 test("metadata, hero e social preview non attribuiscono un ruolo AI già acquisito", () => {
-  const hero = readFileSync(new URL("../src/app/components/v2/EditorialSections.jsx", import.meta.url), "utf8");
+  const hero = readFileSync(new URL("../src/app/components/site/EditorialSections.jsx", import.meta.url), "utf8");
   const og = readFileSync(new URL("../src/app/opengraph-image.jsx", import.meta.url), "utf8");
   assert.match(hero, /profile\.heroIntroduction/);
   assert.match(hero, /Verso l’AI/);

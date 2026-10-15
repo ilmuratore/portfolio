@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio — Simone Iengo</title>
+  <desc id="desc">Copertina editoriale color crema e inchiostro, con tipografia, codice e elementi architettonici astratti.</desc>
+  <rect width="1200" height="420" rx="18" fill="#F8F4ED"/>
+  <rect x="0" y="0" width="16" height="420" fill="#A34F34"/>
+  <path d="M40 76H1160" stroke="#DCD0C3" stroke-width="1.5"/>
+  <path d="M40 356H1160" stroke="#DCD0C3" stroke-width="1.5"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="46" y="25" width="42" height="40" rx="7" fill="#241D19"/>
+    <text x="53" y="53" fill="#F8F4ED" font-size="21" font-weight="700">SI<tspan fill="#D58E6F">.</tspan></text>
+    <text x="106" y="50" fill="#625A53" font-size="13" font-weight="700" letter-spacing="2">SOFTWARE PORTFOLIO</text>
+    <text x="1147" y="49" text-anchor="end" fill="#625A53" font-size="12" font-weight="700" letter-spacing="1.8">JAVA  /  PYTHON  /  BACKEND</text>
+    <text x="64" y="160" fill="#241D19" font-family="Georgia, 'Times New Roman', serif" font-size="73" font-weight="700" letter-spacing="-3">Simone Iengo<tspan fill="#A34F34">.</tspan></text>
+    <text x="64" y="211" fill="#625A53" font-size="23" letter-spacing="0.4">Software Developer</text>
+    <rect x="64" y="250" width="335" height="42" rx="21" fill="#EFE7DC"/>
+    <circle cx="88" cy="271" r="5" fill="#A34F34"/>
+    <text x="108" y="278" font-size="14" font-weight="600" fill="#5A4B42">Backend · Data · AI in progress</text>
+    <text x="64" y="388" font-size="12" font-weight="600" letter-spacing="1.4" fill="#625A53">GITHUB PAGES / STATIC NEXT.JS / OPEN SOURCE</text>
+  </g>
+  <g transform="translate(752 99)">
+    <rect x="12" y="12" width="365" height="223" rx="13" fill="#DED2C5" opacity=".7"/>
+    <rect width="365" height="223" rx="13" fill="#241D19"/>
+    <rect x="0" y="0" width="365" height="42" rx="13" fill="#39302B"/>
+    <rect x="0" y="26" width="365" height="16" fill="#39302B"/>
+    <circle cx="22" cy="21" r="5" fill="#C47D5E"/>
+    <circle cx="40" cy="21" r="5" fill="#9AA083"/>
+    <circle cx="58" cy="21" r="5" fill="#6E8576"/>
+    <text x="273" y="25" fill="#BDB1A7" font-size="12" font-family="monospace">portfolio.tsx</text>
+    <g font-family="monospace" font-size="17">
+      <text x="21" y="77" fill="#9E8C7E">01</text><text x="63" y="77" fill="#D7AF89">const</text><text x="120" y="77" fill="#F3E7D9"> developer = {</text>
+      <text x="21" y="109" fill="#9E8C7E">02</text><text x="85" y="109" fill="#AFBE91">backend</text><text x="171" y="109" fill="#F3E7D9">: true,</text>
+      <text x="21" y="141" fill="#9E8C7E">03</text><text x="85" y="141" fill="#AFBE91">focus</text><text x="142" y="141" fill="#F3E7D9">: </text><text x="164" y="141" fill="#D7AF89">"AI",</text>
+      <text x="21" y="173" fill="#9E8C7E">04</text><text x="63" y="173" fill="#F3E7D9">};</text>
+      <text x="21" y="205" fill="#9E8C7E">05</text><text x="63" y="205" fill="#8FAEAC">▍</text>
+    </g>
+    <rect x="268" y="180" width="126" height="82" rx="10" fill="#F0E4D7" stroke="#CCB49D" stroke-width="1.5" transform="rotate(5 268 180)"/>
+    <path d="M297 213h62M297 229h49M297 245h30" fill="none" stroke="#957A65" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="371" cy="201" r="7" fill="#A34F34"/>
+  </g>
+</svg>

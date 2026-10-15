@@ -21,7 +21,7 @@ test("la distribuzione GitHub Pages non contiene residui Docker o font inutilizz
 test("processo e progetti usano una fonte dati esplicita", () => {
   assert.equal(processSteps.length, 4);
   assert.ok(featuredProjects.length > 0);
-  const editorial = readFileSync(new URL("../src/app/components/v2/EditorialSections.jsx", import.meta.url), "utf8");
+  const editorial = readFileSync(new URL("../src/app/components/site/EditorialSections.jsx", import.meta.url), "utf8");
   assert.match(editorial, /content\/process\.mjs/);
   assert.match(editorial, /content\/projects\.mjs/);
   assert.doesNotMatch(editorial, /content\/placeholder/);

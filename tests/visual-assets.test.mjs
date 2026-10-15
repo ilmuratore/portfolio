@@ -31,7 +31,7 @@ test("icone stack e fallback generico coprono tecnologie del portfolio", () => {
     assert.ok(area.technologies.some((tag) => techIconSlug(tag)), "Nessuna icona per " + area.name);
   }
   assert.equal(techIconSlug("linguaggio inesistente"), null);
-  const component = read("../src/app/components/v2/TechIcon.jsx");
+  const component = read("../src/app/components/site/TechIcon.jsx");
   assert.match(component, /NEXT_PUBLIC_BASE_PATH/);
   assert.match(component, /unoptimized/);
   assert.doesNotMatch(component, /cdn\.|simpleicons\.org/);
@@ -45,19 +45,19 @@ test("certificazioni: loghi dei provider, nessun attestato fittizio", () => {
 
 test("componenti condivisi mostrano loghi con etichette testuali", () => {
   for (const path of [
-    "../src/app/components/v2/ProjectCard.jsx",
-    "../src/app/components/v2/ProfileSections.jsx",
+    "../src/app/components/site/ProjectCard.jsx",
+    "../src/app/components/site/ProfileSections.jsx",
     "../src/app/about/page.js",
     "../src/app/projects/[slug]/page.js"
   ]) {
     assert.match(read(path), /TechBadge|TechIcon/);
   }
-  const badge = read("../src/app/components/v2/TechBadge.jsx");
+  const badge = read("../src/app/components/site/TechBadge.jsx");
   assert.match(badge, /<span>{label}<\/span>/);
-  const profile = read("../src/app/components/v2/ProfileSections.jsx");
+  const profile = read("../src/app/components/site/ProfileSections.jsx");
   assert.match(profile, /TechIcon label=\{name\}/);
   assert.match(profile, /future-project-heading/);
-  const icon = read("../src/app/components/v2/TechIcon.jsx");
+  const icon = read("../src/app/components/site/TechIcon.jsx");
   assert.match(icon, /alt=""/);
 });
 

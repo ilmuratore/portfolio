@@ -1,5 +1,3 @@
-// Schede sintetizzate dai README e dalla documentazione dei repository pubblici.
-// Le anteprime grafiche rimangono illustrative: non sono screenshot dei progetti.
 export const projects = [
   {
     id: "banca-python",

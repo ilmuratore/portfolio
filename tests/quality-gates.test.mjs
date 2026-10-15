@@ -20,9 +20,9 @@ test("font locale: la build non richiede Google Fonts", () => {
 });
 
 test("link e navigazione accessibili senza dipendere da un hosting specifico", () => {
-  const header = content("../src/app/components/v2/SiteHeader.jsx");
+  const header = content("../src/app/components/site/SiteHeader.jsx");
   const home = content("../src/app/page.js");
-  const frame = content("../src/app/components/v2/SitePageFrame.jsx");
+  const frame = content("../src/app/components/site/SitePageFrame.jsx");
   assert.match(header, /aria-current/);
   assert.match(header, /aria-expanded/);
   assert.match(home, /tabIndex=\{-1\}/);

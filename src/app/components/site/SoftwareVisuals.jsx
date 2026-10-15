@@ -18,7 +18,7 @@ export function HeroSoftwareVisual() {
       </div>
       <div className="dashboard-panel" aria-hidden="true">
         <div className="dashboard-top"><span>Project overview</span><span className="dashboard-ellipsis">•••</span></div>
-        <div className="dashboard-small-label">PREVIEW / PLACEHOLDER</div>
+        <div className="dashboard-small-label">ANTEPRIMA ILLUSTRATIVA</div>
         <div className="dashboard-numbers"><span><b>00</b><small>Items</small></span><span><b>00%</b><small>Progress</small></span><span><b>00</b><small>Updates</small></span></div>
         <div className="chart" aria-hidden="true"><span style={{ height: "30%" }} /><span style={{ height: "52%" }} /><span style={{ height: "41%" }} /><span style={{ height: "72%" }} /><span style={{ height: "59%" }} /><span style={{ height: "87%" }} /><span style={{ height: "70%" }} /><span style={{ height: "93%" }} /><span style={{ height: "78%" }} /></div>
         <div className="dashboard-bottom"><span>Overview</span><span>Illustrative data</span></div>

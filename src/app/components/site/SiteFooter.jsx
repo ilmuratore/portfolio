@@ -6,7 +6,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-container footer-inner">
-        <div><Link href="/" className="footer-brand" aria-label="Torna alla homepage">SI<span>.</span></Link><p>Portfolio / versione in sviluppo</p></div>
+        <div><Link href="/" className="footer-brand" aria-label="Torna alla homepage">SI<span>.</span></Link><p>Software Developer · Java · Python</p></div>
         <nav aria-label="Collegamenti nel footer">
           <Link href="/projects">Progetti</Link>
           <Link href="/about">Chi sono</Link>

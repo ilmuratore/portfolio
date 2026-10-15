@@ -1,6 +1,6 @@
 import Link from "next/link";
-import SitePageFrame from "@/app/components/v2/SitePageFrame";
-import ProjectCatalog from "@/app/components/v2/ProjectCatalog";
+import SitePageFrame from "@/app/components/site/SitePageFrame";
+import ProjectCatalog from "@/app/components/site/ProjectCatalog";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {

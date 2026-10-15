@@ -1,5 +1,5 @@
-import SiteHeader from "@/app/components/v2/SiteHeader";
-import SiteFooter from "@/app/components/v2/SiteFooter";
+import SiteHeader from "@/app/components/site/SiteHeader";
+import SiteFooter from "@/app/components/site/SiteFooter";
 
 export default function SitePageFrame({ children }) {
   return (
