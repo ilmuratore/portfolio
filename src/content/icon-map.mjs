@@ -11,6 +11,7 @@ export const techIconMap = {
   "FastAPI": "fastapi",
   "PostgreSQL": "postgresql",
   "SQL": "postgresql",
+  "SQLite": "sqlite",
   "Pandas": "pandas",
   "Git": "git",
   "Git / GitHub": "git",
