@@ -1,50 +1,99 @@
-# Hosting statico — Portfolio v2
+# Hosting del portfolio — GitHub Pages
 
-**Hosting non ancora scelto né attivato.** Il repository è preparato per un'esportazione statica indipendente da un servizio specifico. Vercel non è più integrato nel codice.
+## Scelta: GitHub Pages gratuito
 
-## Opzioni
+Il repository `ilmuratore/portfolio` è pubblico. Su GitHub Free è possibile pubblicare gratuitamente siti statici di repository pubblici. Il portfolio non richiede un server Node per le pagine pubbliche; Next.js 16 produce un export statico nella cartella `out/`.
 
-| Destinazione | Note |
-| --- | --- |
-| GitHub Pages | Hosting statico gratuito per repository pubblici secondo le condizioni attuali; dominio GitHub oppure personalizzato |
-| Cloudflare Pages | Hosting statico con limiti del relativo piano gratuito |
-| Hosting statico su server proprio | Maggior controllo, ma sicurezza, manutenzione e costi del server restano responsabilità del proprietario |
+- URL previsto: **https://ilmuratore.github.io/portfolio/**
+- Hosting: **€0**, nei limiti e nelle condizioni del servizio.
+- Dominio personalizzato: **facoltativo** e, se acquistato, soggetto a costo del registrar.
+- GitHub Pages offre HTTPS. I limiti attuali includono sito pubblicato fino a 1 GB e soft limit di banda 100 GB/mese.
+- Non interpretare il piano gratuito come una garanzia di disponibilità e condizioni immutate per sempre.
 
-Il dominio personalizzato ha generalmente un costo di rinnovo. Nessun piano gratuito è garantito a tempo indeterminato.
+Riferimenti: [GitHub Pages, fonte di pubblicazione](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), [Limiti Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits), [Export statico Next.js](https://nextjs.org/docs/app/guides/static-exports).
 
-## Test della build statica
+## Due modalità di build
 
-La build normale resta possibile:
+Le due modalità sono **distinte** e non riutilizzano i metadata SEO della modalità sbagliata.
+
+### Anteprima protetta (non pubblicare)
 
 ```bash
 npm ci
-npm test
-npm run build
+npm run verify
+npm run verify:static
 ```
 
-Per GitHub Pages, con repository `portfolio` e URL di progetto `/portfolio`:
+`verify:static` usa `PORTFOLIO_STATIC_EXPORT=1`, `NEXT_PUBLIC_BASE_PATH=/portfolio` e `NEXT_PUBLIC_PORTFOLIO_PUBLISHED=false`.
+
+Questa modalità genera `noindex` e `robots.txt` con divieto di scansione. Serve per verificare il sito, **non** per la release indicizzabile.
+
+### Release GitHub Pages
 
 ```bash
-PORTFOLIO_STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=/portfolio NEXT_PUBLIC_SITE_URL=https://ilmuratore.github.io/portfolio npm run build
+npm run verify:pages
 ```
 
-La build statica è generata in `out/` e comprende homepage, pagine About/Contact e case study costruiti con `generateStaticParams()`. Questo comando **non pubblica nulla**.
+Il comando compila con:
 
-Se viene scelto un dominio personalizzato servono `NEXT_PUBLIC_SITE_URL=https://dominio.example` e `NEXT_PUBLIC_BASE_PATH` vuoto. Per il deployment si sceglierà successivamente tra caricamento manuale degli artefatti e un workflow di pubblicazione dedicato.
+- `PORTFOLIO_STATIC_EXPORT=1`
+- `NEXT_PUBLIC_BASE_PATH=/portfolio`
+- `NEXT_PUBLIC_SITE_URL=https://ilmuratore.github.io/portfolio`
+- `NEXT_PUBLIC_PORTFOLIO_PUBLISHED=true`
 
-## GitHub Actions rimosse
+Produce `out/`, genera `.nojekyll` (per i file in `_next/`) e verifica: homepage, About, contatti, catalogo, case study, asset, `robots.txt`, sitemap, metadata social e assenza di `noindex` nelle pagine approvate.
 
-Su richiesta sono eliminati i workflow GitHub Actions presenti in `.github/workflows`; non eseguiamo test o deploy automaticamente. Prima di ogni merge eseguire i test locali e la build. Le run storiche di Actions rimangono visibili su GitHub, a meno di operazioni ulteriori nelle impostazioni del repository.
+Le certificazioni prive di titolo verificato rimangono esplicitamente contrassegnate come "in aggiornamento"; gli screenshot non ancora disponibili restano dichiarati come anteprime illustrative.
 
-## Limiti dell'export statico
+## Come pubblicare senza workflow nel repository
 
-- Nessun endpoint POST o server in esecuzione sul provider statico.
-- Il modulo email preesistente è già stato rimosso; in PR05 vengono mostrati soltanto GitHub e LinkedIn.
-- Le pagine progetto sono prerenderizzate in fase di build.
-- Immagini e video vanno ottimizzati prima della pubblicazione; l'ottimizzazione dinamica di `next/image` non è disponibile.
-- Gli header HTTP personalizzati in `next.config.js` non vengono applicati da GitHub Pages.
-- Impostare correttamente canonical e sitemap quando si sceglie il dominio definitivo.
+**Prima verificare e mergiare la PR della release.** Non pubblicare da un branch di sviluppo.
 
-## Disconnessione esterna del vecchio provider
+1. Eseguire localmente:
 
-Eliminare dipendenze e codice dal repository **non disconnette il progetto remoto** da un provider già associato. Se il vecchio provider continua a effettuare deployment automatici, scollegare il repository nelle impostazioni del servizio esterno o cancellare il relativo progetto. Queste operazioni non sono eseguite dalle modifiche al codice.
+   ```bash
+   git switch main
+   git pull --ff-only origin main
+   npm ci
+   npm test
+   npm run lint
+   npm run security:check
+   npm run audit:prod
+   npm run deploy:pages
+   ```
+
+2. `deploy:pages` accetta solo `main` con working tree pulito. Compila l'export pubblico, verifica i file, crea un repository Git temporaneo fuori dalla cartella del sorgente e aggiorna il branch `gh-pages` con i soli artefatti di `out/`. Non modifica `main`.
+
+3. Aprire [Settings → Pages](https://github.com/ilmuratore/portfolio/settings/pages) del repository, scegliere **Source: Deploy from a branch**, **Branch: gh-pages**, **Folder: /(root)** e salvare. L'eventuale primo deploy deve essere stato eseguito almeno una volta perché il branch esista nel menu.
+
+4. Verificare il sito all'URL previsto, comprese le URL `/about/`, `/contact/`, `/projects/` e le pagine case study; controllare CSS, icone SVG, social preview e `robots.txt`.
+
+5. Per i successivi aggiornamenti: fare merge delle PR su `main`, aggiornare il clone locale ed eseguire nuovamente `npm run deploy:pages`.
+
+**Nota sul processo interno:** non vengono creati workflow in `.github/workflows`. GitHub Pages esegue tuttavia un proprio workflow gestito da GitHub anche quando si pubblica da un branch. Questo è il comportamento documentato da GitHub, non una CI o un processo di build Next configurati nel repository.
+
+Lo script usa `--force-with-lease` quando il branch `gh-pages` esiste, per impedire la sovrascrittura se il remoto è cambiato tra verifica e invio. Non usare manualmente `git push --force` sul branch `main`.
+
+## Separarsi completamente da Vercel
+
+Dipendenze Vercel, Analytics, URL di fallback e workflow del precedente setup sono già stati rimossi dal repository. **Questo non cancella il progetto ospitato su Vercel né revoca l'accesso dell'integrazione GitHub.**
+
+Dopo aver verificato il sito GitHub Pages:
+
+1. Nella dashboard Vercel, aprire il vecchio progetto, disconnettere il repository in **Settings → Git** (se presente).
+2. In **Settings → General**, eliminare il progetto Vercel se non serve più.
+3. In GitHub, aprire **Settings → Applications → Installed GitHub Apps**, individuare Vercel e rimuovere l'accesso al repository `portfolio`. Non revocare indiscriminatamente l'accesso a repository usati da altri progetti.
+4. Se un dominio personale puntava a Vercel, rimuovere o sostituire i record DNS relativi soltanto quando verrà configurato il dominio definitivo.
+
+Queste operazioni sui servizi esterni devono essere eseguite dal proprietario dell'account; **non sono state completate via questa PR**.
+
+## Dominio personalizzato, in futuro
+
+GitHub Pages permette domini personalizzati. Con `simoneiengo.it` (o altro dominio) si eliminerebbe il `basePath=/portfolio`, ma serve una nuova build e riconfigurare DNS, Pages e canonical/OG. Il dominio registrato è normalmente a pagamento. **Per iniziare non serve comprarlo.**
+
+## Limiti
+
+- GitHub Pages ospita HTML, JS, CSS, SVG e immagini; **non esegue API Next.js, Server Actions o servizi di invio email**.
+- `next/image` è impostato per export statico senza ottimizzazione dinamica.
+- Le intestazioni HTTP personalizzate di `next.config.js` non sono fornite da Pages: la sicurezza si basa anche sul codice frontend statico e sulle impostazioni HTTPS del provider.
+- L'assenza di avvisi di audit non può essere dichiarata finché `npm audit` e `npm audit:prod` non sono stati verificati in locale.

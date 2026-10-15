@@ -1,38 +1,32 @@
-# Checklist di qualità — prima della pubblicazione
+# Checklist di rilascio — GitHub Pages
 
-**Questa non è una procedura di deploy.** Il repository deve rimanere privato dai motori di ricerca fino alla sostituzione dei placeholder.
+## Prima della pubblicazione
 
-## Verifiche da eseguire in locale
+- [ ] Le pagine principali sono corrette: homepage, About, contatti, catalogo e tre case study.
+- [ ] Profilo junior e obiettivo AI Engineer corretti; L-31 non dichiarata come laurea conseguita.
+- [ ] Contenuti incompleti (certificati, screenshot) sono dichiarati apertamente come in aggiornamento o illustrativi.
+- [ ] I repository collegati sono pubblici, accessibili e descritti correttamente.
+- [ ] Navigazione tastiera e layout a 360, 390, 768, 1024 e 1440 px verificati.
+- [ ] `npm ci`, `npm test`, `npm run lint`, `npm run build` superati.
+- [ ] `npm run verify:static` superato (preview noindex).
+- [ ] `npm run verify:pages` superato (build pubblica, sitemap, robots e asset).
+- [ ] `npm run security:check`, `npm run audit`, `npm run audit:prod` analizzati. Non affermare che i problemi sono risolti finché non lo sono.
 
-```bash
-npm ci
-npm test
-npm run lint
-npm run build
-npm run verify:static
-npm run security:check
-npm run audit
-```
+## Pubblicazione
 
-Per eseguirle automaticamente in un unico comando, dopo l'aggiornamento delle dipendenze:
+- [ ] Merge della PR di release su main.
+- [ ] `git switch main`, `git pull --ff-only origin main`, `npm ci`.
+- [ ] `npm run deploy:pages` da working tree pulito.
+- [ ] GitHub repo Settings → Pages → Deploy from a branch → gh-pages → /(root).
+- [ ] Controllare https://ilmuratore.github.io/portfolio/ e pagine interne.
+- [ ] Verificare `/portfolio/robots.txt`, `/portfolio/sitemap.xml` e PNG Open Graph.
+- [ ] Disconnettere/cancellare il vecchio progetto Vercel e rimuovere la relativa GitHub App dal repository, se ancora collegata.
 
-```bash
-npm run release:check
-```
+## Dopo il lancio
 
-Prima della review, controllare almeno 360, 390, 768, 1024 e 1440 px; navigazione solo tastiera, menu su schermo piccolo, filtri catalogo, precedenti/successivi e pagina 404. Controllare che non ci siano overflow orizzontali e che le CTA abbiano destinazioni vere.
+- [ ] Aggiornare i repository e le schede progetto progressivamente.
+- [ ] Aggiungere certificati verificati e screenshot autentici.
+- [ ] Solo se desiderato, acquistare e configurare un dominio personalizzato.
+- [ ] Rieseguire i test e pubblicare nuovamente il ramo gh-pages dopo ogni merge.
 
-## SEO e contenuti
-
-- **Profilo:** verificare la seniority junior e circa tre anni IT, senza confondere gli incarichi finanziari con esperienza di sviluppo. Confermare lo stato universitario L-31 prima di pubblicare dettagli aggiuntivi.
-- **Progetti:** verificare le 3 schede tratte da GitHub; indicare esplicitamente quando un repository è sperimentale o ancora in sviluppo.
-- Inserire screenshot veri oppure visual tecnici autentici.
-- Verificare profilo, competenze e contatti pubblicati.
-- Abilitare `NEXT_PUBLIC_PORTFOLIO_PUBLISHED=true` **solo dopo** la revisione.
-- Togliere `noindex` soltanto dalle pagine complete e aggiornarne la sitemap.
-- Impostare `NEXT_PUBLIC_SITE_URL` sul dominio definitivo e definire il `NEXT_PUBLIC_BASE_PATH` corretto.
-- Testare il build artefatto generato in `out/` su un server statico con percorsi reali.
-
-## Stato della PR06
-
-È in corso la migrazione Next.js 16.4.1, React 19.3.1, Tailwind 4.3.3, PostCSS 8.5.29 ed ESLint Flat Config. Il lockfile va rigenerato da npm, poi occorre la review grafica per possibili differenze nel reset Tailwind. Il requisito per dichiarare **sicura** la release è l'aggiornamento di Next/React e un audit npm senza vulnerabilità che richiedano interventi. Evitare di marcare questa voce come superata prima di eseguire l'aggiornamento.
+**Nessuna GitHub Actions personalizzata e nessun Vercel introdotto dal rilascio.**

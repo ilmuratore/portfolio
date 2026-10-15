@@ -6,8 +6,8 @@ import { siteConfig } from "@/config/site";
 export const metadata = {
   title: `Progetti — ${siteConfig.name}`,
   description: "Progetti software documentati: banca Python, assistente AI locale e gestionale Java.",
-  alternates: { canonical: `${siteConfig.url}/projects` },
-  robots: { index: false, follow: false }
+  alternates: { canonical: `${siteConfig.url}/projects/` },
+  robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false }
 };
 
 export default function ProjectsPage() {

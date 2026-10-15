@@ -11,8 +11,8 @@ import { siteConfig } from "@/config/site";
 export const metadata = {
   title: "Chi sono — " + siteConfig.name,
   description: "Simone Iengo, sviluppatore software junior: Java, Spring Boot, Python, docenza e percorso verso l’AI engineering.",
-  alternates: { canonical: siteConfig.url + "/about" },
-  robots: { index: false, follow: false }
+  alternates: { canonical: siteConfig.url + "/about/" },
+  robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false }
 };
 
 export default function AboutPage() {

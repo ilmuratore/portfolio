@@ -1,6 +1,6 @@
 # Simone Iengo — Portfolio v2
 
-Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: sviluppo.** Il catalogo presenta tre repository pubblici reali; il profilo distingue circa tre anni di percorso IT dalla carriera precedente; alcune esperienze e progetti sono ancora in aggiornamento. Certificazioni e screenshot autentici restano da completare. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
+Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: pronto per la review del rilascio GitHub Pages.** Il catalogo presenta tre repository pubblici reali; il profilo distingue circa tre anni di percorso IT dalla carriera precedente; alcune esperienze e progetti sono ancora in aggiornamento. Certificazioni e screenshot autentici restano da completare. Il sito non è ancora destinato all'indicizzazione o alla pubblicazione.
 
 ## Stack
 
@@ -24,6 +24,7 @@ npm test
 npm run lint
 npm run build
 npm run verify:static
+npm run verify:pages
 ```
 
 `verify:static` genera un export di prova con `basePath=/portfolio`, controlla tutte le pagine, verifica i link e i metadata `noindex`. Non effettua deployment.
@@ -53,7 +54,7 @@ Consultare [SECURITY.md](docs/SECURITY.md) ed esaminare le vulnerabilità eventu
 
 Il sito è predisposto per export statico e può essere ospitato su GitHub Pages o un provider equivalente. Non è collegato a un processo automatico di deploy. `NEXT_PUBLIC_PORTFOLIO_PUBLISHED` ha valore predefinito **false**: genera `noindex` e `robots.txt` che blocca l'indicizzazione.
 
-La pubblicazione con dominio proprio resta una fase separata. Nessuna GitHub Actions o integrazione Vercel è configurata nel codice.
+La pubblicazione gratuita avviene su **GitHub Pages** tramite un branch `gh-pages` generato in locale: nessun workflow personalizzato GitHub Actions o integrazione Vercel è presente nel codice.
 
 ## Documentazione
 
@@ -92,3 +93,18 @@ Le anteprime sono costruzioni CSS illustrative, non screenshot. Le altre sezioni
 Il profilo attuale è **Software Developer junior**, in crescita verso competenze intermedie, con **circa tre anni di percorso nel settore IT** fra formazione, sviluppo e docenza. Il precedente lavoro finanziario è raccontato separatamente e non conta come esperienza nello sviluppo. **Diventare AI Engineer è un obiettivo**, non un ruolo già ricoperto. La laurea **L-31 in Artificial Intelligence** è indicata come direzione universitaria, non come titolo conseguito o iscrizione già confermata.
 
 RustOS e Il Presidente restano iniziative in sviluppo senza collegamenti ai repository privati. I progetti GitHub vengono aggiornati progressivamente; i certificati Google/Coursera non hanno ancora titoli inventati.
+
+## Pubblicazione gratuita su GitHub Pages
+
+L'URL pubblico previsto è https://ilmuratore.github.io/portfolio/. La build di anteprima è `noindex`; quella di produzione genera invece sitemap e metadati indicizzabili.
+
+Dopo il merge della PR11, aggiornare `main`, verificare le dipendenze e lanciare:
+
+```bash
+git switch main
+git pull --ff-only origin main
+npm ci
+npm run deploy:pages
+```
+
+Poi configurare [GitHub Pages nelle impostazioni del repository](https://github.com/ilmuratore/portfolio/settings/pages): **Deploy from a branch → gh-pages → /(root)**. Il comando non attiva automaticamente le impostazioni GitHub Pages. Consultare [HOSTING.md](docs/HOSTING.md) per deploy, limiti, SEO e disconnessione completa del vecchio progetto Vercel.
