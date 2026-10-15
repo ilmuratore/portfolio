@@ -38,3 +38,15 @@ test("dipendenze runtime limitate ai moduli effettivamente utilizzati", () => {
   }
   assert.ok(!("deploy" in pkg.scripts));
 });
+
+test("toolchain Next 16 / React 19.3 / Tailwind 4 con ESLint Flat Config", () => {
+  const pkg = JSON.parse(content("../package.json"));
+  assert.equal(pkg.dependencies.next, "16.4.1");
+  assert.equal(pkg.dependencies.tailwindcss, "4.3.3");
+  assert.equal(pkg.dependencies["@tailwindcss/postcss"], "4.3.3");
+  assert.equal(pkg.dependencies.react, "19.3.1");
+  assert.ok(!("autoprefixer" in pkg.dependencies));
+  assert.match(content("../src/app/globals.css"), /^@import "tailwindcss";/);
+  assert.match(content("../postcss.config.js"), /@tailwindcss\/postcss/);
+  assert.match(content("../eslint.config.mjs"), /eslint-config-next\/core-web-vitals/);
+});

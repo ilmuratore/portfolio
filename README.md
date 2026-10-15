@@ -4,13 +4,14 @@ Portfolio Next.js con design editoriale minimale e palette autunnale. **Stato: s
 
 ## Stack
 
-Next.js 15, React 19, Tailwind CSS 3, componenti server per le pagine statiche e componenti client limitati a menu e filtri. Le anteprime di codice e dashboard sono illustrative.
+Next.js 16.4.1, React 19.3.1, Tailwind CSS 4.3.3, ESLint Flat Config, componenti server per le pagine statiche e componenti client limitati a menu e filtri. Le anteprime di codice e dashboard sono illustrative.
 
 ## Avvio locale
 
 Richiesti Node.js 22 e npm:
 
 ```bash
+npm run upgrade:security
 npm ci
 npm run dev
 ```
@@ -30,7 +31,7 @@ npm run verify:static
 
 ### Prima del rilascio
 
-**Attenzione:** il lockfile iniziale usa dipendenze Next/React con vulnerabilità note. Prima di considerare il progetto pronto per la pubblicazione è necessario eseguire:
+**Attenzione:** dopo la migrazione a Next.js 16, il lockfile va rigenerato tramite npm: il precedente commit usava Next.js 15.5.28, React 19.0.6 e Tailwind 3. Prima di considerare il progetto pronto per la pubblicazione è necessario eseguire:
 
 ```bash
 npm run upgrade:security
@@ -65,3 +66,13 @@ La pubblicazione con dominio proprio resta una fase separata. Nessuna GitHub Act
 - [Sicurezza](docs/SECURITY.md)
 - [Checklist rilascio](docs/RELEASE_CHECKLIST.md)
 - [Roadmap](docs/ROADMAP.md)
+
+## Migrazione PR06: Next.js 16
+
+Le versioni sono definite in `package.json`, ma **prima di verificare o fare il merge** va aggiornato e committato il lockfile con `npm run upgrade:security`.
+
+- Turbopack è il bundler predefinito per `next dev` e `next build`.
+- Tailwind 4 si configura in CSS con `@import "tailwindcss"` e il plugin PostCSS dedicato.
+- ESLint utilizza `eslint.config.mjs`, senza `.eslintrc.json` e senza `next lint`.
+- Verificare la resa grafica mobile/desktop: la nuova versione Tailwind comprende modifiche al CSS reset.
+- Non eseguire `npm audit fix --force` prima di esaminare le incompatibilità.

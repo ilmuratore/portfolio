@@ -1,24 +1,30 @@
-# Sicurezza e dipendenze — PR06
+# Sicurezza e dipendenze — PR06 / upgrade Next.js 16
 
-## Stato al 15 ottobre 2026
+## Stato: migrazione in corso
 
-Il portfolio è predisposto per **hosting statico**. Non ha endpoint POST, sessioni o API server pubbliche, ma le dipendenze di build devono comunque essere aggiornate e controllate.
+I test forniti dal proprietario sul ramo Next 15.5.28 hanno avuto esito positivo: **17 test, build Next.js e build statica superati**. L'ultimo `npm audit` dopo `npm audit fix` ha però riportato ancora **14 vulnerabilità** (2 low, 3 moderate, 9 high).
 
-L'audit automatico precedente (PR05) aveva segnalato **32 vulnerabilità** prima della rimozione di altre dipendenze. Non considerare questo numero aggiornato: va ripetuto dopo l'installazione.
+Per risolvere la parte legata a Next.js, Tailwind, PostCSS ed ESLint, la PR06 migra allo stack moderno:
 
-Sono state rimosse da `package.json` sei dipendenze inutilizzate: `@heroicons/react`, `framer-motion`, `react-animated-numbers`, `react-type-animation`, `nodemailer` e `resend`. Gli indici diretti sono stati rimossi anche dal lockfile, ma per ripulire completamente le dipendenze transitive serve rigenerare il lockfile con npm.
+| Pacchetto | Versione |
+| --- | --- |
+| next | 16.4.1 |
+| react, react-dom | 19.3.1 |
+| tailwindcss, @tailwindcss/postcss | 4.3.3 |
+| eslint-config-next | 16.4.1 |
+| eslint | 9.39.5 |
+| postcss | 8.5.29 |
 
-## Aggiornamento richiesto prima del merge finale / pubblicazione
+Vengono rimossi `autoprefixer`, la configurazione legacy `tailwind.config.js` e `.eslintrc.json`.
 
-Il commit di partenza usa **Next.js 15.5.12** e **React 19.0.0**. Non sono versioni sufficienti per considerare risolti gli advisory del 2026.
+## Migrazione in locale
 
-Il 14 ottobre 2026 è stato pubblicato un advisory critico Next.js; tra le versioni patched figura **15.5.28**. Riferimento ufficiale: https://github.com/vercel/next.js/security/advisories/GHSA-2464-fhr4-w9xw
+**Il commit GitHub include codice e configurazioni target ma NON un lockfile rigenerato da npm.** Non è possibile eseguire `npm ci` finché il lockfile non viene rigenerato e inserito nella stessa PR.
 
-Gli advisory React/Server Components pubblicati nel maggio 2026 indicano **React 19.0.6** come versione corretta del ramo 19.0.x. Riferimento: https://vercel.com/changelog/next-js-may-2026-security-release
-
-Per rigenerare un `package-lock.json` coerente su Windows, Linux o macOS:
+Dalla branch `refactor/06-quality-security-hardening`:
 
 ```bash
+git pull
 npm run upgrade:security
 npm ci
 npm test
@@ -27,28 +33,35 @@ npm run build
 npm run verify:static
 npm run security:check
 npm run audit
+npm run audit:prod
 ```
 
-Il comando `upgrade:security` installa esattamente:
+Se i controlli passano e non emergono problemi visivi:
 
-- `next@15.5.28`
-- `eslint-config-next@15.5.28`
-- `react@19.0.6`
-- `react-dom@19.0.6`
+```bash
+git add package.json package-lock.json
+git commit -m "chore: finalize Next 16 and Tailwind 4 dependency migration"
+git push
+```
 
-Questa operazione **richiede accesso al registro npm**. Il lockfile dovrà essere incluso nello stesso commit del `package.json`.
+Per il `package-lock.json`, non sostituire a mano le versioni o copiare solo singole sezioni: fare generare tutte le transitive a npm. `npm run upgrade:security` richiede Internet e npm; **non utilizzare `npm audit fix --force`** indiscriminatamente.
 
-Controllare gli output di `npm audit` e `npm audit --omit=dev`. Non lanciare `npm audit fix --force` senza revisione: potrebbe aggiornare versioni major e rompere Next.js. Una versione minima patched NON garantisce assenza di ulteriori vulnerabilità.
+## Cosa verificare
 
-`npm run security:check` legge le versioni effettive **bloccate** nel lockfile ed esce con errore se sono più vecchie del minimo. `npm run release:check` aggiunge verifica applicazione e audit npm: deve passare prima del rilascio.
+1. Il sito funziona a `/`, `/projects`, `/projects/progetto-01`, `/about`, `/contact`.
+2. L'export statico genera la cartella `out/` correttamente con `NEXT_PUBLIC_BASE_PATH=/portfolio`.
+3. Non si introducono differenze di layout dal CSS reset di Tailwind 4; verificare 360, 390, 768, 1024 e 1440 px.
+4. ESLint Flat Config non produce errori.
+5. `npm audit` e `npm audit:prod` vengono rieseguiti sul nuovo lockfile. Non considerare la migrazione una garanzia di zero vulnerabilità.
+6. Contenuti dimostrativi ancora non indicizzabili. Nessun deploy, Vercel o GitHub Actions.
 
-## Pubblicazione e accessibilità
+## Riferimenti
 
-- Il portfolio resta **non indicizzabile** finché `NEXT_PUBLIC_PORTFOLIO_PUBLISHED` non viene impostato esplicitamente a `true` in fase di build.
-- `robots.txt` blocca la scansione; i metadata generali impostano `noindex,nofollow`; la sitemap è vuota.
-- Le singole pagine di profilo, contatti, catalogo e progetti restano `noindex` perché contengono placeholder.
-- Prima del rilascio, verificare che tutti i contenuti siano reali e rimuovere i `noindex` delle pagine approvate; poi aggiornare sitemap e URL canonici.
+- [Next.js 16, guida ufficiale](https://nextjs.org/docs/app/guides/upgrading/version-16)
+- [Next.js 16.4, novità](https://nextjs.org/blog/next-16-4)
+- [Tailwind CSS 4 e Next.js](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
+- [ESLint Flat Config in Next.js](https://nextjs.org/docs/app/api-reference/config/eslint)
 
-## Limiti della verifica
+## Condizione per la release
 
-I test Node controllano struttura, dati, URL e vincoli di release. Non sostituiscono test di browser, Lighthouse, analisi degli asset, verifica delle dipendenze installate o una valutazione di sicurezza. Non sono presenti GitHub Actions, come richiesto.
+Il sito potrà essere considerato pronto **solo dopo la rigenerazione del lockfile, i test, l'audit, la verifica dei contenuti e la review visiva**. Questa PR non abilita la pubblicazione.

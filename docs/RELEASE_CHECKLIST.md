@@ -5,6 +5,7 @@
 ## Verifiche da eseguire in locale
 
 ```bash
+npm run upgrade:security
 npm ci
 npm test
 npm run lint
@@ -34,4 +35,4 @@ Prima della review, controllare almeno 360, 390, 768, 1024 e 1440 px; navigazion
 
 ## Stato della PR06
 
-Le modifiche a layout, font locale, accessibilità e controllo d'indicizzazione sono pronte per la review. Il requisito per dichiarare **sicura** la release è l'aggiornamento di Next/React e un audit npm senza vulnerabilità che richiedano interventi. Evitare di marcare questa voce come superata prima di eseguire l'aggiornamento.
+È in corso la migrazione Next.js 16.4.1, React 19.3.1, Tailwind 4.3.3, PostCSS 8.5.29 ed ESLint Flat Config. Il lockfile va rigenerato da npm, poi occorre la review grafica per possibili differenze nel reset Tailwind. Il requisito per dichiarare **sicura** la release è l'aggiornamento di Next/React e un audit npm senza vulnerabilità che richiedano interventi. Evitare di marcare questa voce come superata prima di eseguire l'aggiornamento.
