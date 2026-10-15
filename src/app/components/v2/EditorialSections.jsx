@@ -1,5 +1,7 @@
 import { featuredProjects, processSteps, skillAreas } from "@/content/placeholder.mjs";
-import { HeroSoftwareVisual, ProjectSoftwareVisual } from "./SoftwareVisuals";
+import { HeroSoftwareVisual } from "./SoftwareVisuals";
+import ProjectCard from "./ProjectCard";
+import Link from "next/link";
 
 function SectionIntro({ eyebrow, title, description, aside, id }) {
   return (
@@ -37,19 +39,12 @@ export function FeaturedSection() {
           <div className="section-aside"><p>Qui presenteremo i progetti principali: contesto, tecnologie, architettura e risultati verificabili.</p><span className="plain-meta">CASE STUDY IN PREPARAZIONE</span></div>
         </div>
         <div className="project-grid">
-          {featuredProjects.map((project) => (
-            <article className="project-card" key={project.id} aria-labelledby={project.id + "-title"}>
-              <ProjectSoftwareVisual variant={project.preview} />
-              <div className="project-card-body">
-                <div className="project-kicker"><span>{project.index} / {project.category}</span><span className="project-no-link">DEMO</span></div>
-                <h3 id={project.id + "-title"}>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tags" aria-label="Tecnologie segnaposto">{project.tags.map((tag, i) => <span key={i}>{tag}</span>)}</div>
-              </div>
-            </article>
-          ))}
+          {featuredProjects.map((project) => <ProjectCard key={project.id} project={project} compact />)}
         </div>
-        <p className="projects-disclaimer">Anteprime e informazioni dimostrative: i progetti reali verranno inseriti in una fase successiva.</p>
+        <div className="featured-footer">
+          <p className="projects-disclaimer">Anteprime dimostrative: i progetti reali verranno aggiunti dopo la revisione dei repository.</p>
+          <Link className="text-link" href="/projects">Tutti i progetti <span aria-hidden="true">↗</span></Link>
+        </div>
       </div>
     </section>
   );

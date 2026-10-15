@@ -32,7 +32,8 @@ La CI esegue test e build. Verificare anche i layout a 360, 390, 768, 1024 e 144
 
 ## Dove cambiare i placeholder
 
-- `src/content/placeholder.mjs`: contenuti dimostrativi di progetti, processo e competenze
+- `src/content/projects.mjs`: catalogo e case study dimostrativi
+- `src/content/placeholder.mjs`: processo e competenze da completare
 - `src/app/components/v2/EditorialSections.jsx`: sezioni della homepage
 - `src/app/components/v2/SoftwareVisuals.jsx`: anteprime HTML/CSS per i progetti
 - `src/app/components/v2/SiteHeader.jsx`: menu mobile accessibile
@@ -49,6 +50,7 @@ Copiare `.env.example` in `.env.local` per impostare le variabili necessarie. No
 - [Architettura](docs/ARCHITECTURE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Hosting senza lock-in e build statica](docs/HOSTING.md)
+- [Catalogo progetti e case study](docs/PROJECTS.md)
 
 ## Workflow
 
