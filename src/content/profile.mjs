@@ -2,41 +2,44 @@
 // Le certificazioni senza titolo, data e credenziale non vengono presentate come attestati verificati.
 export const profile = {
   name: "Simone Iengo",
-  label: "SOFTWARE ENGINEER / AI & BACKEND",
-  title: "Software Engineer · AI Systems & Backend",
-  headline: "Dal software enterprise ai sistemi AI.",
-  introduction: "Sviluppo applicazioni e architetture backend, con esperienza Java in ambito enterprise e un interesse crescente per i sistemi AI costruiti con Python e modelli locali. Affianco all'attività tecnica la progettazione di percorsi formativi e il coordinamento di progetti.",
+  label: "JUNIOR SOFTWARE DEVELOPER / BACKEND",
+  title: "Software Developer · Java, Python & Backend",
+  level: "Junior, in crescita verso competenze mid-level",
+  softwareExperience: "Circa 3 anni di percorso IT tra formazione, sviluppo e docenza",
+  aiGoal: "Diventare AI Engineer attraverso progetti pratici e studi universitari",
+  headline: "Dal backend software verso l’AI engineering.",
+  introduction: "Sono uno sviluppatore software junior con circa tre anni di percorso nell’IT, tra formazione, esperienza professionale e docenza. Ho lavorato soprattutto con Java e Spring Boot su applicazioni backend e sto approfondendo Python e i sistemi AI attraverso progetti personali. Il mio obiettivo è diventare AI Engineer.",
   biography: [
-    "Il mio percorso nello sviluppo software comprende applicazioni enterprise Java, microservizi, API REST, persistenza relazionale e analisi funzionale. Ho lavorato su sistemi destinati a organizzazioni nei settori bancario, finanziario e della pubblica amministrazione.",
-    "Oggi approfondisco l'AI engineering attraverso progetti Python che combinano backend, memoria persistente e modelli linguistici locali. La formazione è un'altra parte importante del mio lavoro: progetto materiali, lezioni ed esercitazioni e affianco gli studenti anche nello sviluppo di progetti pratici."
+    "Dal 2024 costruisco il mio percorso nello sviluppo software. Ho iniziato con la formazione full stack e con un’esperienza junior su Java e Spring Boot, per poi lavorare in un team che sviluppa e mantiene applicazioni enterprise nei settori bancario, finanziario e della pubblica amministrazione. Mi sono occupato di API REST, persistenza con JPA/Hibernate e supporto all’analisi funzionale.",
+    "Parallelamente lavoro come docente e formatore di programmazione, preparando materiali e seguendo esercitazioni e progetti. Con Python sperimento backend, memoria persistente e integrazione con modelli linguistici locali: sto imparando, non mi presento ancora come AI Engineer. Vorrei rafforzare questo percorso con gli studi universitari L-31 in Artificial Intelligence."
   ],
-  previousCareer: "Prima di dedicarmi allo sviluppo software ho maturato esperienza nella consulenza finanziaria, nella gestione commerciale, nella formazione e nel coordinamento di team.",
+  previousCareer: "Prima del passaggio all’IT ho lavorato nella consulenza finanziaria e nella gestione di una sede e di un team. È un’esperienza organizzativa distinta dagli anni dedicati allo sviluppo software.",
   availability: null
 };
 
 export const skillAreas = [
   {
     number: "01",
-    name: "AI & Python",
-    description: "Backend Python, memoria persistente e integrazione con LLM locali in progetti sperimentali.",
+    name: "Python & AI",
+    description: "Python, analisi dati e primi progetti sperimentali con backend e modelli linguistici locali.",
     technologies: ["Python", "FastAPI", "Pydantic", "SQLAlchemy", "LLM locali", "Pandas"]
   },
   {
     number: "02",
-    name: "Backend",
-    description: "Software enterprise, progettazione di servizi, API e persistenza dei dati.",
+    name: "Backend Java",
+    description: "Esperienza professionale junior nello sviluppo e nella manutenzione di applicazioni Java e Spring.",
     technologies: ["Java", "Spring Boot", "REST API", "Microservizi", "JPA / Hibernate", "SOLID"]
   },
   {
     number: "03",
     name: "Web & Frontend",
-    description: "Sviluppo di interfacce e applicazioni web, anche nel contesto dei percorsi formativi.",
+    description: "Tecnologie affrontate nella formazione, nella didattica e in progetti applicativi.",
     technologies: ["JavaScript", "TypeScript", "React", "Angular", "HTML / CSS", "Node.js"]
   },
   {
     number: "04",
-    name: "Dati & Delivery",
-    description: "Database relazionali, analisi dei requisiti, strumenti di collaborazione e coordinamento.",
+    name: "Dati & Strumenti",
+    description: "SQL, PostgreSQL, versionamento, analisi funzionale e organizzazione di attività tecniche.",
     technologies: ["SQL", "PostgreSQL", "Git / GitHub", "Analisi funzionale", "Project management", "Formazione"]
   }
 ];
@@ -45,20 +48,20 @@ export const profileChapters = [
   {
     id: "approccio",
     index: "01",
-    title: "Analisi e architettura",
-    description: "Parto dai requisiti e dai vincoli, per definire componenti, flussi e responsabilità prima dell'implementazione."
+    title: "Capire prima di sviluppare",
+    description: "Cerco di chiarire requisiti e problemi, poi organizzo codice, dati e componenti in modo comprensibile e verificabile."
   },
   {
     id: "esperienze",
     index: "02",
-    title: "Sviluppo e collaborazione",
-    description: "Ho lavorato su applicazioni Java enterprise, attività di analisi funzionale e coordinamento di progetti ed esercitazioni."
+    title: "Imparare sul campo",
+    description: "Lavoro con team e studenti, facendo pratica con Java, Python, API REST e progetti incrementali."
   },
   {
     id: "evoluzione",
     index: "03",
-    title: "Direzione AI engineering",
-    description: "Sto sviluppando competenze progettuali in sistemi AI attraverso backend Python, persistenza e integrazione con modelli locali."
+    title: "L’obiettivo: AI Engineer",
+    description: "Sto consolidando le basi di Python e dei sistemi AI; il percorso universitario L-31 in Artificial Intelligence è parte della direzione formativa che voglio seguire."
   }
 ];
 
@@ -149,6 +152,15 @@ export const education = [
     detail: "Percorso full-time di sviluppo software concluso il 18 luglio 2024. Java, Spring, PostgreSQL, Angular, JavaScript, TypeScript e progetti applicativi in team."
   }
 ];
+
+
+export const academicGoal = {
+  id: "l31-ai",
+  title: "L-31 · Artificial Intelligence",
+  organization: "Percorso universitario di riferimento",
+  status: "Obiettivo formativo — laurea non ancora conseguita",
+  detail: "Voglio approfondire le fondamenta informatiche, matematiche e dell’intelligenza artificiale attraverso un percorso universitario L-31. La laurea è un obiettivo del mio percorso, non un titolo già ottenuto."
+};
 
 // Nomi degli enti segnalati, non singole certificazioni pubblicate.
 // Inserire nell'array certificates soltanto attestati con titolo confermato.
