@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Tests and production build
+    name: Tests, production build and static export
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -24,5 +24,16 @@ jobs:
         run: npm ci
       - name: Test
         run: npm test
-      - name: Build
+      - name: Production build
         run: npm run build
+      - name: GitHub Pages export smoke test (no deployment)
+        env:
+          PORTFOLIO_STATIC_EXPORT: '1'
+          NEXT_PUBLIC_BASE_PATH: '/portfolio'
+          NEXT_PUBLIC_SITE_URL: 'https://ilmuratore.github.io/portfolio'
+        run: |
+          rm -rf .next out
+          npm run build
+          test -f out/index.html
+          test -f out/robots.txt
+          test -f out/sitemap.xml

@@ -12,6 +12,7 @@ const links = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef(null);
   const toggleRef = useRef(null);
 
   useEffect(() => {
@@ -22,14 +23,26 @@ export default function SiteHeader() {
         toggleRef.current?.focus();
       }
     };
+    const closeOnOutsideClick = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    const closeOnDesktop = () => {
+      if (window.innerWidth > 860) setMenuOpen(false);
+    };
     document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      window.removeEventListener("resize", closeOnDesktop);
+    };
   }, [menuOpen]);
 
   return (
-    <header className="site-header" id="top">
+    <header ref={headerRef} className="site-header" id="top">
       <div className="site-container header-inner">
-        <a className="brand" href="#top" aria-label="Torna all'inizio del portfolio">SI<span>.</span><span className="brand-name">Portfolio</span></a>
+        <a className="brand" href="#top" aria-label="Torna all'inizio del portfolio" onClick={() => setMenuOpen(false)}>SI<span>.</span><span className="brand-name">Portfolio</span></a>
         <button
           ref={toggleRef}
           type="button"

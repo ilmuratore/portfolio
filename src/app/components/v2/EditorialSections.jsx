@@ -41,7 +41,7 @@ export function FeaturedSection() {
             <article className="project-card" key={project.id} aria-labelledby={project.id + "-title"}>
               <ProjectSoftwareVisual variant={project.preview} />
               <div className="project-card-body">
-                <div className="project-kicker"><span>{project.index} / {project.category}</span><span aria-hidden="true">↗</span></div>
+                <div className="project-kicker"><span>{project.index} / {project.category}</span><span className="project-no-link">DEMO</span></div>
                 <h3 id={project.id + "-title"}>{project.title}</h3>
                 <p>{project.description}</p>
                 <div className="project-tags" aria-label="Tecnologie segnaposto">{project.tags.map((tag, i) => <span key={i}>{tag}</span>)}</div>
