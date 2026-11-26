@@ -21,7 +21,10 @@ export const techIconMap = {
   "HTML / CSS": "html5",
   "SQLAlchemy": "sqlalchemy",
   "Pydantic": "pydantic",
-  "Rust": "rust"
+  "Rust": "rust",
+  "C#": "dotnet",
+  ".NET": "dotnet",
+  "Unity": "unity"
 };
 
 export const techIconSlug = (label) => techIconMap[label] ?? null;

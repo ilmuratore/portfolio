@@ -38,7 +38,10 @@ test("icone stack e fallback generico coprono tecnologie del portfolio", () => {
 });
 
 test("icone per game development, sistemi e progetti privati", () => {
-  for (const name of ["C#", "Unity", "Rust"]) assert.ok(techIconSlug(name));
+  for (const name of ["C#", ".NET", "Unity", "Rust"]) assert.ok(techIconSlug(name), "Icona non mappata: " + name);
+  assert.equal(techIconSlug("C#"), "dotnet");
+  assert.equal(techIconSlug(".NET"), "dotnet");
+  assert.equal(techIconSlug("Unity"), "unity");
   for (const project of privateProjects) {
     assert.ok(project.tags.some((tag) => techIconSlug(tag)), "Logo mancante: " + project.name);
   }
