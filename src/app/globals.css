@@ -366,7 +366,6 @@ section[id] { scroll-margin-top: 100px; }
 .case-hero-visual .mini-board-columns > div { padding:17px; }
 .case-hero-visual .mini-board-columns span { height:38px; }
 .case-hero-visual .mini-terminal-lines { font-size:17px; line-height:1.75; padding:27px 32px; }
-.case-visual-note { display:flex; justify-content:space-between; gap:15px; padding-top:14px; font-size:10px; letter-spacing:.1em; font-weight:700; color:#65574c; }
 .case-body { display:grid; grid-template-columns:minmax(0,270px) minmax(0,1fr); gap:clamp(40px,7vw,110px); padding-top:90px; }
 .case-aside { align-self:start; position:sticky; top:112px; }
 .case-aside .eyebrow { font-size:10px; }
@@ -426,7 +425,6 @@ section[id] { scroll-margin-top: 100px; }
   .case-hero-visual .mini-board-columns > div { padding:6px; }
   .case-hero-visual .mini-board-columns span { height:19px; }
   .case-hero-visual .mini-terminal-lines { font-size:10px; padding:15px 12px; }
-  .case-visual-note { font-size:8px; }
   .case-body { padding-top:58px; }
   .case-chapter { padding-bottom:39px; margin-bottom:38px; }
   .case-chapter h2 { font-size:clamp(2.65rem,9vw,3.8rem); }
@@ -560,7 +558,7 @@ main:focus { outline:none; }
 }
 
 
-.profile-experience, .profile-training, .profile-independent { padding-block:73px 82px; border-top:1px solid var(--color-border); }
+.profile-experience, .profile-training, 
 .profile-chapter h3 { margin:0 0 11px; font-family:var(--font-display); font-weight:600; letter-spacing:-.035em; font-size:30px; }
 .career { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(255px,.65fr); gap:clamp(30px,5vw,75px); }
 .career-list { border-top:1px solid var(--color-border); }
@@ -707,7 +705,7 @@ main:focus { outline:none; }
   .private-project-heading { gap:13px; }
   .private-project-symbol { width:44px; height:44px; }
   .private-project-heading h3 { font-size:1.85rem; }
-  .profile-independent { padding-block:60px; }
+
 }
 
 /* Anteprima grafica concettuale per il case study Unity/C#. */
