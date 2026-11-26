@@ -52,7 +52,7 @@ export default async function ProjectDetailPage({ params }) {
             <p>{project.intro}</p>
             <div className="case-tags"><span className="case-status">{project.status}</span>{project.tags.map((tag, i) => <TechBadge key={i} label={tag} />)}</div>
           </header>
-          <div className="case-hero-visual">
+          <div className={"case-hero-visual" + (isPrivate ? " case-hero-private" : "")}>
             {isPrivate ? (
               <div className="private-case-visual" role="img" aria-label={`Schema concettuale di ${project.title}: ${project.architectureNodes.join(", ")}`}>
                 <div className="private-case-visual-bar"><span>PROJECT / ENGINEERING</span><span>CODICE PRIVATO</span></div>
