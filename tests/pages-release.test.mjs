@@ -55,7 +55,7 @@ test("sitemap completa e coerente con il catalogo pubblico", () => {
   const contents = source("../src/app/sitemap.js");
   assert.match(contents, /if \(!siteConfig\.published\) return \[\]/);
   assert.match(contents, /projects\.map/);
-  assert.ok(projects.length >= 3);
+  assert.equal(projects.length, 4);
 });
 
 test("deploy manuale evita pubblicazioni da altri branch e force push ciechi", () => {

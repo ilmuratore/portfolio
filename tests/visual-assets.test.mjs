@@ -2,8 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { techIconMap, techIconSlug } from "../src/content/icon-map.mjs";
-import { projects } from "../src/content/projects.mjs";
-import { skillAreas, certificationProviders } from "../src/content/profile.mjs";
+import { projects, privateProjects } from "../src/content/projects.mjs";
+import { skillAreas, contactChannels } from "../src/content/profile.mjs";
 
 const read = (file) => readFileSync(new URL(file, import.meta.url), "utf8");
 
@@ -37,10 +37,15 @@ test("icone stack e fallback generico coprono tecnologie del portfolio", () => {
   assert.doesNotMatch(component, /cdn\.|simpleicons\.org/);
 });
 
-test("certificazioni: loghi dei provider, nessun attestato fittizio", () => {
-  for (const provider of certificationProviders) {
-    assert.ok(techIconSlug(provider), "Icona mancante: " + provider);
+test("icone per game development, sistemi e progetti privati", () => {
+  for (const name of ["C#", "Unity", "Rust"]) assert.ok(techIconSlug(name));
+  for (const project of privateProjects) {
+    assert.ok(project.tags.some((tag) => techIconSlug(tag)), "Logo mancante: " + project.name);
   }
+  assert.ok(contactChannels.some((channel) => channel.href.startsWith("mailto:")));
+  const cards = read("../src/app/components/site/PrivateProjectCards.jsx");
+  assert.match(cards, /privateProjects\.map/);
+  assert.doesNotMatch(cards, /repositoryUrl|documentationUrl|href=/);
 });
 
 test("componenti condivisi mostrano loghi con etichette testuali", () => {
@@ -55,8 +60,8 @@ test("componenti condivisi mostrano loghi con etichette testuali", () => {
   const badge = read("../src/app/components/site/TechBadge.jsx");
   assert.match(badge, /<span>{label}<\/span>/);
   const profile = read("../src/app/components/site/ProfileSections.jsx");
-  assert.match(profile, /TechIcon label=\{name\}/);
-  assert.match(profile, /future-project-heading/);
+  assert.match(profile, /TechIcon label=\{area\.technologies\[0\]\}/);
+  assert.match(profile, /"mail"/);
   const icon = read("../src/app/components/site/TechIcon.jsx");
   assert.match(icon, /alt=""/);
 });

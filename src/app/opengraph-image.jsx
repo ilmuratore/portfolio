@@ -48,7 +48,7 @@ export default function OpenGraphImage() {
         </div>
       </div>
       <div style={{display:"flex", width:"100%", borderTop:"1px solid #D7C7B8", paddingTop:23, justifyContent:"space-between", fontSize:15, color:"#66594E", ...sans}}>
-        <span>Backend · Formazione · AI in apprendimento</span>
+        <span>Backend · Game Dev · Systems</span>
         <span>github.com/ilmuratore</span>
       </div>
     </div>,

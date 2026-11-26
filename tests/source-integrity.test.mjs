@@ -4,8 +4,8 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { techIconMap } from "../src/content/icon-map.mjs";
-import { skillAreas, certificationProviders, contactChannels, futureProjects } from "../src/content/profile.mjs";
-import { projects } from "../src/content/projects.mjs";
+import { skillAreas, contactChannels } from "../src/content/profile.mjs";
+import { projects, privateProjects } from "../src/content/projects.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 
@@ -54,9 +54,8 @@ test("le tecnologie presenti nei contenuti hanno asset disponibili", () => {
   const labels = [
     ...skillAreas.flatMap((area) => area.technologies),
     ...projects.flatMap((project) => project.tags),
-    ...certificationProviders,
-    ...contactChannels.map((channel) => channel.label),
-    ...futureProjects.filter((item) => item.id === "rustos").map(() => "Rust")
+    ...privateProjects.flatMap((project) => project.tags),
+    ...contactChannels.filter((channel) => channel.id === "github").map((channel) => channel.label)
   ];
   for (const slug of new Set(labels.map((label) => techIconMap[label]).filter(Boolean))) {
     assert.ok(existsSync(join(root, "public", "icons", "tech", slug + ".svg")));

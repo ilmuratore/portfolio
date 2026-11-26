@@ -17,7 +17,7 @@
 
 Portfolio web di **Simone Iengo**, Software Developer junior con esperienza in **Java, Spring Boot, Python e sviluppo backend**, e interesse per l'AI engineering come direzione di crescita professionale.
 
-Il sito presenta una selezione di repository pubblici, competenze tecniche e percorso professionale attraverso un'interfaccia editoriale responsive. È costruito con componenti riutilizzabili e distribuito come **sito statico**, senza server applicativo, database o servizi di terze parti necessari alla navigazione.
+Il sito presenta quattro case study pubblici, due progetti personali a codice privato, competenze tecniche e percorso professionale attraverso un'interfaccia editoriale responsive. È costruito con componenti riutilizzabili e distribuito come **sito statico**, senza server applicativo, database o servizi di terze parti necessari alla navigazione.
 
 ### Caratteristiche
 
@@ -130,8 +130,13 @@ Non è richiesto un dominio a pagamento; in caso di dominio personalizzato occor
 | **Banca Python** | Python · PostgreSQL · Pandas | [Codice](https://github.com/ilmuratore/banca-python) |
 | **Python Developer AI** | Python · FastAPI · SQLite | [Codice](https://github.com/ilmuratore/python-developer-ai) |
 | **AziendaJava** | Java · Spring Boot · JPA | [Codice](https://github.com/ilmuratore/AziendaJava) |
+| **Valdoria** | C# · Unity 6.3 · Gameplay / OOP | [Codice](https://github.com/ilmuratore/valdoria) |
 
-Le schede si basano sui contenuti disponibili nei repository. Le anteprime grafiche del portfolio sono **illustrazioni**, non screenshot delle applicazioni. Alcuni progetti hanno finalità formative o sperimentali.
+Le schede pubbliche si basano sui rispettivi repository. **Valdoria** è un caso studio didattico di game development sviluppato con C#/Unity.
+
+Il sito presenta inoltre **Torven** (ricerca personale su un sistema operativo Rust) e **Il Presidente** (prototipo di simulazione in C# e Python) con **sole informazioni generali**: codice, documentazione e repository rimangono privati.
+
+Le anteprime grafiche del portfolio sono **illustrazioni**, non screenshot delle applicazioni. I progetti formativi e sperimentali non sono presentati come prodotti commerciali completati.
 
 ## Licenza e risorse
 
@@ -146,5 +151,6 @@ I loghi delle tecnologie provengono da [Simple Icons](https://github.com/simple-
   <br/>
   <a href="https://github.com/ilmuratore">GitHub</a> ·
   <a href="https://www.linkedin.com/in/simone-iengo-557914109/">LinkedIn</a> ·
+  <a href="mailto:iengo.simone@gmail.com">Email</a> ·
   <a href="https://ilmuratore.github.io/portfolio/">Portfolio</a>
 </div>

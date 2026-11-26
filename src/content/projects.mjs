@@ -70,6 +70,30 @@ export const projects = [
       architecture: "Il file Maven dichiara Java 21, Spring Boot 3.5, JPA, librerie Spring Security, JWT e OpenAPI. Il README documenta MariaDB per la persistenza e H2 in sviluppo, con Hibernate come livello ORM.",
       results: "Il repository rende consultabili codice e documentazione delle funzionalità previste. Non vengono riportate misure di prestazione o risultati di produzione; la scheda si limita agli elementi descritti dai file pubblici."
     }
+  },
+  {
+    id: "valdoria",
+    slug: "valdoria",
+    index: "04",
+    title: "Valdoria",
+    category: "Game Development",
+    categoryId: "game",
+    description: "RPG 2D top-down sviluppato in C# e Unity come laboratorio pratico per un corso di game development.",
+    intro: "Un progetto didattico che collega i principi della programmazione orientata agli oggetti a sistemi di gameplay concreti: movimento, animazioni, combattimento, NPC e progressione.",
+    preview: "game",
+    tags: ["C#", "Unity", "OOP"],
+    featured: true,
+    status: "Case study didattico · In evoluzione",
+    repositoryUrl: "https://github.com/ilmuratore/valdoria",
+    documentationUrl: "https://github.com/ilmuratore/valdoria/blob/main/README.md",
+    architectureNodes: ["Player e Input", "NPC e stati", "Combattimento e UI"],
+    sections: {
+      context: "Valdoria è un RPG 2D con visuale top-down usato come caso studio nel percorso formativo di sviluppo videogiochi con C# e Unity. L'obiettivo è trasformare concetti di OOP, componenti e gestione dello stato in meccaniche verificabili all'interno dell'editor.",
+      challenge: "Coordinare input, animazioni, combattimento, salute e comportamento dei personaggi senza concentrare tutta la logica in un unico script. Gli NPC devono reagire a situazioni diverse e il giocatore deve poter seguire la propria progressione.",
+      solution: "Il repository documenta movimento e animazioni del personaggio, attacchi e danni, gestione della vita e della morte, esperienza e progressione, interfaccia di salute e NPC alleati e nemici. Il comportamento degli NPC utilizza una macchina a stati con pattugliamento, inseguimento, ricerca e attacco.",
+      architecture: "Il progetto è realizzato in Unity 6.3 LTS con C#, URP 2D, Unity Input System e TextMesh Pro. Le funzionalità sono organizzate come componenti di gioco: controllo del personaggio, NPC con FSM, gestione delle interazioni e visualizzazione dello stato. I sistemi di gioco e i livelli della mappa sono esercizi progressivi di progettazione a oggetti.",
+      results: "Il progetto raccoglie meccaniche e sistemi riutilizzabili all'interno di un'esperienza didattica. Il codice e le scene sono consultabili nel repository pubblico e il progetto può essere avviato nell'editor Unity. Valdoria è ancora in evoluzione e non viene presentato come videogioco commerciale completato."
+    }
   }
 ];
 
@@ -77,7 +101,33 @@ export const projectFilters = [
   { id: "all", label: "Tutti" },
   { id: "data", label: "Data & Backend" },
   { id: "ai", label: "AI" },
-  { id: "backend", label: "Gestionali" }
+  { id: "backend", label: "Gestionali" },
+  { id: "game", label: "Game Development" }
+];
+
+
+// I repository di questi progetti sono privati: solo caratteristiche generali e pubblicabili.
+export const privateProjects = [
+  {
+    id: "torven",
+    name: "Torven",
+    domain: "Systems Programming",
+    status: "Repository privato",
+    summary: "Sistema operativo sperimentale per architettura x86-64, sviluppato in Rust per approfondire programmazione di sistema, gestione della memoria e isolamento.",
+    context: "Ricerca personale e studio dell'architettura dei sistemi operativi; non è un prodotto pronto per la produzione.",
+    tags: ["Rust", "UEFI", "Sistemi operativi"],
+    highlights: ["Kernel Rust no_std", "Avvio UEFI", "Memoria e isolamento"]
+  },
+  {
+    id: "il-presidente",
+    name: "Il Presidente",
+    domain: "Game & Simulation",
+    status: "Repository privato",
+    summary: "Prototipo di simulazione politico-economica per PC Windows con interfaccia C#/.NET e motore Python.",
+    context: "Esplorazione di logiche di gioco e simulazione: eventi, bilancio e conseguenze delle decisioni usano scenari ipotetici, non previsioni economiche.",
+    tags: ["C#", "Python", "Simulazione"],
+    highlights: ["Interfaccia desktop C#/.NET", "Motore di simulazione Python", "Decisioni e bilancio di gioco"]
+  }
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);

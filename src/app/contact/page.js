@@ -15,8 +15,8 @@ export default function ContactPage() {
     <SitePageFrame>
       <section className="site-container contact-page" aria-labelledby="contact-page-title">
         <nav className="breadcrumbs" aria-label="Percorso"><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">Contatti</span></nav>
-        <header className="contact-page-intro"><p className="eyebrow">CONTATTI / CANALI PUBBLICI</p><h1 id="contact-page-title">Apriamo una <em>conversazione.</em></h1><p>Qui trovi i miei profili professionali. Puoi consultare il codice dei progetti pubblici e il mio percorso su LinkedIn.</p></header>
-        <div className="contact-page-body"><div className="contact-copy"><p className="eyebrow">DOVE TROVARMI</p><h2>Due modi per <em>restare in contatto.</em></h2><p>Per discutere di un progetto o conoscere il percorso professionale puoi utilizzare i collegamenti qui accanto.</p><p className="contact-notice">Non è attivo un modulo di invio dal sito. Per contattarmi puoi utilizzare i canali esterni indicati.</p></div><ContactChannels wide /></div>
+        <header className="contact-page-intro"><p className="eyebrow">CONTATTI / CANALI PUBBLICI</p><h1 id="contact-page-title">Apriamo una <em>conversazione.</em></h1><p>Per opportunità professionali, collaborazioni e confronto tecnico: email diretta, codice pubblico e profilo LinkedIn.</p></header>
+        <div className="contact-page-body"><div className="contact-copy"><p className="eyebrow">DOVE TROVARMI</p><h2>Un contatto, <em>tre possibilità.</em></h2><p>Scrivimi direttamente via email oppure consulta i progetti e il mio percorso professionale.</p><p className="contact-notice">Le proposte di collaborazione e le opportunità di lavoro possono essere inviate all’indirizzo email indicato.</p></div><ContactChannels variant="wide" /></div>
         <div className="contact-page-bottom"><span>PORTFOLIO / CONTATTI</span><Link href="/projects" className="text-link">Scopri i progetti <span aria-hidden="true">↗</span></Link></div>
       </section>
     </SitePageFrame>

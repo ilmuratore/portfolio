@@ -30,7 +30,7 @@ const details = [
   { key: "challenge", number: "02", label: "La sfida" },
   { key: "solution", number: "03", label: "La soluzione" },
   { key: "architecture", number: "04", label: "Architettura" },
-  { key: "results", number: "05", label: "Risultati e sviluppi" }
+  { key: "results", number: "05", label: "Risultati e stato attuale" }
 ];
 
 export default async function ProjectDetailPage({ params }) {

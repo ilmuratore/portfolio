@@ -3,8 +3,8 @@ import TechBadge from "@/app/components/site/TechBadge";
 import SitePageFrame from "@/app/components/site/SitePageFrame";
 import {
   ProfileChapters, ExperienceTimeline, EducationSection,
-  CertificationsSection, FutureProjectsSection
 } from "@/app/components/site/ProfileSections";
+import PrivateProjectCards from "@/app/components/site/PrivateProjectCards";
 import { profile, skillAreas } from "@/content/profile.mjs";
 import { siteConfig } from "@/config/site";
 
@@ -24,13 +24,13 @@ export default function AboutPage() {
         </nav>
         <header className="profile-hero">
           <p className="eyebrow">{profile.label}</p>
-          <h1>Sviluppo software oggi. <em>AI engineering come obiettivo.</em></h1>
+          <h1>Backend, didattica e <em>progetti personali.</em></h1>
           <p>{profile.introduction}</p>
         </header>
 
         <div className="profile-intro-grid">
           <div className="profile-poster" aria-hidden="true">
-            <span>JUNIOR DEVELOPER / BACKEND</span>
+            <span>SOFTWARE DEVELOPER / BACKEND</span>
             <strong>SI<span>.</span></strong>
             <small>BACKEND · PROGETTI · FORMAZIONE</small>
           </div>
@@ -77,25 +77,17 @@ export default function AboutPage() {
         <section className="profile-training" aria-labelledby="profile-training-title">
           <div className="section-intro">
             <div><p className="eyebrow">04 / FORMAZIONE</p><h2 className="section-title" id="profile-training-title">Formazione <em>continua.</em></h2></div>
-            <div className="section-aside"><p>EPICODE è una formazione conclusa; la L-31 in Artificial Intelligence è un obiettivo universitario, non una laurea conseguita.</p></div>
+            <div className="section-aside"><p>Formazione full-stack completata e percorso universitario L-31 in corso, con laurea non ancora conseguita.</p></div>
           </div>
           <EducationSection />
         </section>
 
-        <section className="profile-certifications" aria-labelledby="profile-certifications-title">
+        <section className="profile-independent" aria-labelledby="profile-independent-title">
           <div className="section-intro">
-            <div><p className="eyebrow">05 / CERTIFICAZIONI</p><h2 className="section-title" id="profile-certifications-title">Competenze da <em>documentare.</em></h2></div>
-            <div className="section-aside"><p>La struttura è pronta per titoli, enti, date, credenziali e collegamenti di verifica.</p></div>
+            <div><p className="eyebrow">05 / RICERCA PERSONALE</p><h2 className="section-title" id="profile-independent-title">Progetti <em>indipendenti.</em></h2></div>
+            <div className="section-aside"><p>Torven e Il Presidente rappresentano due ambiti di sperimentazione. Condivido soltanto caratteristiche generali: il codice rimane privato.</p></div>
           </div>
-          <CertificationsSection />
-        </section>
-
-        <section className="profile-future" aria-labelledby="profile-future-title">
-          <div className="section-intro">
-            <div><p className="eyebrow">06 / IN EVOLUZIONE</p><h2 className="section-title" id="profile-future-title">Progetti a <em>lungo termine.</em></h2></div>
-            <div className="section-aside"><p>Due iniziative ancora in sviluppo: presenterò architetture, risultati e materiali pubblici quando saranno pronti.</p></div>
-          </div>
-          <FutureProjectsSection />
+          <PrivateProjectCards />
         </section>
 
         <div className="profile-page-footer">

@@ -4,7 +4,7 @@ import TechIcon from "./TechIcon";
 import UiIcon from "./UiIcon";
 import {
   profile, skillAreas, profileChapters, contactChannels,
-  experience, education, academicGoal, certificationProviders, futureProjects
+  experience, education, academicGoal
 } from "@/content/profile.mjs";
 
 export function SkillsSection() {
@@ -13,7 +13,7 @@ export function SkillsSection() {
       <div className="site-container">
         <div className="section-intro">
           <div><p className="eyebrow">03 / COMPETENZE</p><h2 className="section-title" id="skills-title">Tecnologie, <em>con metodo.</em></h2></div>
-          <div className="section-aside"><p>Java e Spring nel lavoro, Python e AI nei progetti di apprendimento. Strumenti distinti per ambito, senza autovalutazioni arbitrarie.</p></div>
+          <div className="section-aside"><p>Backend Java e didattica, Python e AI in approfondimento, Unity e Rust nei progetti personali. Tecnologie distinte per contesto d’uso.</p></div>
         </div>
         <div className="skills-grid skill-groups">
           {skillAreas.map((area) => (
@@ -63,7 +63,7 @@ export function ContactSection() {
       <div className="site-container contact-grid">
         <div><p className="eyebrow">05 / CONTATTI</p><h2 id="contact-title">Tecnologia e <em>confronto.</em></h2></div>
         <div className="contact-side">
-          <p>Backend Java, progetti Python e formazione: trovi codice e lavori pubblici su GitHub e il percorso professionale su LinkedIn.</p>
+          <p>Backend Java, progetti Python, docenza e sviluppo indipendente: trovi il codice pubblico su GitHub oppure puoi contattarmi direttamente.</p>
           <Link className="button button-light" href="/contact">Vai ai contatti <span aria-hidden="true">↗</span></Link>
         </div>
       </div>
@@ -129,41 +129,11 @@ export function EducationSection() {
         </article>
       ))}
       <aside className="academic-goal" aria-labelledby="academic-goal-title">
-        <span className="eyebrow">PROSSIMA DIREZIONE / STUDI UNIVERSITARI</span>
+        <span className="eyebrow">STUDI UNIVERSITARI / IN CORSO</span>
         <h3 id="academic-goal-title">{academicGoal.title}</h3>
         <p className="academic-goal-status">{academicGoal.status}</p>
         <p>{academicGoal.detail}</p>
       </aside>
-    </div>
-  );
-}
-
-export function CertificationsSection() {
-  return (
-    <div className="certification-panel">
-      <div className="certification-empty">
-        <span className="eyebrow">CREDENZIALI</span>
-        <h3>Certificazioni e attestati.</h3>
-        <p>La sezione raccoglierà i dettagli degli attestati quando saranno disponibili titoli e credenziali verificabili.</p>
-        <div className="certification-providers" aria-label="Piattaforme indicate">
-          {certificationProviders.map((name) => <span key={name}><TechIcon label={name} size={18} />{name}</span>)}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function FutureProjectsSection() {
-  return (
-    <div className="future-project-grid">
-      {futureProjects.map((item, index) => (
-        <article className="future-project" key={item.id}>
-          <div className="future-project-top"><span>0{index + 1} / PROGETTO A LUNGO TERMINE</span><span>{item.status}</span></div>
-          <div className="future-project-heading">{item.id === "rustos" ? <TechIcon label="Rust" size={25} /> : <UiIcon name="layers" size={25} />}<h3>{item.name}</h3></div>
-          <p>{item.description}</p>
-          <span className="future-project-note">Presentazione pubblica in preparazione</span>
-        </article>
-      ))}
     </div>
   );
 }
@@ -173,7 +143,7 @@ export function ContactChannels({ variant = "default" }) {
     <div className={"contact-channels " + (variant === "wide" ? "contact-channels-wide" : "")}>
       {contactChannels.map((channel) => (
         <a className="contact-channel" href={channel.href} key={channel.id} target="_blank" rel="noopener noreferrer">
-          <span className="contact-channel-symbol">{channel.id === "github" ? <TechIcon label="GitHub" size={25} /> : <UiIcon name="linkedin" size={25} />}</span>
+          <span className="contact-channel-symbol">{channel.id === "github" ? <TechIcon label="GitHub" size={25} /> : <UiIcon name={channel.id === "email" ? "mail" : "linkedin"} size={25} />}</span>
           <span className="contact-channel-body"><strong>{channel.label}</strong><small>{channel.type}</small><span>{channel.short}</span></span>
           <span className="contact-channel-arrow" aria-hidden="true">↗</span>
         </a>

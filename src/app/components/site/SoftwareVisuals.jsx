@@ -49,12 +49,34 @@ function TerminalPreview() {
   );
 }
 
+function GamePreview() {
+  return (
+    <div className="mini-game" aria-hidden="true">
+      <div className="mini-game-heading"><span>VALDORIA / RPG 2D</span><span>UNITY · C#</span></div>
+      <div className="mini-game-world">
+        <span className="mini-game-path" />
+        <span className="mini-game-water" />
+        <span className="mini-game-tree mini-game-tree-one" />
+        <span className="mini-game-tree mini-game-tree-two" />
+        <span className="mini-game-tree mini-game-tree-three" />
+        <span className="mini-game-player" />
+        <span className="mini-game-npc" />
+      </div>
+      <div className="mini-game-hud">
+        <span>HP</span><span className="mini-game-health"><i /></span>
+        <span>LVL 01</span>
+      </div>
+    </div>
+  );
+}
+
 export function ProjectSoftwareVisual({ variant, primaryTech }) {
   return (
     <div className={"project-visual project-visual-" + variant} role="img" aria-label="Rappresentazione grafica illustrativa di un progetto software">
       {variant === "dashboard" && <DashboardPreview />}
       {variant === "board" && <BoardPreview />}
       {variant === "terminal" && <TerminalPreview />}
+      {variant === "game" && <GamePreview />}
       <span className="project-visual-label" aria-hidden="true">ANTEPRIMA ILLUSTRATIVA</span>
       {primaryTech && <span className="project-preview-tech" aria-hidden="true"><TechIcon label={primaryTech} size={24}/></span>}
     </div>

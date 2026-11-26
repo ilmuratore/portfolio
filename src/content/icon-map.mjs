@@ -20,8 +20,6 @@ export const techIconMap = {
   "HTML / CSS": "html5",
   "SQLAlchemy": "sqlalchemy",
   "Pydantic": "pydantic",
-  "Google": "google",
-  "Coursera": "coursera",
   "Rust": "rust"
 };
 
