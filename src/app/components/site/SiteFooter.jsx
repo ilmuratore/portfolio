@@ -11,6 +11,7 @@ export default function SiteFooter() {
           <Link href="/projects">Progetti</Link>
           <Link href="/about">Chi sono</Link>
           <Link href="/contact">Contatti</Link>
+          <a href="mailto:iengo.simone@gmail.com"><UiIcon name="mail" size={15} /> Email</a>
           <a href="https://github.com/ilmuratore" target="_blank" rel="noopener noreferrer"><TechIcon label="GitHub" size={15} /> GitHub ↗</a>
           <a href="https://www.linkedin.com/in/simone-iengo-557914109/" target="_blank" rel="noopener noreferrer"><UiIcon name="linkedin" size={15} /> LinkedIn ↗</a>
         </nav>

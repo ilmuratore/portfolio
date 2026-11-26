@@ -29,7 +29,7 @@ export default function ProjectCatalog() {
       <div className="project-grid catalog-grid" aria-label="Elenco dei progetti">
         {filtered.map((project) => <ProjectCard key={project.id} project={project} />)}
       </div>
-      <p className="projects-disclaimer">Le descrizioni derivano dai repository pubblici. Le anteprime sono illustrazioni grafiche e non screenshot delle applicazioni.</p>
+      <p className="projects-disclaimer">I case study fanno riferimento a repository pubblici. Le anteprime grafiche sono illustrazioni, non screenshot delle applicazioni.</p>
     </>
   );
 }

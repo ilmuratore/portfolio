@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { projects } from "../src/content/projects.mjs";
+import { projects, caseStudies } from "../src/content/projects.mjs";
 import { siteConfig } from "../src/config/site.js";
 
 const source = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
@@ -54,8 +54,9 @@ test("i case study usano SEO condizionale anche dentro generateMetadata", () => 
 test("sitemap completa e coerente con il catalogo pubblico", () => {
   const contents = source("../src/app/sitemap.js");
   assert.match(contents, /if \(!siteConfig\.published\) return \[\]/);
-  assert.match(contents, /projects\.map/);
-  assert.ok(projects.length >= 3);
+  assert.match(contents, /caseStudies\.map/);
+  assert.equal(projects.length, 6);
+  assert.equal(caseStudies.length, 8);
 });
 
 test("deploy manuale evita pubblicazioni da altri branch e force push ciechi", () => {

@@ -1,10 +1,10 @@
 export const profile = {
-  label: "JUNIOR SOFTWARE DEVELOPER / BACKEND",
-  heroIntroduction: "Sono uno sviluppatore junior con circa tre anni di percorso IT. Lavoro con Java e Python, insegno programmazione e studio per arrivare all’AI engineering.",
-  introduction: "Sono uno sviluppatore software junior con circa tre anni di percorso nell’IT, tra formazione, esperienza professionale e docenza. Ho lavorato soprattutto con Java e Spring Boot su applicazioni backend e sto approfondendo Python e i sistemi AI attraverso progetti personali. Il mio obiettivo è diventare AI Engineer.",
+  label: "SOFTWARE DEVELOPER / BACKEND & FULL-STACK",
+  heroIntroduction: "Sono uno sviluppatore software junior con circa tre anni di percorso nell’IT. Lavoro sul backend Java, insegno programmazione e coltivo progetti personali con Python, C#/Unity e Rust. L’AI engineering è la direzione che voglio approfondire.",
+  introduction: "Sono uno sviluppatore software junior con circa tre anni di percorso nell’IT. Ho esperienza nello sviluppo backend con Java e Spring Boot e nella formazione tecnica. Attraverso progetti pubblici e ricerca personale approfondisco anche Python, sistemi AI, C#/Unity e Rust. Il mio obiettivo professionale è diventare AI Engineer.",
   biography: [
     "Dal 2024 costruisco il mio percorso nello sviluppo software. Ho iniziato con la formazione full stack e con un’esperienza junior su Java e Spring Boot, per poi lavorare in un team che sviluppa e mantiene applicazioni enterprise nei settori bancario, finanziario e della pubblica amministrazione. Mi sono occupato di API REST, persistenza con JPA/Hibernate e supporto all’analisi funzionale.",
-    "Parallelamente lavoro come docente e formatore di programmazione, preparando materiali e seguendo esercitazioni e progetti. Con Python sperimento backend, memoria persistente e integrazione con modelli linguistici locali: sto imparando, non mi presento ancora come AI Engineer. Vorrei rafforzare questo percorso con gli studi universitari L-31 in Artificial Intelligence."
+    "Parallelamente insegno programmazione, preparo esercizi e seguo progetti didattici come Valdoria, un RPG 2D in Unity e C#. Nei progetti personali esploro Python e modelli linguistici locali, oltre alla programmazione di sistema con Rust. Porto avanti il percorso universitario L-31 in Artificial Intelligence per costruire basi più solide verso l’obiettivo di diventare AI Engineer."
   ],
   previousCareer: "Prima del passaggio all’IT ho lavorato nella consulenza finanziaria e nella gestione di una sede e di un team. È un’esperienza organizzativa distinta dagli anni dedicati allo sviluppo software."
 };
@@ -30,9 +30,21 @@ export const skillAreas = [
   },
   {
     number: "04",
+    name: "Game Development",
+    description: "C# e Unity 2D applicati alla didattica: gameplay, OOP e comportamento degli NPC.",
+    technologies: ["C#", "Unity", "OOP", "FSM", "Gameplay"]
+  },
+  {
+    number: "05",
+    name: "Systems & Rust",
+    description: "Ricerca personale su sistemi operativi, kernel e architetture a basso livello.",
+    technologies: ["Rust", "UEFI", "no_std", "x86-64"]
+  },
+  {
+    number: "06",
     name: "Dati & Strumenti",
-    description: "SQL, PostgreSQL, versionamento, analisi funzionale e organizzazione di attività tecniche.",
-    technologies: ["SQL", "PostgreSQL", "Git / GitHub", "Analisi funzionale", "Project management", "Formazione"]
+    description: "SQL e PostgreSQL, versionamento, analisi funzionale e collaborazione tecnica.",
+    technologies: ["SQL", "PostgreSQL", "Git / GitHub", "Analisi funzionale", "Formazione"]
   }
 ];
 
@@ -47,13 +59,13 @@ export const profileChapters = [
     id: "esperienze",
     index: "02",
     title: "Imparare sul campo",
-    description: "Lavoro con team e studenti, facendo pratica con Java, Python, API REST e progetti incrementali."
+    description: "Lavoro con team e studenti su applicazioni backend, esercitazioni e progetti didattici verificabili."
   },
   {
     id: "evoluzione",
     index: "03",
     title: "L’obiettivo: AI Engineer",
-    description: "Sto consolidando le basi di Python e dei sistemi AI; il percorso universitario L-31 in Artificial Intelligence è parte della direzione formativa che voglio seguire."
+    description: "Approfondisco Python e sistemi AI attraverso studio universitario e progetti personali, senza attribuirmi il ruolo di AI Engineer."
   }
 ];
 
@@ -68,6 +80,7 @@ export const experience = [
     description: "Progettazione e conduzione di percorsi di programmazione e sviluppo software, con esercitazioni progressive, progetti pratici e tutoraggio.",
     highlights: [
       "Corsi su fondamenti informatici, JavaScript, Node.js, React, C# e Unity.",
+      "Valdoria come laboratorio didattico di game development con Unity e C#.",
       "Realizzazione autonoma di materiali didattici, esercizi, slide e progetti.",
       "Supporto ai tirocini e coordinamento delle attività di progetto."
     ]
@@ -140,29 +153,13 @@ export const education = [
 
 
 export const academicGoal = {
-  title: "L-31 · Artificial Intelligence",
-  status: "Obiettivo formativo — laurea non ancora conseguita",
-  detail: "Voglio approfondire le fondamenta informatiche, matematiche e dell’intelligenza artificiale attraverso un percorso universitario L-31. La laurea è un obiettivo del mio percorso, non un titolo già ottenuto."
+  title: "Laurea triennale L-31 · Artificial Intelligence",
+  status: "Percorso universitario in corso · laurea non ancora conseguita",
+  detail: "Studio fondamenti informatici, matematica e discipline collegate all’intelligenza artificiale. Il titolo non è ancora conseguito; l’obiettivo è approfondire la preparazione verso l’AI engineering."
 };
 
-export const certificationProviders = ["Google", "Coursera"];
-
-export const futureProjects = [
-  {
-    id: "rustos",
-    name: "RustOS",
-    status: "In sviluppo",
-    description: "Progetto a lungo termine. Dettagli tecnici, materiali e link pubblici verranno aggiunti quando saranno pronti."
-  },
-  {
-    id: "il-presidente",
-    name: "Il Presidente",
-    status: "In sviluppo",
-    description: "Simulatore politico-economico in evoluzione. La presentazione completa arriverà dopo la revisione del progetto."
-  }
-];
-
 export const contactChannels = [
+  { id: "email", label: "Email", type: "Contatto professionale diretto", href: "mailto:iengo.simone@gmail.com", short: "iengo.simone@gmail.com" },
   { id: "github", label: "GitHub", type: "Codice e repository pubblici", href: "https://github.com/ilmuratore", short: "github.com/ilmuratore" },
   { id: "linkedin", label: "LinkedIn", type: "Esperienze e percorso professionale", href: "https://www.linkedin.com/in/simone-iengo-557914109/", short: "Profilo LinkedIn" }
 ];

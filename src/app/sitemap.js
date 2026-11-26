@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { projects } from '@/content/projects.mjs';
+import { caseStudies } from '@/content/projects.mjs';
 
 export const dynamic = 'force-static';
 
@@ -9,7 +9,7 @@ export default function sitemap() {
   return [
     { url: `${siteConfig.url}/`, changeFrequency: 'monthly', priority: 1 },
     { url: `${siteConfig.url}/projects/`, changeFrequency: 'monthly', priority: 0.9 },
-    ...projects.map((project) => ({
+    ...caseStudies.map((project) => ({
       url: `${siteConfig.url}/projects/${project.slug}/`,
       changeFrequency: 'monthly',
       priority: 0.75

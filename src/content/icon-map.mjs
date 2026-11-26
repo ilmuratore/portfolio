@@ -15,13 +15,12 @@ export const techIconMap = {
   "Git / GitHub": "git",
   "GitHub": "github",
   "Node.js": "nodedotjs",
+  "Express": "express",
   "JPA": "hibernate",
   "JPA / Hibernate": "hibernate",
   "HTML / CSS": "html5",
   "SQLAlchemy": "sqlalchemy",
   "Pydantic": "pydantic",
-  "Google": "google",
-  "Coursera": "coursera",
   "Rust": "rust"
 };
 
