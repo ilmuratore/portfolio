@@ -90,10 +90,11 @@ test("pagine case study statiche e indicizzazione dipendente dalla pubblicazione
 
 test("due progetti formativi e backend aggiunti con fonti verificabili", () => {
   const game = getCaseStudyBySlug("le-cronache-del-sigillo");
-  assert.equal(game.preview, "terminal");
+  assert.equal(game.preview, "rpg");
   assert.match(game.sections.solution, /JSON/);
   const api = getCaseStudyBySlug("backend-express");
   assert.deepEqual(api.tags, ["Node.js", "Express", "PostgreSQL"]);
+  assert.equal(api.preview, "api");
   assert.match(api.sections.solution, /JWT/);
   assert.equal(api.documentationUrl, null);
 });

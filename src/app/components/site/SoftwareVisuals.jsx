@@ -29,7 +29,7 @@ export function HeroSoftwareVisual() {
         <div className="chart" aria-hidden="true"><span style={{ height: "30%" }} /><span style={{ height: "52%" }} /><span style={{ height: "41%" }} /><span style={{ height: "72%" }} /><span style={{ height: "59%" }} /><span style={{ height: "87%" }} /><span style={{ height: "70%" }} /><span style={{ height: "93%" }} /><span style={{ height: "78%" }} /></div>
         <div className="dashboard-bottom"><span>Software / Engineering</span><span>Visualizzazione illustrativa</span></div>
       </div>
-      <span className="hero-art-index" aria-hidden="true">01 — 06</span>
+      <span className="hero-art-index" aria-hidden="true">01 — {String(projects.length).padStart(2, "0")}</span>
     </div>
   );
 }
@@ -76,6 +76,36 @@ function GamePreview() {
   );
 }
 
+function RpgPreview() {
+  return (
+    <div className="mini-terminal">
+      <div className="mini-terminal-top"><span className="window-dots"><i /><i /><i /></span><span>LE CRONACHE DEL SIGILLO / C#</span></div>
+      <div className="mini-terminal-lines">
+        <p><span>›</span> AVVENTURA / RPG</p>
+        <p className="terminal-muted">Missioni · Personaggi · Inventario</p>
+        <p><span>✓</span> Combattimento a turni</p>
+        <p className="terminal-muted">Dati e salvataggi JSON_</p>
+      </div>
+      <div className="mini-terminal-accent" />
+    </div>
+  );
+}
+
+function ApiPreview() {
+  return (
+    <div className="mini-terminal">
+      <div className="mini-terminal-top"><span className="window-dots"><i /><i /><i /></span><span>EXPRESS / API BIBLIOTECA</span></div>
+      <div className="mini-terminal-lines">
+        <p><span>GET</span> /api/libri</p>
+        <p className="terminal-muted">POST /api/prestiti</p>
+        <p><span>✓</span> JWT · PostgreSQL</p>
+        <p className="terminal-muted">Routes → Services → Models</p>
+      </div>
+      <div className="mini-terminal-accent" />
+    </div>
+  );
+}
+
 export function ProjectSoftwareVisual({ variant, primaryTech }) {
   return (
     <div className={"project-visual project-visual-" + variant} role="img" aria-label="Rappresentazione grafica illustrativa di un progetto software">
@@ -83,6 +113,8 @@ export function ProjectSoftwareVisual({ variant, primaryTech }) {
       {variant === "board" && <BoardPreview />}
       {variant === "terminal" && <TerminalPreview />}
       {variant === "game" && <GamePreview />}
+      {variant === "rpg" && <RpgPreview />}
+      {variant === "api" && <ApiPreview />}
       <span className="project-visual-label" aria-hidden="true">ANTEPRIMA ILLUSTRATIVA</span>
       {primaryTech && <span className="project-preview-tech" aria-hidden="true"><TechIcon label={primaryTech} size={24}/></span>}
     </div>

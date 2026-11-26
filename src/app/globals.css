@@ -777,3 +777,11 @@ main:focus { outline:none; }
   .private-case-visual-flow span { padding:10px 12px; }
   .private-case-visual-main h2 { font-size:2.8rem; }
 }
+
+/* Anteprime illustrative distinte per console RPG e backend REST. */
+.project-visual-rpg { background:#D4C2AF; }
+.project-visual-api { background:#C5D1CC; }
+.project-visual-rpg .mini-terminal { background:#302A28; }
+.project-visual-api .mini-terminal { background:#233B3B; }
+.project-visual-rpg .mini-terminal-top,
+.project-visual-api .mini-terminal-top { font-size:10px; }

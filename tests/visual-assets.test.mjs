@@ -45,8 +45,8 @@ test("icone per game development, sistemi e progetti privati", () => {
   assert.ok(contactChannels.some((channel) => channel.href.startsWith("mailto:")));
   const cards = read("../src/app/components/site/PrivateProjectCards.jsx");
   assert.match(cards, /privateProjects\.map/);
-  assert.doesNotMatch(cards, /repositoryUrl|documentationUrl|github\\.com\\/ilmuratore\\/(?:torven|il-presidente)/);
-  assert.match(cards, /href=.*project\\.slug/);
+  assert.doesNotMatch(cards, /repositoryUrl|documentationUrl|github\.com\/ilmuratore\/(?:torven|il-presidente)/);
+  assert.match(cards, /href=.*project\.slug/);
 });
 
 test("componenti condivisi mostrano loghi con etichette testuali", () => {
