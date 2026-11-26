@@ -51,7 +51,7 @@ export default async function ProjectDetailPage({ params }) {
             <p>{project.intro}</p>
             <div className="case-tags"><span className="case-status">{project.status}</span>{project.tags.map((tag, i) => <TechBadge key={i} label={tag} />)}</div>
           </header>
-          <div className="case-hero-visual"><ProjectSoftwareVisual variant={project.preview} primaryTech={project.tags[0]} /><div className="case-visual-note"><span>ANTEPRIMA ILLUSTRATIVA</span><span>NESSUNA IMMAGINE REALE DISPONIBILE</span></div></div>
+          <div className="case-hero-visual"><ProjectSoftwareVisual variant={project.preview} primaryTech={project.tags[0]} /></div>
           <div className="case-body">
             <aside className="case-aside">
               <p className="eyebrow">INDICE / 05 SEZIONI</p>
@@ -74,8 +74,8 @@ export default async function ProjectDetailPage({ params }) {
                 </section>
               ))}
               <div className="case-disclosure">
-                <strong>Fonti e limiti</strong>
-                <p>La scheda riassume documenti pubblici del repository. I riquadri software sono illustrazioni e non screenshot; non vengono dichiarate metriche di produzione.</p>
+                <strong>Repository e documentazione</strong>
+                <p>Il case study presenta le informazioni documentate nel repository pubblico. Le anteprime sono illustrazioni concettuali, non schermate di un prodotto distribuito.</p>
                 <div className="case-source-links">
                   <a href={project.repositoryUrl} target="_blank" rel="noopener noreferrer"><UiIcon name="github" size={17} /> Esamina il codice su GitHub <UiIcon name="external" size={14} /></a>
                   <a href={project.documentationUrl} target="_blank" rel="noopener noreferrer"><UiIcon name="file" size={17} /> Leggi la documentazione <UiIcon name="external" size={14} /></a>
