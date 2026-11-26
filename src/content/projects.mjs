@@ -211,17 +211,6 @@ export const privateProjects = [
 export const featuredProjects = projects.filter((project) => project.featured);
 export const caseStudies = [...projects, ...privateProjects];
 export const getCaseStudyBySlug = (slug) => caseStudies.find((project) => project.slug === slug);
-export function getProjectBySlug(slug) {
-  return projects.find((project) => project.slug === slug);
-}
-export function getAdjacentProjects(slug) {
-  const index = projects.findIndex((project) => project.slug === slug);
-  if (index === -1) return { previous: null, next: null };
-  return {
-    previous: index > 0 ? projects[index - 1] : null,
-    next: index < projects.length - 1 ? projects[index + 1] : null
-  };
-}
 
 export function getAdjacentCaseStudies(slug) {
   const index = caseStudies.findIndex((project) => project.slug === slug);

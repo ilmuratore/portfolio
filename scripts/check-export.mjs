@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { projects, caseStudies } from "../src/content/projects.mjs";
+import { caseStudies } from "../src/content/projects.mjs";
 
 const root = "out";
 const required = ["index.html", "404.html", "robots.txt", "sitemap.xml", "projects/index.html", "about/index.html", "contact/index.html", ...caseStudies.map((project) => `projects/${project.slug}/index.html`)];
