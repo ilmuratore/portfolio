@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { projects } from "../src/content/projects.mjs";
+import { projects, caseStudies } from "../src/content/projects.mjs";
 
 const base = "https://ilmuratore.github.io/portfolio";
 const out = "out";
@@ -9,7 +9,7 @@ const files = [
   "index.html", "404.html", "robots.txt", "sitemap.xml", ".nojekyll",
   "opengraph-image.png", "twitter-image.png",
   "about/index.html", "contact/index.html", "projects/index.html",
-  ...projects.map((project) => `projects/${project.slug}/index.html`)
+  ...caseStudies.map((project) => `projects/${project.slug}/index.html`)
 ];
 for (const file of files) {
   assert.ok(existsSync(join(out, file)), `File Pages mancante: ${file}`);
@@ -43,13 +43,18 @@ assert.doesNotMatch(robots, /Disallow:\s*\//i);
 assert.ok(robots.includes(base + "/sitemap.xml"));
 
 const sitemap = readFileSync(join(out, "sitemap.xml"), "utf8");
-const routes = ["/", "/about/", "/contact/", "/projects/", ...projects.map((p) => `/projects/${p.slug}/`)];
+const routes = ["/", "/about/", "/contact/", "/projects/", ...caseStudies.map((p) => `/projects/${p.slug}/`)];
 for (const route of routes) {
   assert.ok(sitemap.includes(base + route), `URL mancante nella sitemap: ${route}`);
 }
 const catalog = readFileSync(join(out, "projects/index.html"), "utf8");
-for (const project of projects) {
+for (const project of caseStudies) {
   assert.ok(catalog.includes(`/portfolio/projects/${project.slug}/`), `Link al progetto non valido: ${project.slug}`);
+  if (!project.repositoryUrl) {
+    const detail = readFileSync(join(out, `projects/${project.slug}/index.html`), "utf8");
+    assert.ok(detail.includes("CODICE PRIVATO"), `Scheda privata priva di indicazione di riservatezza: ${project.slug}`);
+    assert.ok(!/github\.com\/ilmuratore\/(?:torven|il-presidente)/i.test(detail), `Link a repository privato: ${project.slug}`);
+  }
 }
 for (const name of ["python", "openjdk", "react", "github", "postgresql", "sqlite", "fastapi"]) {
   assert.ok(existsSync(join(out, "icons", "tech", name + ".svg")), `Icona mancante: ${name}`);

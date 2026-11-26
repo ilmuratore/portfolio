@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { privateProjects } from "@/content/projects.mjs";
 import TechBadge from "./TechBadge";
 import TechIcon from "./TechIcon";
@@ -26,6 +27,7 @@ export default function PrivateProjectCards() {
             {project.tags.map((tag) => <TechBadge key={tag} label={tag} />)}
           </div>
           <p className="private-project-note">{project.context}</p>
+          <Link className="private-project-link" href={`/projects/${project.slug}`} aria-label={`Leggi la presentazione di ${project.name}`}>Esplora il progetto <span aria-hidden="true">↗</span></Link>
         </article>
       ))}
     </div>

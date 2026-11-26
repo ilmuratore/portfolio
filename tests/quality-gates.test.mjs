@@ -9,7 +9,7 @@ test("metadata e indicizzazione configurati", () => {
   assert.equal(siteConfig.published, false);
   assert.match(source("../src/app/layout.js"), /siteConfig\.published/);
   assert.match(source("../src/app/robots.js"), /disallow: '\/'/);
-  assert.match(source("../src/app/sitemap.js"), /projects\.map/);
+  assert.match(source("../src/app/sitemap.js"), /caseStudies\.map/);
 });
 
 test("font e interfaccia non richiedono risorse remote", () => {

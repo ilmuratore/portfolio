@@ -15,6 +15,7 @@ export const techIconMap = {
   "Git / GitHub": "git",
   "GitHub": "github",
   "Node.js": "nodedotjs",
+  "Express": "express",
   "JPA": "hibernate",
   "JPA / Hibernate": "hibernate",
   "HTML / CSS": "html5",

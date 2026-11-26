@@ -17,12 +17,13 @@
 
 Portfolio web di **Simone Iengo**, Software Developer junior con esperienza in **Java, Spring Boot, Python e sviluppo backend**, e interesse per l'AI engineering come direzione di crescita professionale.
 
-Il sito presenta quattro case study pubblici, due progetti personali a codice privato, competenze tecniche e percorso professionale attraverso un'interfaccia editoriale responsive. È costruito con componenti riutilizzabili e distribuito come **sito statico**, senza server applicativo, database o servizi di terze parti necessari alla navigazione.
+Il sito presenta sei case study pubblici, due progetti personali a codice privato, competenze tecniche e percorso professionale attraverso un'interfaccia editoriale responsive. È costruito con componenti riutilizzabili e distribuito come **sito statico**, senza server applicativo, database o servizi di terze parti necessari alla navigazione.
 
 ### Caratteristiche
 
 - **Design responsive** con palette crema, terracotta e oliva; navigazione mobile e supporto alla tastiera.
-- **Catalogo progetti** con filtri, schede tecniche, architetture e collegamenti ai repository.
+- **Catalogo di sei case study pubblici** con filtri, approfondimenti e collegamenti ai repository.
+- **Due schede per progetti indipendenti a codice privato**, con presentazioni tecniche ad alto livello.
 - **Profilo professionale** con esperienze, competenze, formazione e contatti verificabili.
 - **Asset locali**: icone SVG, favicon, font e anteprime illustrative.
 - **SEO statico**: metadati, Open Graph, Twitter card, sitemap e `robots.txt`.
@@ -131,10 +132,12 @@ Non è richiesto un dominio a pagamento; in caso di dominio personalizzato occor
 | **Python Developer AI** | Python · FastAPI · SQLite | [Codice](https://github.com/ilmuratore/python-developer-ai) |
 | **AziendaJava** | Java · Spring Boot · JPA | [Codice](https://github.com/ilmuratore/AziendaJava) |
 | **Valdoria** | C# · Unity 6.3 · Gameplay / OOP | [Codice](https://github.com/ilmuratore/valdoria) |
+| **Le Cronache del Sigillo** | C# · .NET · JSON, RPG testuale | [Codice](https://github.com/ilmuratore/LeCronacheDelSigillo) |
+| **Backend Express · Biblioteca** | Node.js · Express · PostgreSQL | [Codice](https://github.com/ilmuratore/backend-express) |
 
 Le schede pubbliche si basano sui rispettivi repository. **Valdoria** è un caso studio didattico di game development sviluppato con C#/Unity.
 
-Il sito presenta inoltre **Torven** (ricerca personale su un sistema operativo Rust) e **Il Presidente** (prototipo di simulazione in C# e Python) con **sole informazioni generali**: codice, documentazione e repository rimangono privati.
+Il sito presenta inoltre due progetti indipendenti con pagine dedicate: **[Torven](https://ilmuratore.github.io/portfolio/projects/torven/)** (ricerca personale su un sistema operativo Rust) e **[Il Presidente](https://ilmuratore.github.io/portfolio/projects/il-presidente/)** (prototipo di simulazione in C# e Python). Le pagine raccontano obiettivi e architetture a livello generale: **i repository e il codice rimangono privati**.
 
 Le anteprime grafiche del portfolio sono **illustrazioni**, non screenshot delle applicazioni. I progetti formativi e sperimentali non sono presentati come prodotti commerciali completati.
 
