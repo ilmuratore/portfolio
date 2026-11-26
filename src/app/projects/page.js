@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: `Progetti — ${siteConfig.name}`,
-  description: "Case study pubblici di Java, Python e Unity/C#, con progetti personali selezionati di Rust e simulazione.",
+  description: "Sei case study pubblici: Java, Spring, Python, Node.js e C#/Unity. Torven e Il Presidente presentati come progetti personali a codice privato.",
   alternates: { canonical: `${siteConfig.url}/projects/` },
   robots: siteConfig.published ? { index: true, follow: true } : { index: false, follow: false }
 };
